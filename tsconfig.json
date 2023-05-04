@@ -10,7 +10,10 @@
     "esModuleInterop": true,              // позволяет работать с обычным import/export вместо require()/module.export
     "allowSyntheticDefaultImports": true,  // позволяет использовать обычный import, вместо import * as NAME ,
                                           //так как многие библиотеки не поддерживают export default
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
       "compilerOptions": {

@@ -1,9 +1,11 @@
 import {Suspense, useContext} from "react";
 import {Link, Route, Routes} from "react-router-dom";
-import {AboutPageLazy, MainPageLazy} from "../pages";
-import '../styles/index.scss'
-import {useTheme} from "../theme/useTheme";
-import {classNames} from "../helpers";
+
+import './styles/index.scss';
+import {useTheme} from "app/providers";
+import {classNames} from "shared/lib";
+import {AboutPage, MainPage} from "pages";
+
 
 
 const App = () => {
@@ -17,12 +19,12 @@ const App = () => {
       <Routes>
         <Route path={'/about'} element={
           <Suspense fallback={<div>Loading</div>}>
-            <AboutPageLazy/>
+            <AboutPage/>
           </Suspense>
         }/>
         <Route path={'/'} element={
           <Suspense fallback={<div>Loading</div>}>
-          <MainPageLazy/>
+          <MainPage />
           </Suspense>
         }
         />

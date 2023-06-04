@@ -1,1 +1,1 @@
-export * from './theme-switcher.module.scss';
+export * from './theme-switcher';

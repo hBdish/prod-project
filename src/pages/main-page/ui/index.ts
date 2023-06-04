@@ -1,1 +1,1 @@
-export * from './main-page.lazy'
+export * from './main-page.lazy';

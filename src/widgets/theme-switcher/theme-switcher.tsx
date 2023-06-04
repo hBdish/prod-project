@@ -1,15 +1,15 @@
-import styles from './theme-switcher.module.scss'
-import {Button, classNames, ThemeButton, ThemeDark, ThemeLight} from "shared";
-import {Theme, useTheme} from "app/providers";
-
+import {
+  Button, classNames, ThemeButton, ThemeDark, ThemeLight,
+} from 'shared';
+import { Theme, useTheme } from 'app/providers';
+import styles from './theme-switcher.module.scss';
 
 interface ThemeSwitcherProps {
   className?: string
 }
 
-
-const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme()
+function ThemeSwitcher({ className }: ThemeSwitcherProps) {
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
@@ -17,9 +17,9 @@ const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
       className={classNames(styles.ThemeSwitcher, {}, [className])}
       onClick={toggleTheme}
     >
-      {theme === Theme.DARK ? <ThemeDark /> : <ThemeLight/> }
+      {theme === Theme.DARK ? <ThemeDark /> : <ThemeLight /> }
     </Button>
   );
-};
+}
 
-export {ThemeSwitcher};
+export { ThemeSwitcher };

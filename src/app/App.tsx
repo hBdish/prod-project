@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import './styles/index.scss';
 import { AppRouter, useTheme } from 'app/providers';
 import { classNames } from 'shared/lib';
@@ -11,7 +11,6 @@ function App() {
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
-
         <div className="content-page">
           <Sidebar />
           <AppRouter />

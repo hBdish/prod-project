@@ -10,8 +10,6 @@ interface ErrorButtonProps {
 const ErrorButton = ({ className }: ErrorButtonProps) => {
   const [error, setError] = useState(false);
 
-  const { t } = useTranslation();
-
   const onThrow = () => setError(true);
 
   useEffect(() => {

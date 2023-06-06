@@ -13,6 +13,9 @@ export default {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/private/var/folders/gv/9t_4ybbd533c12pvlp36pjg00000gn/T/jest_dx",
 
+  // The root directory that Jest should scan for tests and modules within
+  rootDir: '../../',
+
   // An array of file extensions your modules use
   moduleFileExtensions: [
     'js',
@@ -37,16 +40,23 @@ export default {
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
     'node_modules',
+    '<rootDir>/src',
   ],
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[tj]s?(x)',
+    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
 
-  // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../',
+  setupFilesAfterEnv: [
+    '<rootDir>/config/jest/setup-tests.ts',
+  ],
+
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>//config/jest/jestEmptyComponent.tsx',
+    '\\.s?css$': 'identity-obj-proxy',
+  },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

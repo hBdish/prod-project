@@ -18,8 +18,16 @@ function Sidebar({ className }: SidebarProps) {
   };
 
   return (
-    <div className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}>
-      <Button onClick={onToggle}>{t('Меню')}</Button>
+    <div
+      data-testid="test-sidebar"
+      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}
+    >
+      <Button
+        data-testid="test-sidebar-toggle"
+        onClick={onToggle}
+      >
+        {t('Меню')}
+      </Button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={styles.lang} />

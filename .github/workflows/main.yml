@@ -1,11 +1,10 @@
-name: linting, testing, building
+name: linting testing building
 
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 jobs:
  pipeline:
    runs-on: ubuntu-latest

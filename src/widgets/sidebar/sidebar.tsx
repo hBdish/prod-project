@@ -26,7 +26,8 @@ function Sidebar({ className }: SidebarProps) {
         data-testid="test-sidebar-toggle"
         onClick={onToggle}
       >
-        {t('Меню')}
+        {/* {t('Меню')} */}
+        {collapsed ? '>' : '<'}
       </Button>
       <div className={styles.switchers}>
         <ThemeSwitcher />

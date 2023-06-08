@@ -36,6 +36,16 @@
   width: 100%;
 }
 
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+
+.lang {
+  margin-left: 20px;
+}
+
 .collapsed{
   width: var(--sidebar-width-collapsed);
 
@@ -53,14 +63,4 @@
     transition: 0.2s opacity;
     width: 0;
   }
-}
-
-.collapseBtn {
-  position: absolute;
-  right: -32px;
-  bottom: 32px;
-}
-
-.lang {
-  margin-left: 20px;
 }

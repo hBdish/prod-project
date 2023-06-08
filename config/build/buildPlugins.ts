@@ -19,7 +19,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
   ];
 
-  if (true) {
+  if (isDev) {
     plugins.push(
       new webpack.HotModuleReplacementPlugin({
         title: 'Hot Module Replacement',

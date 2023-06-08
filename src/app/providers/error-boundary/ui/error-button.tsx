@@ -9,7 +9,7 @@ interface ErrorButtonProps {
 // TEST COMPONENT
 const ErrorButton = ({ className }: ErrorButtonProps) => {
   const [error, setError] = useState(false);
-
+  const { t } = useTranslation();
   const onThrow = () => setError(true);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const ErrorButton = ({ className }: ErrorButtonProps) => {
       onClick={onThrow}
       className={classNames('', {}, [className])}
     >
-      throw Error
+      {t('throw Error')}
     </Button>
   );
 };

@@ -6,6 +6,9 @@ import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
+    new HtmlWebpackPlugin({
+      template: paths.html,
+    }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
@@ -16,7 +19,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
   ];
 
-  if (isDev) {
+  if (true) {
     plugins.push(
       new webpack.HotModuleReplacementPlugin({
         title: 'Hot Module Replacement',

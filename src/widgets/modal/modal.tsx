@@ -59,8 +59,6 @@ const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
-  const { t } = useTranslation();
-
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className])}>

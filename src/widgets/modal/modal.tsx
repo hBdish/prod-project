@@ -2,6 +2,7 @@ import { classNames, Portal } from 'shared';
 import React, {
   ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './modal.module.scss';
 
 interface ModalProps {
@@ -58,12 +59,15 @@ const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
+  const { t } = useTranslation();
+
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className])}>
         <div className={styles.overlay} onClick={closeHandler}>
           <div className={styles.content} onClick={onContentClick}>
             {children}
+            {t('TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||')}
           </div>
         </div>
       </div>

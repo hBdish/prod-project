@@ -16,8 +16,7 @@ type Story = StoryObj<typeof Modal>;
 export const ModalPrimary: Story = {
   args: {
     isOpen: true,
-    children: 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||'
-      + 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||',
+    children: 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||',
 
   },
 };
@@ -25,10 +24,8 @@ export const ModalPrimary: Story = {
 export const ModalDark: Story = {
   args: {
     isOpen: true,
-    children: 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||'
-      + 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||'
-      + 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||'
-      + 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||',
+    children: 'TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||',
+
   },
   decorators: [
     ThemeDecorator(Theme.DARK),

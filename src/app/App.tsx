@@ -1,8 +1,7 @@
-import { Suspense, useEffect } from 'react';
-import './styles/index.scss';
+import { Suspense } from 'react';
 import { AppRouter, useTheme } from 'app/providers';
 import { classNames } from 'shared/lib';
-import { Navbar, Sidebar } from 'widgets';
+import { Modal, Navbar, Sidebar } from 'widgets';
 
 function App() {
   const { theme } = useTheme();

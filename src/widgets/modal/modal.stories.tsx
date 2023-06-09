@@ -18,12 +18,3 @@ export const ModalPrimary: Story = {
     isOpen: true,
   },
 };
-
-export const ModalDark: Story = {
-  args: {
-    isOpen: true,
-  },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-  ],
-};

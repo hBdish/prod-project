@@ -23,7 +23,7 @@ const ErrorButton = ({ className }: ErrorButtonProps) => {
       onClick={onThrow}
       className={classNames('', {}, [className])}
     >
-      {t('throw Error')}
+      {t('ошибка')}
     </Button>
   );
 };

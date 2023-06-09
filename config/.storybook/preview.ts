@@ -17,6 +17,7 @@ const preview: Preview = {
     // @ts-ignore
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT), // Theme on all stories
+    // @ts-ignore
     RouterDecorator,
   ]
 };

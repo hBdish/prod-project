@@ -67,7 +67,6 @@ const Modal = (props: ModalProps) => {
         <div className={styles.overlay} onClick={closeHandler}>
           <div className={styles.content} onClick={onContentClick}>
             {children}
-            {t('TEST_TEXT||TEST_TEXT||TEST_TEXT||TEST_TEXT||')}
           </div>
         </div>
       </div>

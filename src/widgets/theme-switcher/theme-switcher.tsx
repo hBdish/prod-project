@@ -1,5 +1,5 @@
 import {
-  Button, classNames, ThemeButton, ThemeDark, ThemeLight,
+  Button, classNames, ThemeDark, ThemeLight, ButtonTheme,
 } from 'shared';
 import { Theme, useTheme } from 'app/providers';
 
@@ -12,7 +12,7 @@ function ThemeSwitcher({ className }: ThemeSwitcherProps) {
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
       className={classNames('', {}, [className])}
       onClick={toggleTheme}
     >

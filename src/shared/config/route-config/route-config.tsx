@@ -28,4 +28,4 @@ const routeConfig: Record<AppRoutes, RouteProps> = {
   },
 };
 
-export { routeConfig };
+export { routeConfig, RoutePath };

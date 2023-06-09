@@ -8,5 +8,7 @@
   "Страница не найдена": "Pages not found",
   "ошибка": "Throw",
   "Сокращенный язык": "En",
-  "Главная страница кнопка": "Main"
+  "Главная страница кнопка": "Main",
+  "increment": "increment",
+  "decrement": "decrement"
 }

@@ -7,11 +7,10 @@ on:
 
 jobs:
   lint:
-    pipeline:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [ 18.x ]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -33,11 +32,10 @@ jobs:
         run: npm run test:unit
 
   test:
-    pipeline:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [ 18.x ]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}

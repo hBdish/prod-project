@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "statr:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --config webpack.config.ts --env mode=production",
     "build:dev": "webpack --config webpack.config.ts --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -66,6 +67,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-svg-transformer": "^1.0.0",
+    "json-server": "^0.17.0",
+    "jsonwebtoken": "^9.0.0",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.5.3",
     "reg-cli": "^0.17.7",

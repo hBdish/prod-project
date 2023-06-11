@@ -1,7 +1,7 @@
 import { Button, ButtonTheme, classNames } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'widgets';
 import { useCallback, useState } from 'react';
+import { LoginModal } from 'features';
 import styles from './navbar.module.scss';
 
 interface NavbarProps {
@@ -25,7 +25,7 @@ function Navbar({ className }: NavbarProps) {
       >
         {t('Войти')}
       </Button>
-      <Modal isOpen={isAuthModal} onClose={onToggleAuthModal} />
+      <LoginModal isOpen={isAuthModal} onClose={onToggleAuthModal} />
     </div>
   );
 }

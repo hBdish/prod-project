@@ -1,1 +1,1 @@
-import * from './auth-by-username'
+export * from './auth-by-username';

@@ -2,25 +2,26 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config';
 import { Theme } from 'app/providers';
 import { Input } from './input';
+import { LoginModal } from './login-modal';
 
-const meta: Meta<typeof Input> = {
-  title: 'shared/Input',
-  component: Input,
+const meta: Meta<typeof LoginModal> = {
+  title: 'features/LoginModal',
+  component: LoginModal,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof LoginModal>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Text',
+    isOpen: true,
   },
 };
 
 export const Dark: Story = {
   args: {
-    placeholder: 'Text',
+    isOpen: true,
   },
   decorators: [
     ThemeDecorator(Theme.DARK),

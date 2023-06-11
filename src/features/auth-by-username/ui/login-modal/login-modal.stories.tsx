@@ -17,12 +17,3 @@ export const Default: Story = {
     isOpen: true,
   },
 };
-
-export const Dark: Story = {
-  args: {
-    isOpen: true,
-  },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-  ],
-};

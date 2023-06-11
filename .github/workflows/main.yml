@@ -4,13 +4,13 @@ on:
     branches: [ main, feature ]
   pull_request:
     branches: [ main ]
+
 jobs:
-  pipeline:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
-
+        node-version: [ 18.x ]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -22,12 +22,35 @@ jobs:
       - name: install modules
         run: npm run build:prod
       - name: run lint ts
+        if: always()
         run: npm run lint:ts
       - name: run lint scss
+        if: always()
         run: npm run lint:scss
       - name: unit testing
+        if: always()
+        run: npm run test:unit
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install fix
+        run: npm i -D ts-node --force
+      - name: install modules
+        run: npm run build:prod
+      - name: unit testing
+        if: always()
         run: npm run test:unit
       - name: build storybook
+        if: always()
         run: npm run storybook:build
       - name: run screenshot testing
         run: npm run test:ui:ci

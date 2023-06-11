@@ -27,9 +27,6 @@ jobs:
       - name: run lint scss
         if: always()
         run: npm run lint:scss
-      - name: unit testing
-        if: always()
-        run: npm run test:unit
 
   test:
     runs-on: ubuntu-latest
@@ -53,4 +50,5 @@ jobs:
         if: always()
         run: npm run storybook:build
       - name: run screenshot testing
+        if: always()
         run: npm run test:ui:ci

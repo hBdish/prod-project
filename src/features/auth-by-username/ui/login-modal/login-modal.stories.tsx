@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config';
 import { Theme } from 'app/providers';
-import { Input } from './input';
 import { LoginModal } from './login-modal';
 
 const meta: Meta<typeof LoginModal> = {

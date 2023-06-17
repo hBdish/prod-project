@@ -10,5 +10,8 @@
   "Сокращенный язык": "En",
   "Главная страница кнопка": "Main",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Форма авторизации": "Authorization form",
+  "Введен неверный логин или пароль": "Incorrect username or password entered",
+  "Выйти": "Выйти"
 }

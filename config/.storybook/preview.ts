@@ -15,7 +15,7 @@ const preview: Preview = {
   },
   decorators: [
     // @ts-ignore
-    StoreDecorator,
+    // StoreDecorator,
     // @ts-ignore
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT), // Theme on all stories

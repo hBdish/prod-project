@@ -11,3 +11,8 @@ select {
   margin: 0;
   font: inherit;
 }
+
+p,
+span {
+  font-family: var(--font-family-main);
+}

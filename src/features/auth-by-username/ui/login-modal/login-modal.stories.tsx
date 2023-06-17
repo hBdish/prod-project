@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config';
+import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import { Theme } from 'app/providers';
 import { LoginModal } from './login-modal';
 
@@ -16,4 +16,6 @@ export const Default: Story = {
   args: {
     isOpen: true,
   },
+  decorators: [StoreDecorator({
+  })],
 };

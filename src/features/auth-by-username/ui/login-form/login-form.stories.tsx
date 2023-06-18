@@ -20,3 +20,11 @@ export const Default: Story = {
     login: { username: '123', password: '123' },
   })],
 };
+
+export const DefaultWithError: Story = {
+  args: {
+  },
+  decorators: [StoreDecorator({
+    login: { username: '123', password: '123', error: 'Error' },
+  })],
+};

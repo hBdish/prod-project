@@ -56,6 +56,7 @@ export default {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>//config/jest/jestEmptyComponent.tsx',
     '\\.s?css$': 'identity-obj-proxy',
+    axios: 'axios/dist/node/axios.cjs',
   },
 
   // A set of global variables that need to be available in all test environments

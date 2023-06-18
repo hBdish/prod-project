@@ -1,5 +1,5 @@
 import {
-  Button, ButtonTheme, classNames, Input, Text, TextTheme,
+  Button, ButtonTheme, classNames, Input, ReducersList, Text, TextTheme, useDynamicModuleLoader,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useStore } from 'react-redux';
@@ -25,26 +25,18 @@ export interface LoginFormProps {
   className?: string
 }
 
+const initialReducers: ReducersList = {
+  login: loginReducer,
+};
+
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-
-  const store = useStore() as ReduxStoreWithManager; // TODO ВРЕМЕННОЙ РЕШЕНИЕ
-
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
-
-  useEffect(() => {
-    store.reducerManager.add('login', loginReducer);
-    dispatch({ type: '@INIT loginForm reducer' });
-
-    return () => {
-      store.reducerManager.remove('login');
-      dispatch({ type: '@DESTROY loginForm reducer' });
-    };
-  }, []); // eslint-disable-line
+  useDynamicModuleLoader({ reducers: initialReducers });
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));

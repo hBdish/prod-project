@@ -1,6 +1,7 @@
 import type {Preview} from "@storybook/react";
-import {RouterDecorator, StoreDecorator, StyleDecorator, ThemeDecorator} from "../../src/shared/config/storybook";
+import {RouterDecorator, StyleDecorator, ThemeDecorator} from "../../src/shared/config/storybook";
 import {Theme} from "app/providers";
+import {LanguageDecorator} from "../../src/shared/config/storybook/language-decorator";
 
 
 const preview: Preview = {
@@ -16,6 +17,7 @@ const preview: Preview = {
   decorators: [
     // @ts-ignore
     // StoreDecorator,
+    LanguageDecorator,
     // @ts-ignore
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT), // Theme on all stories

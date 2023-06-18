@@ -19,13 +19,12 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
   ];
 
-  plugins.push(
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
-  );
-
   if (isDev) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      }),
+    );
     plugins.push(
       new webpack.HotModuleReplacementPlugin({
         title: 'Hot Module Replacement',

@@ -46,7 +46,7 @@ function Navbar({ className }: NavbarProps) {
       >
         {t('Войти')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onToggleAuthModal} />
+      { isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleAuthModal} />}
     </div>
   );
 }

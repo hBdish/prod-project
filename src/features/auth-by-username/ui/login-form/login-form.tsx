@@ -2,25 +2,49 @@ import {
   Button, ButtonTheme, classNames, Input, Text, TextTheme,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { memo, useCallback } from 'react';
-import { getLoginState, loginActions, loginByUsername } from 'features';
-import { useAppDispatch } from 'app/providers';
+import { useSelector, useStore } from 'react-redux';
+import { memo, useCallback, useEffect } from 'react';
+import { ReduxStoreWithManager, useAppDispatch } from 'app/providers';
+import {
+  loginByUsername,
+} from '../../model/services';
+import {
+  loginReducer,
+  loginActions,
+} from '../../model/slice';
+import {
+  getLoginError,
+  getLoginIsLoading,
+  getLoginPassword,
+  getLoginUsername,
+} from '../../model/selectors';
+
 import styles from './login-form.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string
 }
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const {
-    username,
-    password,
-    error,
-    isLoading,
-  } = useSelector(getLoginState);
+
+  const store = useStore() as ReduxStoreWithManager; // TODO ВРЕМЕННОЙ РЕШЕНИЕ
+
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginIsLoading);
+
+  useEffect(() => {
+    store.reducerManager.add('login', loginReducer);
+    dispatch({ type: '@INIT loginForm reducer' });
+
+    return () => {
+      store.reducerManager.remove('login');
+      dispatch({ type: '@DESTROY loginForm reducer' });
+    };
+  }, []); // eslint-disable-line
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));

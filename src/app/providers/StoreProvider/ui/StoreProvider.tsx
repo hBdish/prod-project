@@ -10,19 +10,14 @@ interface StoreProviderProps {
   initialState?: DeepPartial<StateSchema>
 }
 
-const initialState: DeepPartial<StateSchema> = {};
-let store = createReduxStore(initialState as StateSchema); // TODO ВРЕМЕННОЕ РЕШЕНИЕ
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-
 export const StoreProvider = (props: StoreProviderProps) => {
   const {
     children,
     initialState,
   } = props;
 
-  if (initialState) { store = createReduxStore(initialState as StateSchema); } // TODO ВРЕМЕННОЕ РЕШЕНИЕ
+  const store = createReduxStore(initialState as StateSchema);
+
   return (
     <Provider store={store}>
       {children}

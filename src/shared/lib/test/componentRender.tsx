@@ -11,7 +11,7 @@ export interface componentRenderOptions {
   initialState?: DeepPartial<StateSchema>,
 }
 
-export function componentRender(
+export default function componentRender(
   component: ReactNode,
   options: componentRenderOptions = {},
 ) {
@@ -28,6 +28,5 @@ export function componentRender(
         </I18nextProvider>
       </MemoryRouter>
     </StoreProvider>,
-
   );
 }

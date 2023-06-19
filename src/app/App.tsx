@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { AppRouter, useTheme } from 'app/providers';
 import { classNames } from 'shared/lib';
-import { Modal, Navbar, Sidebar } from 'widgets';
+import { Navbar, Sidebar } from 'widgets';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/user';
 

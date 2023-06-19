@@ -5,9 +5,11 @@ import {
 } from 'app/providers';
 import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features';
+import { profileReducer } from 'entities/profile';
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   login: loginReducer,
+  profile: profileReducer,
 };
 
 export const StoreDecorator = (

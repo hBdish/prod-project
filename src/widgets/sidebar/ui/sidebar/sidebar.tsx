@@ -1,27 +1,28 @@
 import {
-  AppLink, AppLinkTheme,
-  Button, ButtonSize, ButtonTheme, AboutIcon, HomeIcon,
-  classNames,
+  Button, ButtonSize, ButtonTheme, classNames,
 } from 'shared';
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/theme-switcher/theme-switcher';
 import { LangSwitcher } from 'widgets';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config';
+import { SidebarItem } from '../sidebar-item/sidebar-item';
 import styles from './sidebar.module.scss';
+import { SidebarItemsList } from '../../model/items';
 
 interface SidebarProps {
   className?: string
 }
 
-function Sidebar({ className }: SidebarProps) {
+const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prevState) => !prevState);
   };
+
+  const itemsList = useMemo(
+    () => SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />),
+    [collapsed],
+  );
 
   return (
     <div
@@ -39,24 +40,7 @@ function Sidebar({ className }: SidebarProps) {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={styles.links}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-          className={styles.item}
-        >
-          <HomeIcon className={styles.icon} />
-          <span className={styles.link}>
-            {t('Главная страница кнопка')}
-          </span>
-        </AppLink>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
-          className={styles.item}
-        >
-          <AboutIcon className={styles.icon} />
-          <span className={styles.link}>{t('О сайте')}</span>
-        </AppLink>
+        {itemsList}
       </div>
       <div className={styles.switchers}>
         <ThemeSwitcher />
@@ -67,6 +51,6 @@ function Sidebar({ className }: SidebarProps) {
       </div>
     </div>
   );
-}
+});
 
 export { Sidebar };

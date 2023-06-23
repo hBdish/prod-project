@@ -7,6 +7,7 @@ function MainPage() {
 
   return (
     <div>
+      <ErrorButton />
       {/* <ErrorButton /> */}
       {t('Главная страница')}
       {/* <Counter /> */}

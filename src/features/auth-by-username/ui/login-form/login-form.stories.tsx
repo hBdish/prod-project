@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StoreDecorator, ThemeDecorator } from 'shared/config';
-import { Theme } from 'app/providers';
+import { StoreDecorator } from 'shared/config';
 
 import { LoginForm } from './login-form';
 

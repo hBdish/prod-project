@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "outDir": "./dist/", // папка, куда собирается сборка (ps в данном случае не важна, так как проект собирается через webpack)
     "noImplicitAny": true, // запрещает использовать переменные, без типизации
     "module": "ESNext",

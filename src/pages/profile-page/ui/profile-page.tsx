@@ -16,11 +16,6 @@ const reducers: ReducersList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation('profile');
   useDynamicModuleLoader({ reducers });
-  const dispatch = useAppDispatch();
-  dispatch(fetchProfileData());
-  useEffect(() => {
-
-  }, [dispatch]);
 
   return (
     <div className={classNames('', {}, [className])}>

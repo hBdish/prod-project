@@ -1,12 +1,17 @@
-import { classNames, useAppDispatch } from 'shared';
+import {
+  classNames, Text, TextTheme, useAppDispatch,
+} from 'shared';
 import { useSelector } from 'react-redux';
 import { ProfileCardHeader } from 'features/editable-profile-card/ui/profile-card-header/profile-card-header';
-import { useCallback } from 'react';
-import { profileActions } from 'features';
+import { useCallback, useEffect } from 'react';
+import {
+  fetchProfileData, profileActions, validateProfileData, ValidateProfileError,
+} from 'features';
 import { Currency } from 'helpers/currency';
 import { Country } from 'helpers/country';
+import { useTranslation } from 'react-i18next';
 import {
-  getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly,
+  getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateError,
 } from '../model/selectors';
 import { ProfileCard } from './profile-card/profile-card';
 
@@ -19,6 +24,10 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
     className,
   } = props;
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('profile');
+  useEffect(() => {
+    if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
+  }, [dispatch]);
 
   const onChangeName = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value || '' }));
@@ -56,10 +65,25 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateError);
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректна указана страна'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные имя или фамилия'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    [ValidateProfileError.NO_DATA]: t('Нет данных'),
+  };
 
   return (
     <div className={classNames('', { }, [className])}>
       <ProfileCardHeader />
+      {validateErrors?.length && validateErrors.map((err) => (
+        <Text
+          key={err}
+          theme={TextTheme.ERROR}
+          text={validateErrorTranslates[err]}
+        />
+      ))}
       <ProfileCard
         data={formData}
         isLoading={isLoading}

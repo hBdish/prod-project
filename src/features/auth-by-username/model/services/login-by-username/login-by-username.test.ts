@@ -1,8 +1,4 @@
-import axios from 'axios';
-import { deepEqual } from 'assert';
 import { loginByUsername } from 'features';
-import { StateSchema } from 'app/providers';
-import { Dispatch } from '@reduxjs/toolkit';
 import { userActions } from 'entities/user';
 import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
 

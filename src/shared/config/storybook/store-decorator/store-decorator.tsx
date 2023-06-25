@@ -4,8 +4,11 @@ import {
   StateSchema,
   StoreProvider,
 } from 'app/providers';
-import { loginReducer } from 'features';
-import { profileReducer } from 'entities/profile';
+import {
+  loginReducer,
+  profileReducer,
+} from 'features';
+
 import { ReducersList } from 'shared';
 
 const defaultAsyncReducers: ReducersList = {

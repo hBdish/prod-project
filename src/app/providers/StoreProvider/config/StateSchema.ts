@@ -1,10 +1,9 @@
 import { CounterSchema } from 'entities/counter';
 import { UserSchema } from 'entities/user';
-import { LoginSchema } from 'features';
+import { LoginSchema, ProfileSchema } from 'features';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/profile';
 import { AxiosInstance } from 'axios';
 import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
@@ -37,6 +36,7 @@ export interface ThunkExtraArg {
 }
 
 export interface ThunkConfig<T> {
-  rejectValue: T,
+  rejectValue: T
   extra: ThunkExtraArg
+  state: StateSchema
 }

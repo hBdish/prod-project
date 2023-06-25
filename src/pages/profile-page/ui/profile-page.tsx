@@ -2,8 +2,9 @@ import {
   classNames, ReducersList, useAppDispatch, useDynamicModuleLoader,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/profile';
+
 import { useEffect } from 'react';
+import { EditableProfileCard, fetchProfileData, profileReducer } from 'features';
 
 interface ProfilePageProps {
   className?: string
@@ -23,7 +24,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <div className={classNames('', {}, [className])}>
-      <ProfileCard />
+      <EditableProfileCard />
     </div>
   );
 };

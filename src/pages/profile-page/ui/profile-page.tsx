@@ -1,5 +1,5 @@
 import {
-  classNames, ReducersList, useAppDispatch, useDynamicModuleLoader,
+  classNames, ReducersList, useDynamicModuleLoader,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 

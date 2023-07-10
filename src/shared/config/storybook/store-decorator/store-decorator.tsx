@@ -10,10 +10,12 @@ import {
 } from 'features';
 
 import { ReducersList } from 'shared';
+import { articleDetailsReducer } from 'entities/article/model';
 
 const defaultAsyncReducers: ReducersList = {
   login: loginReducer,
   profile: profileReducer,
+  articleDetails: articleDetailsReducer,
 };
 
 export const StoreDecorator = (

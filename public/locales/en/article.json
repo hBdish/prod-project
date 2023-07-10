@@ -1,4 +1,6 @@
 {
   "ArticlePage": "ArticlePage",
-  "ArticleDetailsPage": "ArticleDetailsPage"
+  "ArticleDetailsPage": "ArticleDetailsPage",
+  "Статья не найдена": "Статья не найдена",
+  "Произошла ошибка при загрузке статьи": "Произошла ошибка при загрузке статьи"
 }

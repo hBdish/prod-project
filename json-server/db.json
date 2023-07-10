@@ -11,17 +11,77 @@
       "userId": 2
     }
   ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "Возможности JavaScript и TypeScript последних лет. Часть 1",
+      "subtitle": "ECMAScript",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
+      "views": 1251,
+      "createdAt": "26.06.2023",
+      "type": ["IT"],
+      "block": [
+        {
+          "id": "5",
+          "type": "IMG",
+          "src": "https://habrastorage.org/r/w1560/webt/ma/po/lv/mapolvqq4uunxfqoaviv3g9km9y.jpeg",
+          "title": "Hello, world!"
+        },
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "ES2020",
+          "paragraphs": [
+            "Оператор опциональной последовательности / Optional chaining (?.): обычно используется для безопасного доступа к свойству потенциально несуществующего/неопределенного (undefined) объекта, но также может использоваться для безопасного доступа по индексу к элементу потенциально несуществующего массива и вызова потенциально несуществующей функции, например:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "// Раньше:\n// Если у нас был потенциально несуществующий объект,\n// мы не могли легко получить доступ к его свойству\nconst object: { name: string } | undefined = Math.random() > 0.5 ? undefined : { name: 'test' };\nconst value = object.name; // TypeError: 'object' is possibly 'undefined'\n\n// Мы должны были проверять \"определенность\" объекта\n// Это ухудшало читаемость кода и становилось сложным в случае вложенных объектов\nconst objectOld: { name: string } | undefined = Math.random() > 0.5 ? undefined : { name: 'test' };\nconst valueOld = objectOld ? objectOld.name : undefined;\n\n// Сейчас:\n// Мы можем использовать оператор опциональной последовательности\n// для безопасного доступа к свойству потенциально несуществующего объекта\nconst objectNew: { name: string } | undefined = Math.random() > 0.5 ? undefined : { name: 'test' };\nconst valueNew = objectNew?.name;\n\n// Его также можно использовать для безопасного доступа по индексу и вызова функции\nconst array: string[] | undefined = Math.random() > 0.5 ? undefined : ['test'];\nconst item = array?.[0];\nconst func: (() => string) | undefined = Math.random() > 0.5 ? undefined : () => 'test';\nconst result = func?.();"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "ES2020",
+          "paragraphs": [
+            "Оператор нулевого слияния / Nullish coalescing operator (??): является альтернативой оператора ||." ,
+            "Отличие между этими операторами состоит в том, что || применяется ко всем ложным значениям, а ?? — только к undefined и null, например:"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const value: string | undefined = Math.random() > 0.5 ? undefined : 'test';\n\n// Раньше:\n// Для условного присвоения значения переменной мы использовали оператор `||`\nconst anotherValue = value || 'hello';\nconsole.log(anotherValue); // \"test\" или \"hello\"\n\n// Это не всегда работало хорошо\nconst incorrectValue = '' || 'incorrect';\nconsole.log(incorrectValue); // всегда \"incorrect\"\nconst anotherIncorrectValue = 0 || 'incorrect';\nconsole.log(anotherIncorrectValue); // всегда \"incorrect\"\n\n// Сейчас:\n// Оператор нулевого слияния применяется только в отношении `undefined` и `null`\nconst newValue = value ?? 'hello';\nconsole.log(newValue) // \"test\" или \"hello\"\n\n// Ложные значения не заменяются\nconst correctValue = '' ?? 'incorrect';\nconsole.log(correctValue); // всегда \"\"\nconst anotherCorrectValue = 0 ?? 'incorrect';\nconsole.log(anotherCorrectValue); // всегда 0"
+        }
+      ]
+    }
+  ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": "1",
+      "text": "some comment",
+      "articleId": "1",
+      "userId": "1",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "text": "I love TS",
+      "articleId": "1",
+      "userId": "2",
+      "role": "USER"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "username": "user",
       "password": "123"
     }
   ],

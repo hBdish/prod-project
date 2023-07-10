@@ -1,7 +1,7 @@
 import React from 'react';
 import { RoutePath } from 'shared/config';
 import {
-  AboutIcon,
+  AboutIcon, ArticlesIcon,
   HomeIcon,
   ProfileIcon,
 } from 'shared';
@@ -30,4 +30,11 @@ export const SidebarItemsList: SidebarItemType[] = [
     text: 'Профиль',
     authOnly: true,
   },
+  {
+    path: RoutePath.articles,
+    Icon: ArticlesIcon,
+    text: 'Стати',
+    authOnly: true,
+  },
+
 ];

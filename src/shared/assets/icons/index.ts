@@ -4,6 +4,10 @@ import UserAvatar from './user-avatar.png';
 import AboutIcon from './about.svg';
 import HomeIcon from './home.svg';
 import ProfileIcon from './profile.svg';
+import ArticlesIcon from './articles.svg';
+import EyeIcon from './eye.svg';
+import CalendarIcon from './calendar.svg';
+import CopyIcon from './copy.svg';
 
 export {
   ThemeDark,
@@ -12,4 +16,8 @@ export {
   AboutIcon,
   HomeIcon,
   ProfileIcon,
+  ArticlesIcon,
+  EyeIcon,
+  CalendarIcon,
+  CopyIcon,
 };

@@ -4,9 +4,11 @@ import {
 import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/theme-switcher/theme-switcher';
 import { LangSwitcher } from 'widgets';
+import { useSelector } from 'react-redux';
 import { SidebarItem } from '../sidebar-item/sidebar-item';
 import styles from './sidebar.module.scss';
-import { SidebarItemsList } from '../../model/items';
+import { getSidebarItems } from '../../model/selectors/get-sidebar-items';
+// import { SidebarItemsList } from '../../model/items';
 
 interface SidebarProps {
   className?: string
@@ -14,22 +16,24 @@ interface SidebarProps {
 
 const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const onToggle = () => {
     setCollapsed((prevState) => !prevState);
   };
 
   const itemsList = useMemo(
-    () => SidebarItemsList.map((item) => (
+    () => sidebarItemsList.map((item) => (
       <SidebarItem
         key={item.path}
         item={item}
         collapsed={collapsed}
       />
     )),
-    [collapsed],
+    [collapsed, sidebarItemsList],
   );
-
+  console.log('asfsfafs');
+  console.log(sidebarItemsList);
   return (
     <div
       data-testid="test-sidebar"

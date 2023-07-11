@@ -5,8 +5,8 @@ import { RoutePath } from 'shared/config';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getAuthData } from 'entities/user';
+import { SidebarItemType } from 'widgets/sidebar';
 import styles from './sidebar-item.module.scss';
-import { SidebarItemType } from '../../model/items';
 
 interface SidebarItemProps {
   item: SidebarItemType

@@ -2,13 +2,19 @@
   display: flex;
   margin-bottom: 20px;
 
-  .editBtn {
+  .wrapperBtn {
     margin-left: auto;
-  }
 
-  .saveBtn {
-  margin-right: 10px;
+    .editBtn {
+      margin-left: auto;
+    }
+
+    .saveBtn {
+      margin-right: 10px;
+    }
   }
 }
+
+
 
 

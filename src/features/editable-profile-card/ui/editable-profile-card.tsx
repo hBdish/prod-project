@@ -1,5 +1,5 @@
 import {
-  classNames, Text, TextTheme, useAppDispatch,
+  classNames, Text, TextTheme, useAppDispatch, useInitialEffect,
 } from 'shared';
 import { useSelector } from 'react-redux';
 import { ProfileCardHeader } from 'features/editable-profile-card/ui/profile-card-header/profile-card-header';
@@ -10,6 +10,7 @@ import {
 import { Currency } from 'helpers/currency';
 import { Country } from 'helpers/country';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import {
   getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateError,
 } from '../model/selectors';
@@ -25,9 +26,11 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
   } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
-  }, [dispatch]);
+  const { id } = useParams<{ id: string}>();
+
+  useInitialEffect(() => {
+    if (id) dispatch(fetchProfileData(id));
+  });
 
   const onChangeName = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value || '' }));

@@ -1,6 +1,6 @@
 import { CounterSchema } from 'entities/counter';
 import { UserSchema } from 'entities/user';
-import { LoginSchema, ProfileSchema } from 'features';
+import { AddCommentSchema, LoginSchema, ProfileSchema } from 'features';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -19,6 +19,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
+  addComment?: AddCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

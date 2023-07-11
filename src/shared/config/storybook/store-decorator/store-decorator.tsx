@@ -5,17 +5,21 @@ import {
   StoreProvider,
 } from 'app/providers';
 import {
+  addCommentReducer,
   loginReducer,
   profileReducer,
 } from 'features';
 
 import { ReducersList } from 'shared';
 import { articleDetailsReducer } from 'entities/article/model';
+import { articleDetailsCommentReducer } from 'pages';
 
 const defaultAsyncReducers: ReducersList = {
   login: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
+  addComment: addCommentReducer,
+  articleDetailsComments: articleDetailsCommentReducer,
 };
 
 export const StoreDecorator = (

@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import {
-  Avatar, classNames, Skeleton, Text,
+  Avatar, classNames, Skeleton, Text, AppLink,
 } from 'shared';
+import { RoutePath } from 'shared/config';
 import styles from './comment-card.module.scss';
 import { Comment } from '../../model/types/types';
 
 interface CommentCardProps {
   className?: string
-  comment: Comment
+  comment?: Comment
   isLoading?: boolean
 }
 
@@ -30,12 +31,14 @@ const CommentCard = memo((props: CommentCardProps) => {
     );
   }
 
+  if (!comment) return null;
+
   return (
     <div className={classNames(styles.CommentCard, {}, [className])}>
-      <div className={styles.header}>
+      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={styles.header}>
         {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
         <Text className={styles.userName} title={comment.user.username} />
-      </div>
+      </AppLink>
       <Text className={styles.text} text={comment.text} />
     </div>
   );

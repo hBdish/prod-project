@@ -3,34 +3,33 @@ import { User, userActions } from 'entities/user';
 import i18n from 'shared/config/i18n/i18n';
 import { USER_LOCALSTORAGE_KEY } from 'shared';
 import { ThunkConfig } from 'app/providers';
+import { Comment } from 'entities/comment';
 
-interface LoginByUsernameProps {
-  username: string
-  password: string
-}
-
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
-  'login/loginByUsername',
+export const fetchCommentsById = createAsyncThunk<Comment[], string | undefined, ThunkConfig<string>>(
+  'articleDetails/fetchCommentsById',
   async (
-    authData,
+    articleId,
     { dispatch, extra, rejectWithValue },
   ) => {
     try {
-      const response = await extra.api.post<User>(
-        '/login',
-        authData,
+      if (!articleId) return rejectWithValue(i18n.t('not id error'));
+
+      const response = await extra.api.get<Comment[]>(
+        '/comments',
+        {
+          params: {
+            articleId,
+            _expand: 'user',
+          },
+        },
       );
 
       if (!response.data) {
         throw new Error();
       }
 
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-      dispatch(userActions.setAuthData(response.data));
-      console.log(response);
       return response.data;
     } catch (e) {
-      console.log(e);
       return rejectWithValue(i18n.t('Введен неверный логин или пароль'));
     }
   },

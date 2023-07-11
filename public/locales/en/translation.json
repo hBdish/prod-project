@@ -15,5 +15,6 @@
   "Введен неверный логин или пароль": "Incorrect username or password entered",
   "Выйти": "Sing out",
   "Войти": "Sing in",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "not id error": "not id error"
 }

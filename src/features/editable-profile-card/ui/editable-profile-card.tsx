@@ -3,9 +3,9 @@ import {
 } from 'shared';
 import { useSelector } from 'react-redux';
 import { ProfileCardHeader } from 'features/editable-profile-card/ui/profile-card-header/profile-card-header';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import {
-  fetchProfileData, profileActions, validateProfileData, ValidateProfileError,
+  fetchProfileData, profileActions, ValidateProfileError,
 } from 'features';
 import { Currency } from 'helpers/currency';
 import { Country } from 'helpers/country';

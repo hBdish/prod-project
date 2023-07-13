@@ -38,13 +38,13 @@ export const Dark: Story = {
   ],
 };
 
-export const onlyTitle: Story = {
+export const OnlyTitle: Story = {
   args: {
     title: 'Test title',
   },
 };
 
-export const onlyTitleDark: Story = {
+export const OnlyTitleDark: Story = {
   args: {
     title: 'Test title',
   },
@@ -53,13 +53,13 @@ export const onlyTitleDark: Story = {
   ],
 };
 
-export const onlyText: Story = {
+export const OnlyText: Story = {
   args: {
     text: 'Test text text tesT',
   },
 };
 
-export const onlyTextDark: Story = {
+export const OnlyTextDark: Story = {
   args: {
     text: 'Test text text tesT',
   },

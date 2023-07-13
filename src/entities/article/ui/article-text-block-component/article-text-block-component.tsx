@@ -22,7 +22,7 @@ const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) =
       {block.paragraphs && (
         <>
           {block.paragraphs.map(
-            (paragraph, index) => (
+            (paragraph) => (
               <Text
                 key={paragraph}
                 text={paragraph}

@@ -23,6 +23,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     'import/no-unresolved': 'off',
+    'react/no-array-index-key': 'off',
     'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',

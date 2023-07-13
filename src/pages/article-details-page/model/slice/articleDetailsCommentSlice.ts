@@ -4,7 +4,6 @@ import {
 } from '@reduxjs/toolkit';
 import { Comment } from 'entities/comment';
 import { StateSchema } from 'app/providers';
-import { loginByUsername } from 'features';
 import { fetchCommentsById } from 'pages';
 import { ArticleDetailsCommentsSchema } from '../types/types';
 
@@ -17,7 +16,7 @@ export const getArticleSelectors = commentsAdapter.getSelectors<StateSchema>(
 );
 
 const articleDetailsCommentSlice = createSlice({
-  name: 'books',
+  name: 'articleDetails',
   initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
     isLoading: false,
     error: undefined,

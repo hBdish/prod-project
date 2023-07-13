@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import i18n from 'shared/config/i18n/i18n';
 import { ThunkConfig } from 'app/providers';
 import { validateProfileData } from '../validate-profile-data/validate-profile-data';
 import { getProfileForm } from '../../selectors/get-profile-form/get-profile-form';
@@ -28,7 +27,6 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
 
       return response.data;
     } catch (e) {
-      console.log(e);
       return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
     }
   },

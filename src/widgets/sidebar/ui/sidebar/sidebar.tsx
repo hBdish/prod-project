@@ -32,8 +32,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
     )),
     [collapsed, sidebarItemsList],
   );
-  console.log('asfsfafs');
-  console.log(sidebarItemsList);
+
   return (
     <div
       data-testid="test-sidebar"

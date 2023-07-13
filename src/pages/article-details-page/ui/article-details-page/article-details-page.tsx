@@ -1,18 +1,29 @@
 import {
-  classNames, ReducersList, Text, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
+  Button,
+  ButtonTheme,
+  classNames,
+  ReducersList,
+  Text,
+  useAppDispatch,
+  useDynamicModuleLoader,
+  useInitialEffect,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CommentList } from 'entities/comment';
 import { useSelector } from 'react-redux';
 import { AddCommentForm } from 'features';
 import { useCallback } from 'react';
+import { RoutePath } from 'shared/config';
 import {
-  articleDetailsCommentReducer, fetchCommentsById, getArticleCommentsIsLoading, getArticleSelectors,
+  articleDetailsCommentReducer,
+  fetchCommentsById,
+  getArticleCommentsIsLoading,
+  getArticleSelectors,
 } from '../../model';
-import { addCommentsForArticle } from
-  '../../model/services/add-comments-for-article/add-comments-for-article';
+import { addCommentsForArticle }
+  from '../../model/services/add-comments-for-article/add-comments-for-article';
 import styles from './article-details-page.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -30,6 +41,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleSelectors.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useDynamicModuleLoader({ reducers, removeAfterUnmount: true });
   useInitialEffect(() => {
@@ -39,6 +51,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentsForArticle(text));
   }, [dispatch]);
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   if (!id) {
     return (
@@ -50,6 +66,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+      <Button
+        theme={ButtonTheme.OUTLINE}
+        onClick={onBackToList}
+      >
+        {t('Назад к списку')}
+      </Button>
       <ArticleDetails id={id} />
       <Text className={styles.commentTitle} title={t('Комментарии') || ''} />
       <AddCommentForm onSendComment={onSendComment} />

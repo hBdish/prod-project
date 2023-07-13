@@ -1,3 +1,10 @@
+import { User } from '../../user/model/types/user';
+
+export enum ArticleView {
+  BIG = 'BIG',
+  SMALL = 'SMALL',
+}
+
 export enum ArticleType {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
@@ -37,6 +44,7 @@ export type Block = ArticleTextBlock | ArticleCodeBlock | ArticleImgBlock
 export interface Article {
   id: string
   title: string
+  user: User
   subtitle: string
   img: string
   views: number

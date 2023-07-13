@@ -14,10 +14,6 @@ function App() {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(inited);
-  }, [inited]);
-
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">

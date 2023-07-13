@@ -37,7 +37,6 @@ export const addCommentsForArticle = createAsyncThunk<Comment, string, ThunkConf
       dispatch(fetchCommentsById(article.id));
       return response.data;
     } catch (e) {
-      console.log(e);
       return rejectWithValue(i18n.t('Нет данных'));
     }
   },

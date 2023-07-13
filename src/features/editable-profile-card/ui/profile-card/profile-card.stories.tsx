@@ -33,7 +33,7 @@ export const Loading: Story = {
   },
 };
 
-export const withError: Story = {
+export const WithError: Story = {
   args: {
     error: 'error',
   },

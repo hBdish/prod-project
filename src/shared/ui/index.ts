@@ -8,3 +8,4 @@ export * from './avatar';
 export * from './select';
 export * from './skeleton';
 export * from './icon';
+export * from './card';

@@ -8,6 +8,8 @@ import ArticlesIcon from './articles.svg';
 import EyeIcon from './eye.svg';
 import CalendarIcon from './calendar.svg';
 import CopyIcon from './copy.svg';
+import TiledIcon from './tiled.svg';
+import ListIcon from './list.svg';
 
 export {
   ThemeDark,
@@ -20,4 +22,6 @@ export {
   EyeIcon,
   CalendarIcon,
   CopyIcon,
+  TiledIcon,
+  ListIcon,
 };

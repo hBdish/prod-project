@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
+import { ContentPageBlock } from 'widgets';
 
 function MainPage() {
   const { t } = useTranslation('main');
 
   return (
-    <div>
+    <ContentPageBlock>
       {t('Главная страница')}
-    </div>
+    </ContentPageBlock>
   );
 }
 

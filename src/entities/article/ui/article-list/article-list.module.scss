@@ -7,6 +7,7 @@
 .SMALL {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   .card {
     margin-right: 30px;

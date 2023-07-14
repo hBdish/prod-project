@@ -1,7 +1,6 @@
 import {
   classNames, ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
 } from 'shared';
-import { useTranslation } from 'react-i18next';
 import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/article';
 import {
   articlePageActions,
@@ -9,14 +8,14 @@ import {
   getArticles,
 } from 'pages/article-page/model/slice/article-page-slice';
 import {
-  fetchArticlesList,
-  getArticlePageError,
-  getArticlePageIsLoading,
+  fetchArticlesList, fetchNextArticlesPage,
+  getArticlePageError, getArticlePageHasMore,
+  getArticlePageIsLoading, getArticlePageLimit, getArticlePageNumber,
   getArticlePageView,
 } from 'pages';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import styles from './article-page.module.scss';
+import { ContentPageBlock } from 'widgets';
 
 interface ArticlePageProps {
   className?: string
@@ -33,26 +32,40 @@ const ArticlePage = (props: ArticlePageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
+  const page = useSelector(getArticlePageNumber);
+  const hasMore = useSelector(getArticlePageHasMore);
+
+  useDynamicModuleLoader({ reducers, removeAfterUnmount: true });
+  useInitialEffect(() => {
+    dispatch(articlePageActions.initialState());
+    dispatch(fetchArticlesList({
+      page: 1,
+    }));
+  });
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageActions.setView(view));
   }, [dispatch]);
 
-  useDynamicModuleLoader({ reducers, removeAfterUnmount: true });
-  useInitialEffect(() => {
-    dispatch(fetchArticlesList());
-    dispatch(articlePageActions.initialState());
-  });
+  const onLoadNextPart = useCallback(
+    () => {
+      dispatch(fetchNextArticlesPage());
+    },
+    [dispatch],
+  );
 
   return (
-    <div className={classNames(styles.ArticlePage, {}, [className])}>
+    <ContentPageBlock
+      onScrollEnd={onLoadNextPart}
+      className={classNames('', {}, [className])}
+    >
       <ArticleViewSelector view={view} onViewClick={onChangeView} />
       <ArticleList
         articles={articles}
         isLoading={isLoading}
         view={view}
       />
-    </div>
+    </ContentPageBlock>
   );
 };
 

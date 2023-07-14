@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { AddCommentForm } from 'features';
 import { useCallback } from 'react';
 import { RoutePath } from 'shared/config';
+import { ContentPageBlock } from 'widgets';
 import {
   articleDetailsCommentReducer,
   fetchCommentsById,
@@ -58,14 +59,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+      <ContentPageBlock className={classNames(styles.ArticleDetailsPage, {}, [className])}>
         {t('Статья не найдена')}
-      </div>
+      </ContentPageBlock>
     );
   }
 
   return (
-    <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+    <ContentPageBlock className={classNames(styles.ArticleDetailsPage, {}, [className])}>
       <Button
         theme={ButtonTheme.OUTLINE}
         onClick={onBackToList}
@@ -79,7 +80,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         isLoading={isLoading}
         comments={comments}
       />
-    </div>
+    </ContentPageBlock>
   );
 };
 

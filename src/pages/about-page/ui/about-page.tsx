@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
+import { ContentPageBlock } from 'widgets';
 
 function AboutPage() {
   const { t } = useTranslation('about');
   return (
-    <div>
+    <ContentPageBlock>
       {t('О сайте')}
-    </div>
+    </ContentPageBlock>
   );
 }
 

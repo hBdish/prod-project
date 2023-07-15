@@ -9,9 +9,9 @@ import {
 } from 'pages/article-page/model/slice/article-page-slice';
 import {
   fetchArticlesList, fetchNextArticlesPage,
-  getArticlePageError, getArticlePageHasMore,
+  getArticlePageError, getArticlePageHasMore, getArticlePageInited,
   getArticlePageIsLoading, getArticlePageLimit, getArticlePageNumber,
-  getArticlePageView,
+  getArticlePageView, initArticlePage,
 } from 'pages';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
@@ -32,15 +32,10 @@ const ArticlePage = (props: ArticlePageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
-  const page = useSelector(getArticlePageNumber);
-  const hasMore = useSelector(getArticlePageHasMore);
 
-  useDynamicModuleLoader({ reducers, removeAfterUnmount: true });
+  useDynamicModuleLoader({ reducers });
   useInitialEffect(() => {
-    dispatch(articlePageActions.initialState());
-    dispatch(fetchArticlesList({
-      page: 1,
-    }));
+    dispatch(initArticlePage());
   });
 
   const onChangeView = useCallback((view: ArticleView) => {
@@ -59,7 +54,10 @@ const ArticlePage = (props: ArticlePageProps) => {
       onScrollEnd={onLoadNextPart}
       className={classNames('', {}, [className])}
     >
-      <ArticleViewSelector view={view} onViewClick={onChangeView} />
+      <ArticleViewSelector
+        view={view}
+        onViewClick={onChangeView}
+      />
       <ArticleList
         articles={articles}
         isLoading={isLoading}

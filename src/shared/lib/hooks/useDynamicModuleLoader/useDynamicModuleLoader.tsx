@@ -17,16 +17,22 @@ interface UseDynamicModuleLoaderProps {
 export const useDynamicModuleLoader = (props: UseDynamicModuleLoaderProps) => {
   const {
     reducers,
-    removeAfterUnmount = true,
+    removeAfterUnmount = false,
   } = props;
 
   const store = useStore() as ReduxStoreWithManager; // TODO ВРЕМЕННОЙ РЕШЕНИЕ
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getReducerMap();
+
     Object.entries(reducers).forEach(([nameOfReducer, reducer]) => {
-      store.reducerManager.add(nameOfReducer as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${nameOfReducer} reducer` });
+      const mounted = mountedReducers[nameOfReducer as StateSchemaKey];
+
+      if (!mounted) {
+        store.reducerManager.add(nameOfReducer as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${nameOfReducer} reducer` });
+      }
     });
 
     return () => {

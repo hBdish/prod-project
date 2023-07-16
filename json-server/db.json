@@ -19,7 +19,7 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
       "views": 1251,
       "createdAt": "29.07.2023",
-      "userId":  "1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -66,7 +66,7 @@
       "img": "https://habrastorage.org/getpro/habr/upload_files/dc9/6a5/d8c/dc96a5d8c8cf9aa7dda942a1985e0658.png",
       "views": 512,
       "createdAt": "26.06.2023",
-      "userId":  "1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -99,7 +99,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 312,
       "createdAt": "01.01.2022",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -140,7 +140,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 852,
       "createdAt": "28.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -181,7 +181,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 50,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -222,7 +222,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -263,7 +263,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -304,7 +304,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -345,7 +345,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -386,7 +386,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -427,7 +427,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -468,7 +468,7 @@
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
       "views": 123,
       "createdAt": "26.06.2023",
-      "userId":  "2",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -535,6 +535,12 @@
       "userId": "2",
       "text": "asf",
       "id": "3Xft1VU"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "asf",
+      "id": "9zdL6U8"
     }
   ],
   "users": [

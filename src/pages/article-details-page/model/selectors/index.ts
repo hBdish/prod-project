@@ -1,1 +1,2 @@
-export * from './comments';
+export * from './comments-selector';
+export * from './recommendations-selector';

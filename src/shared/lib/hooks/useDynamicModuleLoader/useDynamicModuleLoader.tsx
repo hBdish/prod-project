@@ -1,12 +1,12 @@
 import { useStore } from 'react-redux';
-import { ReduxStoreWithManager } from 'app/providers';
+import { ReduxStoreWithManager, StateSchema } from 'app/providers';
 import { useEffect } from 'react';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from 'shared';
 
 export type ReducersList = {
-  [nameOfReducer in StateSchemaKey]?: Reducer
+  [nameOfReducer in StateSchemaKey]?: Reducer<NonNullable<StateSchema[nameOfReducer]>>
 }
 
 interface UseDynamicModuleLoaderProps {

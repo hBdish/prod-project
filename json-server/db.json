@@ -18,7 +18,7 @@
       "subtitle": "ECMAScript",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
       "views": 1251,
-      "createdAt": "26.06.2023",
+      "createdAt": "29.07.2023",
       "userId":  "1",
       "type": [
         "IT"
@@ -94,11 +94,11 @@
     },
     {
       "id": "4",
-      "title": "VDI и DaaS: тенденции развития, влияние публичного облака и будущее технологий",
+      "title": "статья 1.1.22",
       "subtitle": "VDI и DaaS",
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
-      "views": 123,
-      "createdAt": "26.06.2023",
+      "views": 312,
+      "createdAt": "01.01.2022",
       "userId":  "2",
       "type": [
         "IT"
@@ -135,11 +135,11 @@
     },
     {
       "id": "5",
-      "title": "VDI и DaaS: тенденции развития, влияние публичного облака и будущее технологий",
+      "title": "статья 28.06.23",
       "subtitle": "VDI и DaaS",
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
-      "views": 123,
-      "createdAt": "26.06.2023",
+      "views": 852,
+      "createdAt": "28.06.2023",
       "userId":  "2",
       "type": [
         "IT"
@@ -176,10 +176,10 @@
     },
     {
       "id": "7",
-      "title": "VDI и DaaS: тенденции развития, влияние публичного облака и будущее технологий",
+      "title": "views 50",
       "subtitle": "VDI и DaaS",
       "img": "https://habrastorage.org/r/w780/getpro/habr/upload_files/97b/bab/d2a/97bbabd2aacf219fad46eaa786321f9b.jpg",
-      "views": 123,
+      "views": 50,
       "createdAt": "26.06.2023",
       "userId":  "2",
       "type": [

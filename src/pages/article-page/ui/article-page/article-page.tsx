@@ -1,21 +1,22 @@
+import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import {
   classNames, ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
 } from 'shared';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/article';
+import { ArticleList } from 'entities/article';
+import { ContentPageBlock } from 'widgets';
 import {
-  articlePageActions,
+  fetchNextArticlesPage,
+  getArticlePageError,
+  getArticlePageIsLoading,
+  getArticlePageView,
+  initArticlePage,
   articlePageReducer,
   getArticles,
-} from 'pages/article-page/model/slice/article-page-slice';
-import {
-  fetchArticlesList, fetchNextArticlesPage,
-  getArticlePageError, getArticlePageHasMore, getArticlePageInited,
-  getArticlePageIsLoading, getArticlePageLimit, getArticlePageNumber,
-  getArticlePageView, initArticlePage,
-} from 'pages';
-import { useSelector } from 'react-redux';
-import { useCallback } from 'react';
-import { ContentPageBlock } from 'widgets';
+} from '../../model';
+import { ArticlePageFilters } from '../article-page-filters/article-page-filters';
+import styles from './article-page.module.scss';
 
 interface ArticlePageProps {
   className?: string
@@ -32,15 +33,11 @@ const ArticlePage = (props: ArticlePageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
-
+  const [searchParams] = useSearchParams();
   useDynamicModuleLoader({ reducers });
   useInitialEffect(() => {
-    dispatch(initArticlePage());
+    dispatch(initArticlePage(searchParams));
   });
-
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlePageActions.setView(view));
-  }, [dispatch]);
 
   const onLoadNextPart = useCallback(
     () => {
@@ -52,16 +49,14 @@ const ArticlePage = (props: ArticlePageProps) => {
   return (
     <ContentPageBlock
       onScrollEnd={onLoadNextPart}
-      className={classNames('', {}, [className])}
+      className={classNames(styles.ArticlePage, {}, [className])}
     >
-      <ArticleViewSelector
-        view={view}
-        onViewClick={onChangeView}
-      />
+      <ArticlePageFilters />
       <ArticleList
         articles={articles}
         isLoading={isLoading}
         view={view}
+        className={styles.list}
       />
     </ContentPageBlock>
   );

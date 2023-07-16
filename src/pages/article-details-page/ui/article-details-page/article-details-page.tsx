@@ -90,12 +90,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         className={styles.commentTitle}
         title={t('Рекомендуем') || ''}
       />
-      {/* <ArticleList */}
-      {/*  className={styles.recommendations} */}
-      {/*  articles={recommendations} */}
-      {/*  isLoading={recommendationsIsLoading} */}
-      {/*  view={ArticleView.SMALL} */}
-      {/* /> */}
+      <ArticleList
+        className={styles.recommendations}
+        articles={recommendations}
+        isLoading={recommendationsIsLoading}
+        view={ArticleView.SMALL}
+        target="_blank"
+      />
       <Text
         size={TextSize.L}
         className={styles.commentTitle}

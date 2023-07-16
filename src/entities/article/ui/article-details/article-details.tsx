@@ -14,6 +14,7 @@ import {
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { articleDetailsPageRecommendationReducer } from 'pages';
 import { ArticleCodeBlockComponent } from '../article-code-block-component';
 import { ArticleTextBlockComponent } from '../article-text-block-component';
 import { ArticleImgBlockComponent } from '../article-img-block-component';
@@ -34,6 +35,7 @@ interface ArticleDetailsProps {
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
+  articleDetailsRecommendations: articleDetailsPageRecommendationReducer,
 };
 
 const ArticleDetails = memo((props: ArticleDetailsProps) => {

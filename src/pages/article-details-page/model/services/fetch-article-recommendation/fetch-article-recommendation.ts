@@ -24,7 +24,7 @@ export const fetchArticlesRecommendations = createAsyncThunk<
             },
           },
         );
-
+        console.log(response);
         if (!response.data) {
           throw new Error();
         }

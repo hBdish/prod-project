@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames, Text } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { ArticleListItem } from '../article-list-item/article-list-item';
@@ -11,6 +11,7 @@ interface ArticleListProps {
   articles: Article[]
   isLoading?: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const ArticleList = memo((props: ArticleListProps) => {
@@ -19,6 +20,7 @@ const ArticleList = memo((props: ArticleListProps) => {
     articles,
     isLoading,
     view = ArticleView.BIG,
+    target,
   } = props;
 
   const { t } = useTranslation('article');
@@ -34,6 +36,7 @@ const ArticleList = memo((props: ArticleListProps) => {
       article={article}
       view={view}
       key={article.id}
+      target={target}
     />
   );
 

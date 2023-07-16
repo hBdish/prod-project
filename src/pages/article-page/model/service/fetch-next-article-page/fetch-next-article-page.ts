@@ -15,7 +15,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
   >(
     'articlePage/fetchNextArticlesPage',
     async (
-      props,
+      _,
       {
         dispatch, getState,
       },
@@ -26,7 +26,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
 
       if (hasMore && !isLoading) {
         dispatch(articlePageActions.setPage(page + 1));
-        dispatch(fetchArticlesList({ }));
+        dispatch(fetchArticlesList({}));
       }
     },
   );

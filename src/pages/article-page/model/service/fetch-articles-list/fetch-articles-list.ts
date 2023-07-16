@@ -25,7 +25,7 @@ export const fetchArticlesList = createAsyncThunk<
     async (
       props,
       {
-        dispatch, extra, rejectWithValue, getState,
+        extra, rejectWithValue, getState,
       },
     ) => {
       const search = getArticlePageSearch(getState());

@@ -16,7 +16,7 @@ export const getArticleRecommendations = recommendationsAdapter.getSelectors<Sta
 );
 
 const articleDetailsPageRecommendationSlice = createSlice({
-  name: 'articleDetailsCommentSlice',
+  name: 'articleDetailsPageRecommendationSlice',
   initialState: recommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>({
     isLoading: false,
     error: undefined,
@@ -37,6 +37,7 @@ const articleDetailsPageRecommendationSlice = createSlice({
         action,
       ) => {
         state.isLoading = false;
+        console.log(action.payload);
         recommendationsAdapter.setAll(state, action.payload);
       })
       .addCase(fetchArticlesRecommendations.rejected, (state, action) => {

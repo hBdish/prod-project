@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import {
   AppLink,
   Avatar, Button, ButtonTheme, Card, classNames, EyeIcon, Icon, Text,
@@ -16,6 +16,7 @@ interface ArticleListItemProps {
   className?: string
   article: Article
   view: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -23,6 +24,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
     className,
     article,
     view,
+    target,
   } = props;
 
   const { t } = useTranslation('article');
@@ -55,7 +57,10 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
             )
           }
           <div className={styles.footer}>
-            <AppLink to={RoutePath.articles_details + article.id}>
+            <AppLink
+              target={target}
+              to={RoutePath.articles_details + article.id}
+            >
               <Button
                 theme={ButtonTheme.OUTLINE}
               >
@@ -71,6 +76,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
     <AppLink
+      target={target}
       to={RoutePath.articles_details + article.id}
       className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
     >

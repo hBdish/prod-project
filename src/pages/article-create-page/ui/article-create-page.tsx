@@ -19,8 +19,8 @@ const ArticleCreatePage = memo((props: ArticleEditPageProps) => {
   }, [navigate]);
 
   return (
-    <div className={classNames(styles.ArticleEditPage, {}, [className])}>
-      <Text title={t('Создание статьи') ?? ''} />
+    <div className={classNames('', {}, [className])}>
+      <Text title={t('Создание статьи')} />
     </div>
   );
 });

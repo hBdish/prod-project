@@ -25,7 +25,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   }, [navigate]);
 
   return (
-    <ContentPageBlock className={classNames(styles.ArticleEditPage, {}, [className])}>
+    <ContentPageBlock className={classNames('', {}, [className])}>
       <Text title={t(`Редактирование статьи ${id}`) ?? ''} />
     </ContentPageBlock>
   );

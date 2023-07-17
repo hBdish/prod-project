@@ -1,8 +1,7 @@
 import {
   createEntityAdapter,
-  createSlice, PayloadAction,
+  createSlice,
 } from '@reduxjs/toolkit';
-import { Comment } from 'entities/comment';
 import { StateSchema } from 'app/providers';
 import { ArticleDetailsRecommendationsSchema, fetchArticlesRecommendations } from 'pages';
 import { Article } from 'entities/article';
@@ -37,7 +36,6 @@ const articleDetailsPageRecommendationSlice = createSlice({
         action,
       ) => {
         state.isLoading = false;
-        console.log(action.payload);
         recommendationsAdapter.setAll(state, action.payload);
       })
       .addCase(fetchArticlesRecommendations.rejected, (state, action) => {

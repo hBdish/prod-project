@@ -7,7 +7,7 @@ import {
 import { scrollSaveActions } from 'features/scrolle-save/model/slices';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getScrollSave, getScrollSaveByPath } from 'features/scrolle-save/model/selectors';
+import { getScrollSaveByPath } from 'features/scrolle-save/model/selectors';
 import { StateSchema } from 'app/providers';
 import styles from './content-page-block.module.scss';
 

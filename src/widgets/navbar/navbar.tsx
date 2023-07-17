@@ -1,9 +1,12 @@
-import { Button, ButtonTheme, classNames } from 'shared';
+import {
+  AppLink, AppLinkTheme, Button, ButtonTheme, classNames, Text, TextTheme,
+} from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entities/user';
+import { RoutePath } from 'shared/config';
 import styles from './navbar.module.scss';
 
 interface NavbarProps {
@@ -26,6 +29,18 @@ const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(styles.navbar, {}, [className])}>
+        <Text
+          className={styles.appName}
+          title={t('PET PROJECT')}
+          theme={TextTheme.PRIMARY}
+        />
+        <AppLink
+          className={styles.createBtn}
+          to={RoutePath.articles_create}
+          theme={AppLinkTheme.SECONDARY}
+        >
+          {t('Создать статью')}
+        </AppLink>
         <Button
           theme={ButtonTheme.CLEAR_INVERTED}
           className={styles.links}

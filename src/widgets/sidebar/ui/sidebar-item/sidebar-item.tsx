@@ -1,7 +1,6 @@
 import {
-  AppLink, AppLinkTheme, classNames, HomeIcon,
+  AppLink, AppLinkTheme, classNames,
 } from 'shared';
-import { RoutePath } from 'shared/config';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getAuthData } from 'entities/user';

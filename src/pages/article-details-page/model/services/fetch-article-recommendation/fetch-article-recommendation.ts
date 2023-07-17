@@ -12,7 +12,7 @@ export const fetchArticlesRecommendations = createAsyncThunk<
     async (
       props,
       {
-        dispatch, extra, rejectWithValue, getState,
+        extra, rejectWithValue,
       },
     ) => {
       try {
@@ -24,7 +24,6 @@ export const fetchArticlesRecommendations = createAsyncThunk<
             },
           },
         );
-        console.log(response);
         if (!response.data) {
           throw new Error();
         }

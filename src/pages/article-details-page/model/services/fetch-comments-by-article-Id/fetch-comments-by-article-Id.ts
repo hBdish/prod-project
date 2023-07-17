@@ -7,7 +7,7 @@ export const fetchCommentsById = createAsyncThunk<Comment[], string | undefined,
   'articleDetails/fetchCommentsById',
   async (
     articleId,
-    { dispatch, extra, rejectWithValue },
+    { extra, rejectWithValue },
   ) => {
     try {
       if (!articleId) return rejectWithValue(i18n.t('not id error'));

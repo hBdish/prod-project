@@ -4,6 +4,15 @@ import { fetchNextArticlesPage } from './fetch-next-article-page';
 import { fetchArticlesList } from '../fetch-articles-list/fetch-articles-list';
 
 jest.mock('../fetch-articles-list/fetch-articles-list');
+jest.mock('axios', () => ({
+  create: jest.fn(() => ({
+    get: jest.fn(),
+    interceptors: {
+      request: { use: jest.fn(), eject: jest.fn() },
+      response: { use: jest.fn(), eject: jest.fn() },
+    },
+  })),
+}));
 
 describe('fetchNextArticlePage.test', () => {
   test('success', async () => {

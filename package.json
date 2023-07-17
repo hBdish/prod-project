@@ -7,7 +7,7 @@
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start": "webpack serve --env port=3000",
     "start:dev:server": "node ./json-server/index.js",
-    "build:prod": "webpack --config webpack.config.ts --env mode=production",
+    "build:prod": "webpack --config webpack.config.ts --env mode=production apiUrl=https://mock-back-prod.vercel.app/",
     "build:dev": "webpack --config webpack.config.ts --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:scss": "npx stylelint \"**/*.scss\"",

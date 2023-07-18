@@ -1,7 +1,9 @@
-.ArticlePage {
-  min-height: 100%;
+.ArticleBlock {
+  width: 100%;
+  height: calc(100vh - var(--navbar-height));
 }
 
 .list {
+  height: 100%;
   margin-top: 16px;
 }

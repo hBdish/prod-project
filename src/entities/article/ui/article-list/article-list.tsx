@@ -1,6 +1,8 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames, Text } from 'shared';
+import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
+import { classNames, Text } from 'shared';
+import { ArticlePageFilters } from 'pages/article-page/ui/article-page-filters';
 import { ArticleListItem } from '../article-list-item/article-list-item';
 import { Article, ArticleView } from '../../types/types';
 import { ArticleListItemSkeleton } from '../article-list-item/article-list-item-skeleton';
@@ -12,6 +14,7 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
+  onLoadNextPart?: () => void
 }
 
 const ArticleList = memo((props: ArticleListProps) => {
@@ -21,23 +24,46 @@ const ArticleList = memo((props: ArticleListProps) => {
     isLoading,
     view = ArticleView.BIG,
     target,
+    onLoadNextPart,
   } = props;
 
   const { t } = useTranslation('article');
-  const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
+
+  const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.BIG ? 3 : 8)
     .fill(0)
     .map((item, index) => (
       <ArticleListItemSkeleton className={styles.card} key={index} view={view} />
     ));
 
-  const renderArticle = (article: Article) => (
-    <ArticleListItem
-      className={styles.card}
-      article={article}
-      view={view}
-      key={article.id}
-      target={target}
-    />
+  const Header = memo(() => <ArticlePageFilters />);
+
+  const ItemContainerComp: FC = memo(() => (
+    <div className={styles.itemsContainer}>
+      {getSkeletons(view)}
+    </div>
+  ));
+
+  const Footer = memo(() => {
+    if (isLoading) {
+      return (
+        <div className={classNames('', {}, [className, styles[view]])}>
+          {getSkeletons(view)}
+        </div>
+      );
+    }
+    return null;
+  });
+
+  const renderArticle = (index: number, article: Article) => (
+    <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
+      <ArticleListItem
+        className={styles.card}
+        article={article}
+        view={view}
+        key={article.id}
+        target={target}
+      />
+    </div>
   );
 
   if (!isLoading && !articles.length) {
@@ -48,13 +74,41 @@ const ArticleList = memo((props: ArticleListProps) => {
     );
   }
 
+  if (view === ArticleView.BIG) {
+    return (
+      <Virtuoso
+        style={{ height: '100%' }}
+        data={articles}
+        totalCount={articles.length}
+        itemContent={renderArticle}
+        endReached={onLoadNextPart}
+      // initialTopMostItemIndex={selectedArticle}
+        components={{
+          Header,
+          Footer,
+        }}
+      />
+    );
+  }
+
   return (
-    <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
-      {articles.length > 0
-        ? articles.map(renderArticle)
-        : null}
-      {isLoading && getSkeletons(view)}
-    </div>
+    <VirtuosoGrid
+      style={{ height: '100%' }}
+      data={articles}
+      totalCount={articles.length}
+      listClassName={styles.itemsWrapper}
+      itemContent={renderArticle}
+      endReached={onLoadNextPart}
+      scrollSeekConfiguration={{
+        enter: (velocity) => Math.abs(velocity) > 200,
+        exit: (velocity) => Math.abs(velocity) < 30,
+      }}
+      components={{
+        Header,
+        Footer,
+        ScrollSeekPlaceholder: ItemContainerComp,
+      }}
+    />
   );
 });
 

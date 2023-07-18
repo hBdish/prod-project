@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import {
@@ -26,7 +26,7 @@ const reducers: ReducersList = {
   articlesPage: articlePageReducer,
 };
 
-const ArticlePage = (props: ArticlePageProps) => {
+const ArticlePage = memo((props: ArticlePageProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
@@ -47,19 +47,16 @@ const ArticlePage = (props: ArticlePageProps) => {
   );
 
   return (
-    <ContentPageBlock
-      onScrollEnd={onLoadNextPart}
-      className={classNames(styles.ArticlePage, {}, [className])}
-    >
-      <ArticlePageFilters />
+    <div className={styles.ArticleBlock}>
       <ArticleList
         articles={articles}
         isLoading={isLoading}
         view={view}
         className={styles.list}
+        onLoadNextPart={onLoadNextPart}
       />
-    </ContentPageBlock>
+    </div>
   );
-};
+});
 
 export { ArticlePage };

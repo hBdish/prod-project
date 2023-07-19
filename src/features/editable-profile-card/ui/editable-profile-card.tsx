@@ -2,7 +2,6 @@ import {
   classNames, Text, TextTheme, useAppDispatch, useInitialEffect,
 } from 'shared';
 import { useSelector } from 'react-redux';
-import { ProfileCardHeader } from 'features/editable-profile-card/ui/profile-card-header/profile-card-header';
 import { useCallback } from 'react';
 import {
   fetchProfileData, profileActions, ValidateProfileError,
@@ -11,6 +10,7 @@ import { Currency } from 'helpers/currency';
 import { Country } from 'helpers/country';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { ProfileCardHeader } from '../ui/profile-card-header/profile-card-header';
 import {
   getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateError,
 } from '../model/selectors';

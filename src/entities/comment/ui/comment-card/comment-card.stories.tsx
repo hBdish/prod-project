@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config';
-import { CommentCard } from 'entities/comment';
+import { CommentCard } from '../comment-card/comment-card';
 
 const meta: Meta<typeof CommentCard> = {
   title: 'entities/CommentCard',

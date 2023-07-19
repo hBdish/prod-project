@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { getAuthData } from 'entities/user';
-import { getProfileData } from 'features/editable-profile-card/model/selectors';
+import { getProfileData } from '../../model/selectors/get-profile-data';
 import { profileActions, updateProfileData } from '../../model';
 import { getProfileReadonly } from '../../model/selectors/get-profile-readonly/get-profile-readonly';
 import styles from './profile-card-header.module.scss';

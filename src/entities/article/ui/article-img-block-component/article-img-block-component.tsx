@@ -1,6 +1,6 @@
 import { classNames, Text, TextAlign } from 'shared';
 import { memo } from 'react';
-import { ArticleImgBlock } from 'entities/article';
+import { ArticleImgBlock } from '../../types/types';
 import styles from './article-img-block-component.module.scss';
 
 interface ArticleImgBlockComponentProps {

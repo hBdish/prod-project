@@ -18,7 +18,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-react-hooks'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'eslint-plugin-react-hooks',
+    'pc-test',
+  ],
   rules: {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
@@ -49,6 +55,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
+    'pc-test/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

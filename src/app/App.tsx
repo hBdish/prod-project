@@ -2,7 +2,7 @@ import { Suspense, useEffect } from 'react';
 import { AppRouter, useTheme } from 'app/providers';
 import { classNames, useAppDispatch } from 'shared/lib';
 import { Navbar, Sidebar } from 'widgets';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getUserInited, userActions } from 'entities/user';
 
 function App() {

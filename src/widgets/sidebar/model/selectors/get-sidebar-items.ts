@@ -4,7 +4,7 @@ import { RoutePath } from 'shared/config';
 import {
   AboutIcon, ArticlesIcon, HomeIcon, ProfileIcon,
 } from 'shared';
-import { SidebarItemType } from 'widgets/sidebar';
+import { SidebarItemType } from '../../model/types/types';
 
 export const getSidebarItems = createSelector(
   getAuthData,

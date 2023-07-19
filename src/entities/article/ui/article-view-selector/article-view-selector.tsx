@@ -2,7 +2,7 @@ import { memo } from 'react';
 import {
   Button, ButtonTheme, classNames, Icon, ListIcon, TiledIcon,
 } from 'shared';
-import { ArticleView } from 'entities/article';
+import { ArticleView } from '../../types/types';
 import styles from './article-view-selector.module.scss';
 
 interface ArticleViewSelectorProps {

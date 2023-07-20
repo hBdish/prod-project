@@ -1,12 +1,13 @@
 import { memo, useCallback } from 'react';
-import { Button, ButtonTheme, classNames } from 'shared';
+import {
+  Button, ButtonTheme, classNames, Hstack,
+} from 'shared';
 import { RoutePath } from 'shared/config';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from 'entities/article';
 import { getCanEditArticle } from '../../model/selectors/article-selector';
-import styles from './article-details-page-header.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -28,7 +29,7 @@ const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => 
   }, [navigate, article]);
 
   return (
-    <div className={classNames(styles.ArticleDetailsPageHeader, {}, [className])}>
+    <Hstack w100 justify="between" className={classNames('', {}, [className])}>
       <Button
         theme={ButtonTheme.OUTLINE}
         onClick={onBackToList}
@@ -37,14 +38,13 @@ const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => 
       </Button>
       {canEdit && (
       <Button
-        className={styles.edithBtn}
         theme={ButtonTheme.OUTLINE}
         onClick={onEditArticle}
       >
         {t('Редактировать')}
       </Button>
       )}
-    </div>
+    </Hstack>
   );
 });
 

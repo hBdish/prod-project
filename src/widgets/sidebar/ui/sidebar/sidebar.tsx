@@ -5,6 +5,7 @@ import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/theme-switcher/theme-switcher';
 import { LangSwitcher } from 'widgets';
 import { useSelector } from 'react-redux';
+import { Vstack } from 'shared/ui/stack/vstack/vstack';
 import { SidebarItem } from '../sidebar-item/sidebar-item';
 import styles from './sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/get-sidebar-items';
@@ -48,9 +49,9 @@ const Sidebar = memo(({ className }: SidebarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={styles.links}>
+      <Vstack gap="8" align="start" className={styles.links}>
         {itemsList}
-      </div>
+      </Vstack>
       <div className={styles.switchers}>
         <ThemeSwitcher />
         <LangSwitcher

@@ -1,5 +1,6 @@
 import {
   Button, ButtonTheme, classNames, Text, useAppDispatch,
+  Hstack,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,7 +9,6 @@ import { getAuthData } from 'entities/user';
 import { getProfileData } from '../../model/selectors/get-profile-data';
 import { profileActions, updateProfileData } from '../../model';
 import { getProfileReadonly } from '../../model/selectors/get-profile-readonly/get-profile-readonly';
-import styles from './profile-card-header.module.scss';
 
 interface ProfileCardHeaderProps {
   className?: string
@@ -37,41 +37,38 @@ const ProfileCardHeader = (props: ProfileCardHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(styles.ProfileCardHeader, {}, [className])}>
+    <Hstack w100 justify="between" className={classNames('', {}, [className])}>
       <Text title={t('Профиль пользователя') || ''} />
       {canEdit && (
-        <div className={styles.wrapperBtn}>
+        <div>
           {readonly
             ? (
               <Button
                 theme={ButtonTheme.OUTLINE}
-                className={styles.editBtn}
                 onClick={onEdit}
               >
                 {t('Редактировать')}
               </Button>
             )
             : (
-              <>
+              <Hstack gap="8">
                 <Button
                   theme={ButtonTheme.OUTLINE}
-                  className={styles.saveBtn}
                   onClick={onSave}
                 >
                   {t('Сохранить')}
                 </Button>
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
-                  className={styles.editBtn}
                   onClick={onCancelEdit}
                 >
                   {t('Отменить')}
                 </Button>
-              </>
+              </Hstack>
             )}
         </div>
       )}
-    </div>
+    </Hstack>
   );
 };
 

@@ -15,7 +15,6 @@ import {
   articlePageReducer,
   getArticles,
 } from '../../model';
-import { ArticlePageFilters } from '../article-page-filters/article-page-filters';
 import styles from './article-page.module.scss';
 
 interface ArticlePageProps {

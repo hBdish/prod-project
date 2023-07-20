@@ -5,7 +5,7 @@ import {
   TextSize,
   useAppDispatch,
   useDynamicModuleLoader,
-  useInitialEffect,
+  useInitialEffect, Vstack,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList, ArticleView } from 'entities/article';
@@ -75,30 +75,32 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <ContentPageBlock className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-      <ArticleDetailsPageHeader />
-      <ArticleDetails id={id} />
-      <Text
-        size={TextSize.L}
-        className={styles.commentTitle}
-        title={t('Рекомендуем') || ''}
-      />
-      <ArticleList
-        className={styles.recommendations}
-        articles={recommendations}
-        isLoading={recommendationsIsLoading}
-        view={ArticleView.SMALL}
-        target="_blank"
-      />
-      <Text
-        size={TextSize.L}
-        className={styles.commentTitle}
-        title={t('Комментарии') || ''}
-      />
-      <AddCommentForm onSendComment={onSendComment} />
-      <CommentList
-        isLoading={isLoading}
-        comments={comments}
-      />
+      <Vstack gap="16">
+        <ArticleDetailsPageHeader />
+        <ArticleDetails id={id} />
+        <Text
+          size={TextSize.L}
+          className={styles.commentTitle}
+          title={t('Рекомендуем') || ''}
+        />
+        <ArticleList
+          className={styles.recommendations}
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          view={ArticleView.SMALL}
+          target="_blank"
+        />
+        <Text
+          size={TextSize.L}
+          className={styles.commentTitle}
+          title={t('Комментарии') || ''}
+        />
+        <AddCommentForm onSendComment={onSendComment} />
+        <CommentList
+          isLoading={isLoading}
+          comments={comments}
+        />
+      </Vstack>
     </ContentPageBlock>
   );
 };

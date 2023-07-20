@@ -2,7 +2,7 @@ import {
   Avatar,
   CalendarIcon,
   classNames,
-  EyeIcon,
+  EyeIcon, Hstack,
   Icon,
   ReducersList,
   Skeleton,
@@ -10,7 +10,7 @@ import {
   TextAlign,
   TextSize,
   useAppDispatch,
-  useDynamicModuleLoader,
+  useDynamicModuleLoader, Vstack,
 } from 'shared';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -27,7 +27,6 @@ import {
 } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services/fetch-article-by-id/fetch-article-by-id';
 import { articleDetailsReducer } from '../../model/slice/articleDetaisSlice';
-import styles from './article-details.module.scss';
 
 interface ArticleDetailsProps {
   className?: string
@@ -59,11 +58,11 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: Block) => {
     switch (block.type) {
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} className={styles.block} block={block} />;
+        return <ArticleTextBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.IMG:
-        return <ArticleImgBlockComponent key={block.id} className={styles.block} block={block} />;
+        return <ArticleImgBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} className={styles.block} block={block} />;
+        return <ArticleCodeBlockComponent key={block.id} block={block} />;
       default:
         return null;
     }
@@ -72,11 +71,11 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={styles.avatar} width={200} height={200} border="50%" />
-        <Skeleton className={styles.title} width={300} height={32} />
-        <Skeleton className={styles.skeleton} width={600} height={24} />
-        <Skeleton className={styles.skeleton} width="100%" height={200} />
-        <Skeleton className={styles.skeleton} width="100%" height={200} />
+        <Skeleton width={200} height={200} border="50%" />
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width="100%" height={200} />
+        <Skeleton width="100%" height={200} />
       </>
     );
   } else if (error) {
@@ -89,38 +88,43 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <div className={styles.avatarWrapper}>
-          <Avatar size={200} src={article?.img} className={styles.avatar} />
-        </div>
+        <Hstack
+          justify="center"
+          w100
+        >
+          <Avatar
+            size={200}
+            src={article?.img}
+          />
+        </Hstack>
+        <Vstack gap="8" w100>
+          <Hstack gap="8">
+            <Icon
+              Svg={EyeIcon}
+            />
+            <Text text={String(article?.views)} />
+          </Hstack>
+          <Hstack gap="8">
+            <Icon
+              Svg={CalendarIcon}
+            />
+            <Text text={article?.createdAt} />
+          </Hstack>
+        </Vstack>
         <Text
-          className={styles.title}
           title={article?.title}
           text={article?.subtitle}
           size={TextSize.L}
         />
-        <div className={styles.articleInfo}>
-          <Icon
-            Svg={EyeIcon}
-            className={styles.icon}
-          />
-          <Text text={String(article?.views)} />
-        </div>
-        <div className={styles.articleInfo}>
-          <Icon
-            Svg={CalendarIcon}
-            className={styles.icon}
-          />
-          <Text text={article?.createdAt} />
-        </div>
         {article?.block.map(renderBlock)}
       </>
     );
   }
 
   return (
-    <div className={classNames(styles.ArticleDetails, {}, [className])}>
+    <Vstack w100 gap="16" className={classNames('', {}, [className])}>
       {content}
-    </div>
+    </Vstack>
   );
 });
 

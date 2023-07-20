@@ -20,9 +20,9 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   const navigate = useNavigate();
   const canEdit = useSelector(getCanEditArticle);
 
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
+  // const onBackToList = useCallback(() => {
+  //   navigate(RoutePath.articles);
+  // }, [navigate]);
 
   return (
     <ContentPageBlock className={classNames('', {}, [className])}>

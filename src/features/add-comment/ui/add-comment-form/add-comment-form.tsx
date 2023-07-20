@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import {
-  Button, classNames, Input, ReducersList, useAppDispatch, useDynamicModuleLoader,
+  Button, classNames, Hstack, Input, ReducersList, useAppDispatch, useDynamicModuleLoader,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -41,7 +41,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   useDynamicModuleLoader({ reducers, removeAfterUnmount: true });
 
   return (
-    <div className={classNames(styles.AddCommentForm, {}, [className])}>
+    <Hstack justify="between" w100 className={classNames(styles.AddCommentForm, {}, [className])}>
       <Input
         className={styles.input}
         placeholder={t('Введите текст комментария') || ''}
@@ -53,7 +53,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
       >
         {t('Отправить')}
       </Button>
-    </div>
+    </Hstack>
   );
 });
 

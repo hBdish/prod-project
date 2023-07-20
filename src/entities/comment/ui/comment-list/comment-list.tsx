@@ -1,8 +1,7 @@
 import { memo } from 'react';
-import { classNames, Text } from 'shared';
+import { classNames, Text, Vstack } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { CommentCard } from '../comment-card/comment-card';
-import styles from './comment-list.module.scss';
 import { Comment } from '../../model/types/types';
 
 interface CommentListProps {
@@ -22,24 +21,24 @@ const CommentList = memo((props: CommentListProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames('', {}, [className])}>
-        <CommentCard className={styles.comment} isLoading />
-        <CommentCard className={styles.comment} isLoading />
-        <CommentCard className={styles.comment} isLoading />
-      </div>
+      <Vstack gap="16" w100 className={classNames('', {}, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </Vstack>
     );
   }
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <Vstack gap="16" w100 className={classNames('', {}, [className])}>
       {comments?.length
         ? comments.map(
           (comment) => (
-            <CommentCard key={comment.id} className={styles.comment} comment={comment} />
+            <CommentCard key={comment.id} comment={comment} />
           ),
         )
         : <Text text={t('Комментариев еще нет') || ''} />}
-    </div>
+    </Vstack>
   );
 });
 

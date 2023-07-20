@@ -1,5 +1,5 @@
 import {
-  classNames, Text, TextTheme, useAppDispatch, useInitialEffect,
+  classNames, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
 } from 'shared';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
@@ -79,28 +79,30 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
 
   return (
     <div className={classNames('', { }, [className])}>
-      <ProfileCardHeader />
-      {validateErrors?.length && validateErrors.map((err) => (
-        <Text
-          key={err}
-          theme={TextTheme.ERROR}
-          text={validateErrorTranslates[err]}
+      <Vstack gap="16" w100>
+        <ProfileCardHeader />
+        {validateErrors?.length && validateErrors.map((err) => (
+          <Text
+            key={err}
+            theme={TextTheme.ERROR}
+            text={validateErrorTranslates[err]}
+          />
+        ))}
+        <ProfileCard
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          onChangeName={onChangeName}
+          onChangeSecondName={onChangeSecondName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+          readonly={readonly}
         />
-      ))}
-      <ProfileCard
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        onChangeName={onChangeName}
-        onChangeSecondName={onChangeSecondName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeAvatar={onChangeAvatar}
-        onChangeUsername={onChangeUsername}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-        readonly={readonly}
-      />
+      </Vstack>
     </div>
   );
 };

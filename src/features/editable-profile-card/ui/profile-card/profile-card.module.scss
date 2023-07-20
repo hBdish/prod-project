@@ -1,20 +1,9 @@
 .ProfileCard {
   padding: 20px;
+  width: 100%;
   border: 2px solid var(--inverted-bg-color);
 }
 
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.input {
-  margin-top: 15px;
-}
-
 .loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 300px;
 }

@@ -1,5 +1,5 @@
 import { classNames, Mods } from 'shared';
-import { ReactNode } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import styles from './flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
@@ -7,7 +7,9 @@ export type FlexAlign = 'start' | 'center' | 'end'
 export type FlexDirection = 'row' | 'column'
 export type FlexGap = '8' | '16' | '24' | '32' | '40'
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps {
   className?: string
   children?: ReactNode
   justify?: FlexJustify
@@ -26,6 +28,7 @@ const Flex = (props: FlexProps) => {
     direction = 'row',
     gap,
     w100 = false,
+
   } = props;
 
   const justifyClasses: Record<FlexJustify, string> = {

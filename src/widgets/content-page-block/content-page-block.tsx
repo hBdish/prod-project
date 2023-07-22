@@ -1,5 +1,5 @@
 import {
-  memo, MutableRefObject, ReactNode, useRef, UIEvent,
+  memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import {
   classNames, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle,
@@ -48,14 +48,14 @@ const ContentPageBlock = memo((props: ContentPageBlockProps) => {
   }, 500);
 
   return (
-    <section
+    <main
       ref={wrapperRef}
       className={classNames(styles.ContentPageBlock, {}, [className])}
       onScroll={onScroll}
     >
       {children}
-      { onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
-    </section>
+      {onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
+    </main>
   );
 });
 

@@ -9,6 +9,7 @@ import { Vstack } from 'shared/ui/stack/vstack/vstack';
 import { SidebarItem } from '../sidebar-item/sidebar-item';
 import styles from './sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/get-sidebar-items';
+
 // import { SidebarItemsList } from '../../model/items';
 
 interface SidebarProps {
@@ -35,7 +36,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
   );
 
   return (
-    <menu
+    <aside
       data-testid="test-sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}
     >
@@ -49,7 +50,12 @@ const Sidebar = memo(({ className }: SidebarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <Vstack gap="8" align="start" className={styles.links}>
+      <Vstack
+        role="navigation"
+        gap="8"
+        align="start"
+        className={styles.links}
+      >
         {itemsList}
       </Vstack>
       <div className={styles.switchers}>
@@ -59,7 +65,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
           short={collapsed}
         />
       </div>
-    </menu>
+    </aside>
   );
 });
 

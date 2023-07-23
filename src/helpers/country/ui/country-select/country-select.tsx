@@ -1,4 +1,4 @@
-import { classNames, Select } from 'shared';
+import { ListBox } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { Country } from '../../model/types/types';
@@ -30,14 +30,22 @@ const CountrySelect = memo((props: CountrySelectProps) => {
   }, [onChange]);
 
   return (
-    <Select
-      className={classNames('', {}, [className])}
-      label={t('Укажите валюту') || ''}
-      options={options}
-      value={value}
+    <ListBox
+      items={options}
       onChange={onChangeHandler}
+      value={value}
       readonly={readonly}
+      defaultValue={t('Укажите страну') ?? ''}
+      label={t('Укажите страну') ?? ''}
     />
+    // <Select
+    //   className={classNames('', {}, [className])}
+    //   label={t('Укажите валюту') || ''}
+    //   options={options}
+    //   value={value}
+    //   onChange={onChangeHandler}
+    //   readonly={readonly}
+    // />
   );
 });
 

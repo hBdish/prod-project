@@ -37,20 +37,9 @@ const CurrencySelect = memo((props: CurrencySelectProps) => {
       value={value}
       onChange={onChangeHandler}
       readonly={readonly}
-      direction="top"
+      direction="topRight"
     />
   );
-
-  // return (
-  //   <Selec
-  //     className={classNames('', {}, [className])}
-  //     label={t('Укажите валюту') || ''}
-  //     options={options}
-  //     value={value}
-  //     onChange={onChangeHandler}
-  //     readonly={readonly}
-  //   />
-  // );
 });
 
 export { CurrencySelect };

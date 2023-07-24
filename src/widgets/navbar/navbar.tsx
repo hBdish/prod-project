@@ -1,5 +1,5 @@
 import {
-  AppLink, AppLinkTheme, Button, ButtonTheme, classNames, Text, TextTheme,
+  AppLink, AppLinkTheme, Avatar, Button, ButtonTheme, classNames, Dropdown, Text, TextTheme,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
@@ -41,13 +41,21 @@ const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t('Создать статью')}
         </AppLink>
-        <Button
-          theme={ButtonTheme.CLEAR_INVERTED}
-          className={styles.links}
-          onClick={onLogout}
-        >
-          {t('Выйти')}
-        </Button>
+        <Dropdown
+          direction="bottomLeft"
+          className={styles.dropdown}
+          items={[
+            {
+              content: t('Профиль пользователя'),
+              href: RoutePath.profile + authData.id,
+            },
+            {
+              content: t('Выйти'),
+              onClick: onLogout,
+            },
+          ]}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+        />
       </header>
     );
   }
@@ -61,7 +69,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
       >
         {t('Войти')}
       </Button>
-      { isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleAuthModal} />}
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleAuthModal} />}
     </header>
   );
 });

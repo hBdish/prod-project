@@ -5,10 +5,11 @@ import {
   TextSize,
   useAppDispatch,
   useDynamicModuleLoader,
-  useInitialEffect, Vstack,
+  useInitialEffect,
+  Vstack,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails, ArticleList, ArticleView } from 'entities/article';
+import { ArticleDetails } from 'entities/article';
 import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/comment';
 import { useSelector } from 'react-redux';
@@ -24,6 +25,8 @@ import {
   getArticleSelectors,
 } from 'pages/article-details-page/model/slice/article-details-comment-slice';
 import { ArticleDetailsPageHeader } from 'pages/article-details-page/ui/article-details-page-header';
+import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+import { addCommentsForArticle } from 'pages';
 import {
   fetchArticlesRecommendations,
   fetchCommentsById,
@@ -31,8 +34,6 @@ import {
   getArticleRecommendationsError,
   getArticleRecommendationsIsLoading,
 } from '../../model';
-import { addCommentsForArticle }
-  from '../../model/services/add-comments-for-article/add-comments-for-article';
 import styles from './article-details-page.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -47,7 +48,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
   const { t } = useTranslation('article');
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleSelectors.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
@@ -78,18 +79,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <Vstack gap="16">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <Text
-          size={TextSize.L}
-          className={styles.commentTitle}
-          title={t('Рекомендуем') || ''}
-        />
-        <ArticleList
-          className={styles.recommendations}
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          view={ArticleView.SMALL}
-          target="_blank"
-        />
+        <ArticleRecommendationsList />
         <Text
           size={TextSize.L}
           className={styles.commentTitle}

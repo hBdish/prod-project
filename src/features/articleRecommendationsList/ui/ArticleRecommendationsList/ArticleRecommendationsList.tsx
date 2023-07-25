@@ -1,8 +1,9 @@
+import { useTranslation } from 'react-i18next';
+import { ArticleListItem, ArticleView } from 'entities/article';
 import {
   classNames, Hstack, Text, TextSize, Vstack,
 } from 'shared';
-import { useTranslation } from 'react-i18next';
-import { Article, ArticleListItem, ArticleView } from 'entities/article';
+import React from 'react';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
@@ -12,9 +13,9 @@ interface ArticleRecommendationsListProps {
 export const ArticleRecommendationsList = (props: ArticleRecommendationsListProps) => {
   const { className } = props;
   const { t } = useTranslation();
-  const { data: articles, isLoading } = useArticleRecommendationsList(3);
+  const { data: article, isLoading } = useArticleRecommendationsList(3);
 
-  if (isLoading) {
+  if (isLoading || !article) {
     return null;
   }
 
@@ -25,7 +26,7 @@ export const ArticleRecommendationsList = (props: ArticleRecommendationsListProp
         title={t('Рекомендуем') || ''}
       />
       <Hstack w100 justify="center" gap="24">
-        {articles.map((article: Article) => (
+        {article.map((article) => (
           <ArticleListItem
             target="_blank"
             article={article}
@@ -34,5 +35,6 @@ export const ArticleRecommendationsList = (props: ArticleRecommendationsListProp
         ))}
       </Hstack>
     </Vstack>
+
   );
 };

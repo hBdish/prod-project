@@ -1,6 +1,5 @@
 import {
-  Button, ButtonTheme, classNames, Text, useAppDispatch,
-  Hstack,
+  Button, ButtonTheme, classNames, Hstack, Text, useAppDispatch,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -46,6 +45,7 @@ const ProfileCardHeader = (props: ProfileCardHeaderProps) => {
               <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={onEdit}
+                data-testid="EditableProfileCardHeader.EditButton"
               >
                 {t('Редактировать')}
               </Button>
@@ -55,12 +55,14 @@ const ProfileCardHeader = (props: ProfileCardHeaderProps) => {
                 <Button
                   theme={ButtonTheme.OUTLINE}
                   onClick={onSave}
+                  data-testid="EditableProfileCardHeader.SaveButton"
                 >
                   {t('Сохранить')}
                 </Button>
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
                   onClick={onCancelEdit}
+                  data-testid="EditableProfileCardHeader.CancelButton"
                 >
                   {t('Отменить')}
                 </Button>

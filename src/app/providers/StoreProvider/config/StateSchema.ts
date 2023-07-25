@@ -11,11 +11,13 @@ import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/article/model';
 import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema, ArticlePageSchema } from 'pages';
+import { rtkApi } from 'shared';
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema;
   scroll: ScrollSaveSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async
   login?: LoginSchema

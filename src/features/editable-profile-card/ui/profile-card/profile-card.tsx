@@ -1,10 +1,5 @@
 import {
-  Avatar,
-  classNames, Hstack, Input,
-  Loader,
-  Text,
-  TextAlign,
-  TextTheme, Vstack,
+  Avatar, classNames, Hstack, Input, Loader, Text, TextAlign, TextTheme, Vstack,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { Currency, CurrencySelect } from 'helpers/currency';
@@ -49,7 +44,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(styles.ProfileCard, { }, [className, styles.loading])}>
+      <div className={classNames(styles.ProfileCard, {}, [className, styles.loading])}>
         <Loader />
       </div>
     );
@@ -60,7 +55,7 @@ const ProfileCard = (props: ProfileCardProps) => {
       <Hstack
         justify="center"
         align="center"
-        className={classNames(styles.ProfileCard, { }, [className, styles.error])}
+        className={classNames(styles.ProfileCard, {}, [className, styles.error])}
       >
         <Text
           theme={TextTheme.ERROR}
@@ -94,6 +89,7 @@ const ProfileCard = (props: ProfileCardProps) => {
         className={styles.input}
         onChange={onChangeName}
         readonly={readonly}
+        data-testid="ProfileCard.first"
       />
       <Input
         value={data?.lastname}
@@ -101,6 +97,7 @@ const ProfileCard = (props: ProfileCardProps) => {
         className={styles.input}
         onChange={onChangeSecondName}
         readonly={readonly}
+        data-testid="ProfileCard.lastname"
       />
       <Input
         value={data?.age}

@@ -3,16 +3,18 @@ import {
 } from 'shared';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import {
-  fetchProfileData, profileActions, ValidateProfileError,
-} from 'features';
+import { fetchProfileData, profileActions, ValidateProfileError } from 'features';
 import { Currency } from 'helpers/currency';
 import { Country } from 'helpers/country';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ProfileCardHeader } from '../ui/profile-card-header/profile-card-header';
 import {
-  getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateError,
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileReadonly,
+  getProfileValidateError,
 } from '../model/selectors';
 import { ProfileCard } from './profile-card/profile-card';
 
@@ -26,7 +28,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
   } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
-  const { id } = useParams<{ id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   useInitialEffect(() => {
     if (id) dispatch(fetchProfileData(id));
@@ -78,7 +80,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
   };
 
   return (
-    <div className={classNames('', { }, [className])}>
+    <div className={classNames('', {}, [className])}>
       <Vstack gap="16" w100>
         <ProfileCardHeader />
         {validateErrors?.length && validateErrors.map((err) => (
@@ -86,6 +88,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
             key={err}
             theme={TextTheme.ERROR}
             text={validateErrorTranslates[err]}
+            data-testid="EditableProfileCard.ERROR"
           />
         ))}
         <ProfileCard

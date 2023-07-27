@@ -1,4 +1,4 @@
-type Mods = Record<string, boolean | string | undefined>
+export type Mods = Record<string, boolean | string | undefined>
 
 function classNames(cls: string, mods: Mods = {}, additional: Array<string | undefined> = []): string {
   return [
@@ -10,4 +10,4 @@ function classNames(cls: string, mods: Mods = {}, additional: Array<string | und
   ].join(' ');
 }
 
-export { classNames, Mods };
+export { classNames };

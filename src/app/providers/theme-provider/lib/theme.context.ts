@@ -5,7 +5,7 @@ enum Theme {
   DARK = 'app_dark_theme',
 }
 
- interface ThemeContextProps {
+interface ThemeContextProps {
   theme?: Theme
   setTheme?: (theme: Theme) => void
 }
@@ -17,6 +17,7 @@ const LOCAL_STORAGE_THEME_KEY = 'theme';
 export {
   LOCAL_STORAGE_THEME_KEY,
   ThemeContext,
-  ThemeContextProps,
   Theme,
 };
+
+export type { ThemeContextProps };

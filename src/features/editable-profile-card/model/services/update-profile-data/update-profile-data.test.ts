@@ -1,6 +1,6 @@
 import { Country, Currency } from 'helpers';
 import TestImg from 'shared/assets/for-test/test-img.png';
-import { ValidateProfileError } from 'features';
+import { ValidateProfileError } from '../../const/editableProfileCardConst';
 import { updateProfileData } from './update-profile-data';
 import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
 

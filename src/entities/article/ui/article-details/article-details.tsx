@@ -11,21 +11,19 @@ import {
   TextAlign,
   TextSize,
   useAppDispatch,
-  useDynamicModuleLoader, Vstack,
+  useDynamicModuleLoader,
+  Vstack,
 } from 'shared';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { articleDetailsPageRecommendationReducer } from 'pages';
+import { ArticleBlockType } from '../../model/const/articleConst';
 import { ArticleCodeBlockComponent } from '../article-code-block-component';
 import { ArticleTextBlockComponent } from '../article-text-block-component';
 import { ArticleImgBlockComponent } from '../article-img-block-component';
-import { ArticleBlockType, Block } from '../../types/types';
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from '../../model/selectors';
+import { Block } from '../../types/types';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services/fetch-article-by-id/fetch-article-by-id';
 import { articleDetailsReducer } from '../../model/slice/articleDetaisSlice';
 

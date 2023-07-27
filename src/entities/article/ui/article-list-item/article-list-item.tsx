@@ -1,15 +1,12 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import {
-  AppLink,
-  Avatar, Button, ButtonTheme, Card, classNames, EyeIcon, Icon, Text,
+  AppLink, Button, ButtonTheme, Card, classNames, EyeIcon, Icon, Text,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config';
+import { ArticleBlockType, ArticleView } from '../../model/const/articleConst';
 import styles from './article-list-item.module.scss';
-import {
-  Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../types/types';
+import { Article, ArticleTextBlock } from '../../types/types';
 import { ArticleTextBlockComponent } from '../article-text-block-component/article-text-block-component';
 
 interface ArticleListItemProps {

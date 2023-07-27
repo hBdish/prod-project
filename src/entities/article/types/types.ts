@@ -1,35 +1,12 @@
+import { ArticleBlockType, ArticleType } from '../model/const/articleConst';
 import { User } from '../../user/model/types/user';
-
-export enum ArticleSortField {
-  VIEWS = 'views',
-  TITLE = 'title',
-  CREATED = 'createdAt'
-}
-
-export enum ArticleView {
-  BIG = 'BIG',
-  SMALL = 'SMALL',
-}
-
-export enum ArticleType {
-  ALL = 'ALL',
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS'
-}
-
-export enum ArticleBlockType {
-  IMG = 'IMG',
-  TEXT = 'TEXT',
-  CODE = 'CODE'
-}
 
 export interface ArticleBlock {
   id: string
   type: ArticleBlockType
 }
 
-export interface ArticleTextBlock extends ArticleBlock{
+export interface ArticleTextBlock extends ArticleBlock {
   type: ArticleBlockType.TEXT
   title?: string
   paragraphs: string[]
@@ -40,7 +17,7 @@ export interface ArticleCodeBlock extends ArticleBlock {
   code: string
 }
 
-export interface ArticleImgBlock extends ArticleBlock{
+export interface ArticleImgBlock extends ArticleBlock {
   type: ArticleBlockType.IMG
   title: string
   src: string

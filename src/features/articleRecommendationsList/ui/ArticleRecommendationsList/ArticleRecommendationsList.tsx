@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { ArticleListItem, ArticleView } from 'entities/article';
+import { ArticleListItem } from 'entities/article';
 import {
   classNames, Hstack, Text, TextSize, Vstack,
 } from 'shared';
 import React from 'react';
+import { ArticleView } from 'entities/article/model/const';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {

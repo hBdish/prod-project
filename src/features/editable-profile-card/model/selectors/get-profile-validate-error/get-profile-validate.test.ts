@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers';
-import { ValidateProfileError } from 'features';
+import { ValidateProfileError } from '../../const/editableProfileCardConst';
 import { getProfileValidateError } from './get-profile-validate-error';
 
 describe('GetProfileIsValidate', () => {
@@ -13,7 +13,7 @@ describe('GetProfileIsValidate', () => {
   });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<StateSchema> = { };
+    const state: DeepPartial<StateSchema> = {};
     expect(getProfileValidateError(state as StateSchema)).toEqual(undefined);
   });
 });

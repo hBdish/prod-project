@@ -1,5 +1,5 @@
 import TestAsyncThunk from 'shared/lib/test/test-async-thunk';
-import { ArticleType } from 'entities/article';
+import { ArticleType } from 'entities/article/model/const';
 import { fetchNextArticlesPage } from './fetch-next-article-page';
 import { fetchArticlesList } from '../fetch-articles-list/fetch-articles-list';
 
@@ -21,9 +21,7 @@ describe('fetchNextArticlePage.test', () => {
         page: 2,
         ids: [],
         type: ArticleType.ALL,
-        entities: {
-
-        },
+        entities: {},
         limit: 5,
         isLoading: false,
         hasMore: true,
@@ -40,9 +38,7 @@ describe('fetchNextArticlePage.test', () => {
       articlesPage: {
         page: 2,
         ids: [],
-        entities: {
-
-        },
+        entities: {},
         limit: 5,
         isLoading: false,
         hasMore: false,
@@ -60,9 +56,7 @@ describe('fetchNextArticlePage.test', () => {
       articlesPage: {
         page: 2,
         ids: [],
-        entities: {
-
-        },
+        entities: {},
         limit: 5,
         isLoading: true,
         hasMore: true,

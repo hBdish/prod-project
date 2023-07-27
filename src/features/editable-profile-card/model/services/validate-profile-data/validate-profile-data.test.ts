@@ -1,6 +1,6 @@
 import { Country, Currency } from 'helpers';
 import TestImg from 'shared/assets/for-test/test-img.png';
-import { ValidateProfileError } from 'features';
+import { ValidateProfileError } from '../../const/editableProfileCardConst';
 import { validateProfileData } from './validate-profile-data';
 
 const data = {
@@ -28,7 +28,7 @@ describe('validateDataTest', () => {
   });
 
   test('unsuccessful validate without data', async () => {
-    const result = validateProfileData({ });
+    const result = validateProfileData({});
 
     expect(result).toEqual([
       ValidateProfileError.INCORRECT_USER_DATA,

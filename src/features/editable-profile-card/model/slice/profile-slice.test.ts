@@ -1,8 +1,9 @@
 import {
-  profileActions, profileReducer, ProfileSchema, updateProfileData, ValidateProfileError,
+  profileActions, profileReducer, ProfileSchema, updateProfileData,
 } from 'features';
 import { Country, Currency } from 'helpers';
 import TestImg from 'shared/assets/for-test/test-img.png';
+import { ValidateProfileError } from '../const/editableProfileCardConst';
 
 const data = {
   username: 'admin',

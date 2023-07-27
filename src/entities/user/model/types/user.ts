@@ -1,8 +1,11 @@
+import { UserRole } from '../const/userConst';
+
 export interface User {
   id: string
   username: string
   role?: string
   avatar?: string
+  roles?: UserRole[]
 }
 
 export interface UserSchema {

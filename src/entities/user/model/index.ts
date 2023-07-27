@@ -1,4 +1,4 @@
-export {
+export type {
   User,
   UserSchema,
 } from './types/user';
@@ -11,6 +11,9 @@ export {
 export {
   getAuthData,
 } from './selectors/getAuthData';
+
 export {
   getUserInited,
 } from './selectors/get-user-inited';
+
+export * from './selectors/roleSelector';

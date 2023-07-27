@@ -3,8 +3,9 @@ import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
 import { classNames, Text } from 'shared';
 import { ArticlePageFilters } from 'pages/article-page/ui/article-page-filters';
+import { ArticleView } from '../../model/const/articleConst';
 import { ArticleListItem } from '../article-list-item/article-list-item';
-import { Article, ArticleView } from '../../types/types';
+import { Article } from '../../types/types';
 import { ArticleListItemSkeleton } from '../article-list-item/article-list-item-skeleton';
 import styles from './article-list.module.scss';
 
@@ -82,7 +83,7 @@ const ArticleList = memo((props: ArticleListProps) => {
         totalCount={articles.length}
         itemContent={renderArticle}
         endReached={onLoadNextPart}
-      // initialTopMostItemIndex={selectedArticle}
+        // initialTopMostItemIndex={selectedArticle}
         components={{
           Header,
           Footer,

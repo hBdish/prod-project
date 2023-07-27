@@ -3,21 +3,27 @@ import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from 'widgets';
 import { AppRouteProps, routeConfig } from 'shared/config';
 import { RequireAuth } from 'app/providers/router/ui/require-auth';
+import { RequireRoles } from 'app/providers/router/ui/require-roles';
 
 function AppRouter() {
   const renderWithWrapper = useCallback((route: AppRouteProps) => {
     const element = (
       <Suspense key={route.path} fallback={<PageLoader />}>
-
         {route.element}
-
       </Suspense>
     );
+
     return (
       <Route
         key={route.path}
         path={route.path}
-        element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+        element={route.authOnly ? (
+          <RequireAuth>
+            <RequireRoles roles={route.roles}>
+              {element}
+            </RequireRoles>
+          </RequireAuth>
+        ) : element}
       />
     );
   }, []);

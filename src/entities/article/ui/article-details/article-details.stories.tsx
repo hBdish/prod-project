@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import { Theme } from 'app/providers';
+import { ArticleBlockType, ArticleType } from '../../model/const/articleConst';
 import { ArticleDetails } from './article-details';
-import { Article, ArticleBlockType, ArticleType } from '../../types/types';
+import { Article } from '../../types/types';
 
 /* eslint-disable */
 const article: Article = {
@@ -58,8 +59,7 @@ const article: Article = {
 const meta: Meta<typeof ArticleDetails> = {
   title: 'entities/ArticleDetails',
   component: ArticleDetails,
-  args: {
-  },
+  args: {},
 };
 
 export default meta;
@@ -67,8 +67,7 @@ export default meta;
 type Story = StoryObj<typeof ArticleDetails>;
 
 export const Primary: Story = {
-  args: {
-  },
+  args: {},
   decorators: [StoreDecorator({
     articleDetails: {
       data: article,
@@ -77,8 +76,7 @@ export const Primary: Story = {
 };
 
 export const PrimaryDark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({
       articleDetails: {
@@ -90,9 +88,7 @@ export const PrimaryDark: Story = {
 };
 
 export const Error: Story = {
-  args: {
-
-  },
+  args: {},
   decorators: [
     StoreDecorator({
       articleDetails: {
@@ -103,8 +99,7 @@ export const Error: Story = {
 };
 
 export const Loading: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({
       articleDetails: {
@@ -116,9 +111,7 @@ export const Loading: Story = {
 };
 
 export const LoadingDark: Story = {
-  args: {
-
-  },
+  args: {},
   decorators: [
     StoreDecorator({
       articleDetails: {

@@ -1,28 +1,36 @@
 {
   "compilerOptions": {
     "strict": true,
-    "outDir": "./dist/", // папка, куда собирается сборка (ps в данном случае не важна, так как проект собирается через webpack)
-    "noImplicitAny": true, // запрещает использовать переменные, без типизации
+    "outDir": "./dist/",
+    // папка, куда собирается сборка (ps в данном случае не важна, так как проект собирается через webpack)
+    "noImplicitAny": true,
+    // запрещает использовать переменные, без типизации
     "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
-    "allowJs": true, //позволяет обрабатывать не только ts файлы, но и js
+    "allowJs": true,
+    //позволяет обрабатывать не только ts файлы, но и js
     "moduleResolution": "node",
-    "esModuleInterop": true,              // позволяет работать с обычным import/export вместо require()/module.export
-    "allowSyntheticDefaultImports": true,  // позволяет использовать обычный import, вместо import * as NAME ,
-                                          //так как многие библиотеки не поддерживают export default
+    "esModuleInterop": true,
+    // позволяет работать с обычным import/export вместо require()/module.export
+    "allowSyntheticDefaultImports": true,
+    // позволяет использовать обычный import, вместо import * as NAME ,
+    //так как многие библиотеки не поддерживают export default
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
-    }
+      "*": [
+        "./src/*"
+      ]
+    },
+    "isolatedModules": true
   },
   "ts-node": {
-      "compilerOptions": {
-        "module": "CommonJS"
-      }
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   },
   "include": [
     "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/**/*.tsx"
   ]
 }

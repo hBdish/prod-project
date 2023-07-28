@@ -41,7 +41,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'warn',
     'import/extensions': 'off',
     'no-shadow': 'off',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': ['off'],
+    '@typescript-eslint/no-unused-vars': 'warn',
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,

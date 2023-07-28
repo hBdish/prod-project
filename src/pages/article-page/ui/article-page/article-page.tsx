@@ -2,18 +2,17 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import {
-  classNames, ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
+  ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
 } from 'shared';
 import { ArticleList } from 'entities/article';
-import { ContentPageBlock } from 'widgets';
 import {
+  articlePageReducer,
   fetchNextArticlesPage,
   getArticlePageError,
   getArticlePageIsLoading,
   getArticlePageView,
-  initArticlePage,
-  articlePageReducer,
   getArticles,
+  initArticlePage,
 } from '../../model';
 import styles from './article-page.module.scss';
 

@@ -1,4 +1,4 @@
-import { classNames, Flex, FlexProps } from 'shared';
+import { Flex, FlexProps } from 'shared';
 
 type VstackProps = Omit<FlexProps, 'direction'>
 

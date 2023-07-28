@@ -8,7 +8,12 @@ import { ErrorBoundary } from 'app/providers/error-boundary';
 import { createRoot } from 'react-dom/client';
 
 const container = document.getElementById('root');
-const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+
+if (!container) {
+  throw new Error('Контейнер root не найден. НЕ удалось вмонтировать реакт приложение');
+}
+
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
   <StoreProvider>
     <BrowserRouter>

@@ -1,9 +1,9 @@
 const fs = require('fs/promises');
-const resolveRoot = require('../resolveRoot');
-const firstCharUpperCase = require('../firstCharUpperCase');
-const componentTemplate = require('./componentTemplate');
-const storyTemplate = require('./storyTemplate');
-const styleTemplate = require('./styleTemplate');
+const resolveRoot = require('../resolve-root');
+const firstCharUpperCase = require('../normalize-name');
+const componentTemplate = require('./component-template');
+const storyTemplate = require('./story-template');
+const styleTemplate = require('./style-template');
 
 module.exports = async (layer, sliceName) => {
   const resolveUIPath = (...segments) => resolveRoot('src', layer, sliceName, 'ui', ...segments);
@@ -19,17 +19,17 @@ module.exports = async (layer, sliceName) => {
   const createComponent = async () => {
     try {
       const componentName = firstCharUpperCase(sliceName);
-      await fs.mkdir(resolveUIPath(componentName));
+      await fs.mkdir(resolveUIPath(sliceName));
       await fs.writeFile(
-        resolveUIPath(componentName, `${componentName}.tsx`),
-        componentTemplate(componentName),
+        resolveUIPath(componentName, `${sliceName}.tsx`),
+        componentTemplate(componentName, sliceName),
       );
       await fs.writeFile(
-        resolveUIPath(componentName, `${componentName}.stories.tsx`),
-        storyTemplate(layer, componentName),
+        resolveUIPath(componentName, `${sliceName}.stories.tsx`),
+        storyTemplate(layer, componentName, sliceName),
       );
       await fs.writeFile(
-        resolveUIPath(componentName, `${componentName}.module.scss`),
+        resolveUIPath(componentName, `${sliceName}.module.scss`),
         styleTemplate(componentName),
       );
     } catch (e) {

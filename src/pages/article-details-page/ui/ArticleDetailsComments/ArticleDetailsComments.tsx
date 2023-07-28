@@ -17,7 +17,6 @@ const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleSelectors.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
-  console.log(comments);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentsForArticle(text));

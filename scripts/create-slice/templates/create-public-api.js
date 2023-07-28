@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
-const resolveRoot = require('../resolveRoot');
-const firstCharUpperCase = require('../firstCharUpperCase');
+const resolveRoot = require('../resolve-root');
+const firstCharUpperCase = require('../normalize-name');
 
 module.exports = async (layer, sliceName) => {
   const componentName = firstCharUpperCase(sliceName);
@@ -9,8 +9,8 @@ module.exports = async (layer, sliceName) => {
   try {
     await fs.writeFile(
       resolveRoot('src', layer, sliceName, 'index.ts'),
-      `export { ${componentName} } from './ui/${componentName}/${componentName}';
-export { ${firstCharUpperCase(schemaName)} } from './model/types/${schemaName}';`,
+      `export { ${componentName} } from './ui/${sliceName}/${sliceName}';
+export type { ${firstCharUpperCase(schemaName)} } from './model/types/${sliceName}-schema';`,
     );
   } catch (e) {
     console.log('Не удалось создать PUBLIC API');

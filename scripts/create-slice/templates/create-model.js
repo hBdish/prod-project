@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
-const resolveRoot = require('../resolveRoot');
-const reduxSliceTemplate = require('./reduxSliceTemplate');
-const schemaTypeTemplate = require('./schemaTypeTemplate');
+const resolveRoot = require('../resolve-root');
+const reduxSliceTemplate = require('./redux-slice-template');
+const schemaTypeTemplate = require('./schema-type-template');
 
 module.exports = async (layer, sliceName) => {
   const resolveModelPath = (...segments) => resolveRoot('src', layer, sliceName, 'model', ...segments);
@@ -21,7 +21,7 @@ module.exports = async (layer, sliceName) => {
   const createReduxSlice = async () => {
     try {
       await fs.writeFile(
-        resolveModelPath('slices', `${sliceName}Slice.ts`),
+        resolveModelPath('slices', `${sliceName}-slice.ts`),
         reduxSliceTemplate(sliceName),
       );
     } catch (e) {
@@ -32,7 +32,7 @@ module.exports = async (layer, sliceName) => {
   const createSchemaType = async () => {
     try {
       await fs.writeFile(
-        resolveModelPath('types', `${sliceName}Schema.ts`),
+        resolveModelPath('types', `${sliceName}-schema.ts`),
         schemaTypeTemplate(sliceName),
       );
     } catch (e) {

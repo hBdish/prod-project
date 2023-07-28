@@ -1,10 +1,10 @@
-const firstCharUpperCase = require('../firstCharUpperCase');
+const normalizeName = require('../normalize-name');
 
 module.exports = (sliceName) => {
-  const typeName = `${firstCharUpperCase(sliceName)}Schema`;
+  const typeName = `${normalizeName(sliceName)}Schema`;
 
   return `import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ${typeName} } from '../types/${sliceName}Schema';
+import { ${typeName} } from '../types/${sliceName}-schema';
 
 const initialState: ${typeName} = {
     

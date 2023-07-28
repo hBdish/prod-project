@@ -10,6 +10,7 @@ import CalendarIcon from './calendar.svg';
 import CopyIcon from './copy.svg';
 import TiledIcon from './tiled.svg';
 import ListIcon from './list.svg';
+import NotificationIcon from './notification.svg';
 
 export {
   ThemeDark,
@@ -24,4 +25,5 @@ export {
   CopyIcon,
   TiledIcon,
   ListIcon,
+  NotificationIcon,
 };

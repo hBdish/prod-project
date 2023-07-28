@@ -18,7 +18,6 @@ import { useCallback } from 'react';
 import { ContentPageBlock } from 'widgets';
 import {
   articleDetailsPageRecommendationReducer,
-  getArticleRecommendations,
 } from 'pages/article-details-page/model/slice/article-details-page-recommendation-slice';
 import {
   articleDetailsCommentReducer,
@@ -27,13 +26,7 @@ import {
 import { ArticleDetailsPageHeader } from 'pages/article-details-page/ui/article-details-page-header';
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { addCommentsForArticle } from 'pages';
-import {
-  fetchArticlesRecommendations,
-  fetchCommentsById,
-  getArticleCommentsIsLoading,
-  getArticleRecommendationsError,
-  getArticleRecommendationsIsLoading,
-} from '../../model';
+import { fetchArticlesRecommendations, fetchCommentsById, getArticleCommentsIsLoading } from '../../model';
 import styles from './article-details-page.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -47,13 +40,11 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
+
   const { t } = useTranslation('article');
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleSelectors.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
-  const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-  const recommendationsError = useSelector(getArticleRecommendationsError);
   const dispatch = useAppDispatch();
 
   useDynamicModuleLoader({ reducers, removeAfterUnmount: false });

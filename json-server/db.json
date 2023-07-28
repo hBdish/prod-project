@@ -1,4 +1,19 @@
 {
+  "notification": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло что-то",
+      "userId": "1"
+    },
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло что-то",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    }
+  ],
   "posts": [
     {
       "id": 1,

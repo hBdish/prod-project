@@ -1,3 +1,5 @@
+@import "../../styles/popup.module";
+
 .DropdownTest {
   position: relative;
 }
@@ -29,29 +31,5 @@
   outline: none;
   color: var(--primary-color);
   cursor: pointer;
-}
-
-.active {
-  background: var(--inverted-primary-color);
-}
-
-.topRight {
-  bottom: 100%;
-  left: 0;
-}
-
-.topLeft {
-  bottom: 100%;
-  right: 0;
-}
-
-.bottomRight {
-  top: 100%;
-  left: 0;
-}
-
-.bottomLeft {
-  top: 100%;
-  right: 0;
 }
 

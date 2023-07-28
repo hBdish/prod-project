@@ -1,14 +1,13 @@
 import {
-  AppLink, AppLinkTheme, Avatar, Button, ButtonTheme, classNames, Dropdown, Text, TextTheme,
+  AppLink, AppLinkTheme, Button, ButtonTheme, classNames, Hstack, Text, TextTheme,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
-import { LoginModal } from 'features';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/user';
+import { LoginModal, NotificationButton } from 'features';
+import { useSelector } from 'react-redux';
+import { getAuthData } from 'entities/user';
 import { RoutePath } from 'shared/config';
+import { AvatarDropdown } from 'features/avatar-dropdown';
 import styles from './navbar.module.scss';
 
 interface NavbarProps {
@@ -19,19 +18,10 @@ const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getAuthData);
-  const dispatch = useDispatch();
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
 
   const onToggleAuthModal = useCallback(() => {
     setIsAuthModal((prevState) => !prevState);
   }, []);
-
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
-  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -48,25 +38,10 @@ const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t('Создать статью')}
         </AppLink>
-        <Dropdown
-          direction="bottomLeft"
-          className={styles.dropdown}
-          items={[
-            ...(isAdminPanelAvailable ? [{
-              content: t('Админ панель'),
-              href: RoutePath.admin_panel,
-            }] : []),
-            {
-              content: t('Профиль пользователя'),
-              href: RoutePath.profile + authData.id,
-            },
-            {
-              content: t('Выйти'),
-              onClick: onLogout,
-            },
-          ]}
-          trigger={<Avatar size={30} src={authData.avatar} />}
-        />
+        <Hstack align="center" gap="16" className={styles.actions}>
+          <NotificationButton />
+          <AvatarDropdown />
+        </Hstack>
       </header>
     );
   }

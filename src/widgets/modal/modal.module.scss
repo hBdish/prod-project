@@ -4,15 +4,9 @@
   z-index: -1;
   opacity: 0;
   pointer-events: none;
-}
-
-.overlay {
-  width: 100%;
-  height: 100%;
-  background: var(--overlay-color);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -25,7 +19,7 @@
 }
 
 .opened {
-  opacity: 1;
+  opacity: 100;
   pointer-events: auto;
   z-index: var(--modal-z-index);
 

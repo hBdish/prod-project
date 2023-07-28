@@ -13,18 +13,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 
+import { loginByUsername } from '../../model/services';
+import { loginActions, loginReducer } from '../../model/slice';
 import {
-  loginByUsername,
-} from '../../model/services';
-import {
-  loginReducer,
-  loginActions,
-} from '../../model/slice';
-import {
-  getLoginError,
-  getLoginIsLoading,
-  getLoginPassword,
-  getLoginUsername,
+  getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername,
 } from '../../model/selectors';
 
 import styles from './login-form.module.scss';

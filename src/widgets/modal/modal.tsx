@@ -1,7 +1,8 @@
-import { classNames, Mods, Portal } from 'shared';
+import {
+  classNames, Mods, Overlay, Portal,
+} from 'shared';
 import React, {
-  MutableRefObject,
-  ReactNode, useCallback, useEffect, useRef, useState,
+  MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import styles from './modal.module.scss';
 
@@ -43,10 +44,6 @@ const Modal = (props: ModalProps) => {
     }
   }, [onClose]);
 
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeHandler();
@@ -76,10 +73,9 @@ const Modal = (props: ModalProps) => {
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className])}>
-        <div className={styles.overlay} onClick={closeHandler}>
-          <div className={styles.content} onClick={onContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={onClose} />
+        <div className={styles.content}>
+          {children}
         </div>
       </div>
     </Portal>

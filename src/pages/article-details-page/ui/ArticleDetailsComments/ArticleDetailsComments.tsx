@@ -1,11 +1,11 @@
-import {
-  classNames, Text, TextSize, useAppDispatch, Vstack,
-} from 'shared';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AddCommentForm } from 'features';
-import { addCommentsForArticle, getArticleCommentsIsLoading, getArticleSelectors } from 'pages';
 import { useSelector } from 'react-redux';
+import {
+  classNames, Text, TextSize, useAppDispatch, Vstack,
+} from '@/shared';
+import { AddCommentForm } from '@/features';
+import { addCommentsForArticle, getArticleCommentsIsLoading, getArticleSelectors } from '@/pages';
 
 interface ArticleDetailsCommentsProps {
   className?: string

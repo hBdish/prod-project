@@ -1,11 +1,10 @@
 import { BrowserRouter } from 'react-router-dom';
-import { StoreProvider, ThemeProvider } from 'app/providers';
-import { App } from 'app/App';
-import './app/styles/index.scss';
-import 'shared/config/i18n/i18n';
-import { ErrorBoundary } from 'app/providers/error-boundary';
-
 import { createRoot } from 'react-dom/client';
+import { StoreProvider, ThemeProvider } from '@/app/providers';
+import { App } from '@/app/App';
+import './app/styles/index.scss';
+import '@/shared/config/i18n/i18n';
+import { ErrorBoundary } from '@/app/providers/error-boundary';
 
 const container = document.getElementById('root');
 

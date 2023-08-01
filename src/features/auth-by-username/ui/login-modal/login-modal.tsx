@@ -1,6 +1,6 @@
-import { classNames, Loader } from 'shared';
-import { Modal } from 'widgets';
 import { Suspense } from 'react';
+import { classNames, Loader } from '@/shared';
+import { Modal } from '@/widgets';
 import { LoginFormLazy } from '../login-form/login-form.async';
 
 interface LoginModalProps {

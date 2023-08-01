@@ -4,3 +4,4 @@ export * from './add-comment';
 export * from './scrolle-save';
 export * from './sort-selector';
 export * from './open-notification';
+export * from './article-recommendations-list';

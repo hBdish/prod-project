@@ -1,6 +1,6 @@
 import {
   Card, CardTheme, classNames, Text,
-} from 'shared';
+} from '@/shared';
 import { Notifications } from '../../model/types/notifications';
 import styles from './notification-item.module.scss';
 

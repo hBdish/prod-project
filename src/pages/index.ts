@@ -6,4 +6,4 @@ export * from './article-page';
 export * from './article-details-page';
 export * from './article-edit-page';
 export * from './article-create-page';
-export * from './AdminPanelPage';
+export * from './admin-panel-page';

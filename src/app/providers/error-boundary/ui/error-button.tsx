@@ -1,6 +1,6 @@
-import { Button, classNames } from 'shared';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button, classNames } from '@/shared';
 
 interface ErrorButtonProps {
   className?: string

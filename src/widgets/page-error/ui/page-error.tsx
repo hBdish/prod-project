@@ -1,5 +1,5 @@
-import { Button, classNames } from 'shared';
 import { useTranslation } from 'react-i18next';
+import { Button, classNames } from '@/shared';
 import styles from './page-error.module.scss';
 
 interface PageErrorProps {

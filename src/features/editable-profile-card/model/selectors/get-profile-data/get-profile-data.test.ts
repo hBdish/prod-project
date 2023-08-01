@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers';
-import { Country, Currency } from 'helpers';
-import TestImg from 'shared/assets/for-test/test-img.png';
+import { StateSchema } from '@/app/providers';
+import { Country, Currency } from '@/helpers';
+import TestImg from '@/shared/assets/for-test/test-img.png';
 import { getProfileData } from './get-profile-data';
 
 describe('GetProfileDataTest', () => {

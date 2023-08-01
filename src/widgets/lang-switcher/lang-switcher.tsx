@@ -1,6 +1,6 @@
-import { Button, classNames, ButtonTheme } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { Button, classNames, ButtonTheme } from '@/shared';
 
 interface LangSwitcherProps {
   className?: string

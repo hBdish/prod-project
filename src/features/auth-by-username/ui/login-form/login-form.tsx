@@ -1,3 +1,6 @@
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { memo, useCallback } from 'react';
 import {
   Button,
   ButtonTheme,
@@ -8,10 +11,7 @@ import {
   TextTheme,
   useAppDispatch,
   useDynamicModuleLoader,
-} from 'shared';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { memo, useCallback } from 'react';
+} from '@/shared';
 
 import { loginByUsername } from '../../model/services';
 import { loginActions, loginReducer } from '../../model/slice';

@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { ArticleListItem } from 'entities/article';
+import React from 'react';
+import { ArticleListItem } from '@/entities';
 import {
   classNames, Hstack, Text, TextSize, Vstack,
-} from 'shared';
-import React from 'react';
-import { ArticleView } from 'entities/article/model/const';
-import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+} from '@/shared';
+import { ArticleView } from '@/entities/article/model/const';
+import { useArticleRecommendationsList } from '../../api/article-recommendations-api';
 
 interface ArticleRecommendationsListProps {
   className?: string;

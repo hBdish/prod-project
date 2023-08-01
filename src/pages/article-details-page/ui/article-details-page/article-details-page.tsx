@@ -1,3 +1,10 @@
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
+
+import { AddCommentForm, ArticleRecommendationsList } from '@/features';
+import { ArticleDetails, CommentList } from '@/entities';
 import {
   classNames,
   ReducersList,
@@ -7,25 +14,15 @@ import {
   useDynamicModuleLoader,
   useInitialEffect,
   Vstack,
-} from 'shared';
-import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/article';
-import { useParams } from 'react-router-dom';
-import { CommentList } from 'entities/comment';
-import { useSelector } from 'react-redux';
-import { AddCommentForm } from 'features';
-import { useCallback } from 'react';
-import { ContentPageBlock } from 'widgets';
+} from '@/shared';
+import { ContentPageBlock } from '@/widgets';
 import {
-  articleDetailsPageRecommendationReducer,
-} from 'pages/article-details-page/model/slice/article-details-page-recommendation-slice';
-import {
+  addCommentsForArticle,
   articleDetailsCommentReducer,
+  articleDetailsPageRecommendationReducer,
   getArticleSelectors,
-} from 'pages/article-details-page/model/slice/article-details-comment-slice';
-import { ArticleDetailsPageHeader } from 'pages/article-details-page/ui/article-details-page-header';
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
-import { addCommentsForArticle } from 'pages';
+} from '@/pages';
+import { ArticleDetailsPageHeader } from '@/pages/article-details-page/ui/article-details-page-header';
 import { fetchArticlesRecommendations, fetchCommentsById, getArticleCommentsIsLoading } from '../../model';
 import styles from './article-details-page.module.scss';
 

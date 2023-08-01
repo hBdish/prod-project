@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { StoreDecorator, ThemeDecorator } from 'shared/config';
-import { Theme } from 'app/providers';
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/app/providers';
 import { ProfilePage } from './profile-page.lazy';
 
 const meta: Meta<typeof ProfilePage> = {

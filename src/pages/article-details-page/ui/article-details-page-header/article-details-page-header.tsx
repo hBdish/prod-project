@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
-import {
-  Button, ButtonTheme, classNames, Hstack,
-} from 'shared';
-import { RoutePath } from 'shared/config';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from 'entities/article';
+import { RoutePath } from '@/shared/config';
+import {
+  Button, ButtonTheme, classNames, Hstack,
+} from '@/shared';
+import { getArticleDetailsData } from '@/entities';
 import { getCanEditArticle } from '../../model/selectors/article-selector';
 
 interface ArticleDetailsPageHeaderProps {

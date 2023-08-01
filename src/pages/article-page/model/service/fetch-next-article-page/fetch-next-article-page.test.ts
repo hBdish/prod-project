@@ -1,7 +1,7 @@
-import TestAsyncThunk from 'shared/lib/test/test-async-thunk';
-import { ArticleType } from 'entities/article/model/const';
 import { fetchNextArticlesPage } from './fetch-next-article-page';
 import { fetchArticlesList } from '../fetch-articles-list/fetch-articles-list';
+import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
+import { ArticleType } from '@/entities/article/model/const';
 
 jest.mock('../fetch-articles-list/fetch-articles-list');
 jest.mock('axios', () => ({

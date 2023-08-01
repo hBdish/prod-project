@@ -1,10 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import {
   Avatar, classNames, Hstack, Input, Loader, Text, TextAlign, TextTheme, Vstack,
-} from 'shared';
-import { useTranslation } from 'react-i18next';
-import { Currency, CurrencySelect } from 'helpers/currency';
-
-import { Country, CountrySelect } from 'helpers/country';
+} from '@/shared';
+import {
+  Country, CountrySelect, Currency, CurrencySelect,
+} from '@/helpers';
 import styles from './profile-card.module.scss';
 import { Profile } from '../../model/types/profile';
 

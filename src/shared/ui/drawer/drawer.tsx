@@ -1,11 +1,11 @@
 import {
-  classNames, Overlay, Portal, useAnimationLibs,
-} from 'shared';
-import {
   memo, ReactNode, useCallback, useEffect,
 } from 'react';
 // import { useDrag } from '@use-gesture/react'
 import { useSpring } from '@react-spring/web';
+import {
+  AnimationProvider, classNames, Overlay, Portal, useAnimationLibs,
+} from '@/shared';
 import styles from './drawer.module.scss';
 
 interface DrawerProps {
@@ -22,7 +22,6 @@ const DrawerContent = (props: DrawerProps) => {
     children,
     isOpen,
     onClose,
-    lazy = false,
   } = props;
 
   const { Spring, Gesture } = useAnimationLibs();
@@ -95,7 +94,7 @@ const DrawerContent = (props: DrawerProps) => {
   );
 };
 
-const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = memo((props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) {
@@ -104,5 +103,11 @@ const Drawer = memo((props: DrawerProps) => {
 
   return <DrawerContent {...props} />;
 });
+
+const Drawer = (props: DrawerProps) => (
+  <AnimationProvider>
+    <DrawerAsync {...props} />
+  </AnimationProvider>
+);
 
 export { Drawer };

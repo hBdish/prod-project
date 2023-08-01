@@ -1,18 +1,11 @@
 import { Story } from '@storybook/react';
 import { Suspense } from 'react';
-import {
-  StateSchema,
-  StoreProvider,
-} from 'app/providers';
-import {
-  addCommentReducer,
-  loginReducer,
-  profileReducer,
-} from 'features';
+import { StateSchema, StoreProvider } from '@/app/providers';
+import { addCommentReducer, loginReducer, profileReducer } from '@/features';
 
-import { ReducersList } from 'shared';
-import { articleDetailsReducer } from 'entities/article/model';
-import { articleDetailsCommentReducer } from 'pages';
+import { ReducersList } from '@/shared';
+import { articleDetailsReducer } from '@/entities';
+import { articleDetailsCommentReducer } from '@/pages';
 
 const defaultAsyncReducers: ReducersList = {
   login: loginReducer,

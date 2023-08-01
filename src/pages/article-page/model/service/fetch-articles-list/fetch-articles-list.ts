@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import i18n from 'shared/config/i18n/i18n';
-import { ThunkConfig } from 'app/providers';
-import { Article } from 'entities/article';
+import i18n from '@/shared/config/i18n/i18n';
+import { ThunkConfig } from '@/app/providers';
+import { Article } from '@/entities';
 import {
   getArticlePageLimit,
   getArticlePageNumber,
@@ -9,9 +9,9 @@ import {
   getArticlePageSearch,
   getArticlePageSort,
   getArticlePageType,
-} from 'pages';
-import { addQueryParams } from 'shared';
-import { ArticleType } from 'entities/article/model/const';
+} from '@/pages';
+import { addQueryParams } from '@/shared';
+import { ArticleType } from '@/entities/article/model/const';
 
 interface ArticlesListProps {
   replace?: boolean

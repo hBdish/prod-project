@@ -1,10 +1,10 @@
-import {
-  Button, ButtonTheme, classNames, Hstack, Text, useAppDispatch,
-} from 'shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { getAuthData } from 'entities/user';
+import {
+  Button, ButtonTheme, classNames, Hstack, Text, useAppDispatch,
+} from '@/shared';
+import { getAuthData } from '@/entities';
 import { getProfileData } from '../../model/selectors/get-profile-data';
 import { profileActions, updateProfileData } from '../../model';
 import { getProfileReadonly } from '../../model/selectors/get-profile-readonly/get-profile-readonly';

@@ -1,4 +1,4 @@
-import { classNames, Skeleton, Vstack } from 'shared';
+import { classNames, Skeleton, Vstack } from '@/shared';
 import { useNotificationsList } from '../../api/notification-api';
 import { NotificationItem } from '../notification-item/notification-item';
 

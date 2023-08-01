@@ -1,6 +1,6 @@
-import { classNames } from 'shared';
 import { memo } from 'react';
-import { Code } from 'shared/ui/code/code';
+import { classNames } from '@/shared';
+import { Code } from '@/shared/ui/code/code';
 import { ArticleCodeBlock } from '../../types/types';
 import styles from './article-code-block-component.module.scss';
 

@@ -1,13 +1,12 @@
-import {
-  classNames, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
-} from 'shared';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { fetchProfileData, profileActions } from 'features';
-import { Currency } from 'helpers/currency';
-import { Country } from 'helpers/country';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { fetchProfileData, profileActions } from '@/features';
+import { Country, Currency } from '@/helpers';
+import {
+  classNames, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
+} from '@/shared';
 import { ValidateProfileError } from '../model/const/editableProfileCardConst';
 import { ProfileCardHeader } from '../ui/profile-card-header/profile-card-header';
 import {

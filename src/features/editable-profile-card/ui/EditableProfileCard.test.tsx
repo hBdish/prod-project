@@ -1,10 +1,11 @@
 import { screen } from '@testing-library/react';
-import componentRender from 'shared/lib/test/componentRender';
-import { Profile, profileReducer } from 'features';
-import { Country, Currency } from 'helpers';
 import userEvent from '@testing-library/user-event';
-import { $api } from 'shared';
+
+import { Country, Currency } from '../../../helpers';
+import { $api } from '@/shared';
 import { EditableProfileCard } from './editable-profile-card';
+import componentRender from '@/shared/lib/test/componentRender';
+import { Profile, profileReducer } from '@/features';
 
 const profile: Profile = {
   id: '1',

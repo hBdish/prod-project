@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers';
+import { StateSchema } from '@/app/providers';
 import { getLoginUsername } from './get-login-username';
 
 describe('GetLoginUsernameTest', () => {

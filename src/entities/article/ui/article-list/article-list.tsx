@@ -1,8 +1,8 @@
 import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
-import { classNames, Text } from 'shared';
-import { ArticlePageFilters } from 'pages/article-page/ui/article-page-filters';
+import { classNames, Text } from '@/shared';
+import { ArticlePageFilters } from '@/pages/article-page/ui/article-page-filters';
 import { ArticleView } from '../../model/const/articleConst';
 import { ArticleListItem } from '../article-list-item/article-list-item';
 import { Article } from '../../types/types';

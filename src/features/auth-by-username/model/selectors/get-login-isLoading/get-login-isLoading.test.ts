@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers';
+import { StateSchema } from '@/app/providers';
 
 import { getLoginIsLoading } from './get-login-isLoading';
 

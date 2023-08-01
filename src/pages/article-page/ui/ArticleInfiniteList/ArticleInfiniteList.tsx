@@ -1,5 +1,6 @@
-import { useAppDispatch, useInitialEffect } from 'shared';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+import { useCallback } from 'react';
 import {
   fetchNextArticlesPage,
   getArticlePageError,
@@ -7,10 +8,9 @@ import {
   getArticlePageView,
   getArticles,
   initArticlePage,
-} from 'pages';
-import { useSearchParams } from 'react-router-dom';
-import { useCallback } from 'react';
-import { ArticleList } from 'entities/article';
+} from '@/pages';
+import { useAppDispatch, useInitialEffect } from '@/shared';
+import { ArticleList } from '@/entities';
 
 interface ArticleInfiniteListProps {
   className?: string

@@ -1,5 +1,5 @@
-import { classNames, Text, TextAlign } from 'shared';
 import { memo } from 'react';
+import { classNames, Text, TextAlign } from '@/shared';
 import { ArticleImgBlock } from '../../types/types';
 import styles from './article-img-block-component.module.scss';
 

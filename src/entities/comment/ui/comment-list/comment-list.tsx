@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames, Text, Vstack } from 'shared';
 import { useTranslation } from 'react-i18next';
+import { classNames, Text, Vstack } from '@/shared';
 import { CommentCard } from '../comment-card/comment-card';
 import { Comment } from '../../model/types/types';
 

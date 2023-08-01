@@ -1,6 +1,6 @@
-import { classNames } from 'shared';
 import { memo } from 'react';
-import cls from './AdminPanelPage.module.scss';
+import { classNames } from '@/shared';
+import cls from './admin-panel-page.module.scss';
 
 interface AdminPanelPageProps {
   className?: string;

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AdminPanelPageSchema } from '../types/AdminPanelPageSchema';
+import { AdminPanelPageSchema } from '../types/admin-panel-page-schema';
 
 const initialState: AdminPanelPageSchema = {};
 

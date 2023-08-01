@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Country, Currency } from 'helpers';
+import { Country, Currency } from '@/helpers';
 import { ProfileCard } from './profile-card';
 import TestImg from '../../../../shared/assets/for-test/test-img.png';
 

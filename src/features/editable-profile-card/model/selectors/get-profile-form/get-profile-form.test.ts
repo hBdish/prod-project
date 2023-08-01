@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers';
-import { Country, Currency } from 'helpers';
-import TestImg from 'shared/assets/for-test/test-img.png';
+import { StateSchema } from '@/app/providers';
+import { Country, Currency } from '@/helpers';
+import TestImg from '@/shared/assets/for-test/test-img.png';
 import { getProfileForm } from './get-profile-form';
 
 describe('GetProfileForm', () => {

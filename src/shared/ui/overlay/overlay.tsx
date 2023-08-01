@@ -1,4 +1,4 @@
-import { classNames } from 'shared';
+import { classNames } from '@/shared';
 import styles from './overlay.module.scss';
 
 interface OverlayProps {

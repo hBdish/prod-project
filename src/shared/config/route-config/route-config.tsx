@@ -9,9 +9,9 @@ import {
   MainPage,
   NotFoundPage,
   ProfilePage,
-} from 'pages';
+} from '@/pages';
 
-import { UserRole } from 'entities/user/model/const/userConst';
+import { UserRole } from '@/entities/user/model/const/userConst';
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean

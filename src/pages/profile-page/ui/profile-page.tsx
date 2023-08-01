@@ -1,8 +1,8 @@
 import {
   classNames, ReducersList, useDynamicModuleLoader,
-} from 'shared';
-import { EditableProfileCard, profileReducer } from 'features';
-import { ContentPageBlock } from 'widgets';
+} from '@/shared';
+import { EditableProfileCard, profileReducer } from '@/features';
+import { ContentPageBlock } from '@/widgets';
 
 interface ProfilePageProps {
   className?: string

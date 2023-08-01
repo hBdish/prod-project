@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames, Text } from 'shared';
 import { useTranslation } from 'react-i18next';
+import { classNames, Text } from '@/shared';
 
 // import styles from './article-create-page.module.scss';
 

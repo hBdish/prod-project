@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StoreDecorator } from 'shared/config';
+import { StoreDecorator } from '@/shared/config/storybook';
 import { AddCommentForm } from './add-comment-form';
 
 const meta: Meta<typeof AddCommentForm> = {

@@ -1,3 +1,6 @@
+import { memo, useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   CalendarIcon,
@@ -13,11 +16,8 @@ import {
   useAppDispatch,
   useDynamicModuleLoader,
   Vstack,
-} from 'shared';
-import { memo, useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { articleDetailsPageRecommendationReducer } from 'pages';
+} from '@/shared';
+import { articleDetailsPageRecommendationReducer } from '@/pages';
 import { ArticleBlockType } from '../../model/const/articleConst';
 import { ArticleCodeBlockComponent } from '../article-code-block-component';
 import { ArticleTextBlockComponent } from '../article-text-block-component';

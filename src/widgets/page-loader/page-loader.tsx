@@ -1,4 +1,4 @@
-import { classNames, Loader } from 'shared';
+import { classNames, Loader } from '@/shared';
 import styles from './page-loader.module.scss';
 
 interface PageLoaderProps {

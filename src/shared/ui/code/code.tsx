@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { classNames, CopyIcon } from 'shared';
+import { classNames, CopyIcon } from '@/shared';
 import styles from './code.module.scss';
 
 interface CodeProps {

@@ -1,6 +1,6 @@
-import { ListBox } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { ListBox } from '@/shared';
 import { Currency } from '../../model/types/types';
 
 interface CurrencySelectProps {

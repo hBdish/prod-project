@@ -1,8 +1,7 @@
 import { memo, useCallback } from 'react';
-import {
-  Card, classNames, Input, SortOrder, useAppDispatch, useDebounce,
-} from 'shared';
-import { ArticleViewSelector } from 'entities/article';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { ArticleViewSelector } from '@/entities/article';
 import {
   articlePageActions,
   fetchArticlesList,
@@ -11,12 +10,13 @@ import {
   getArticlePageSort,
   getArticlePageType,
   getArticlePageView,
-} from 'pages';
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { SortSelector } from 'features';
-import { ArticleTypeTabs } from 'entities/article/ui/article-type-tabs/article-type-tabs';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/article/model/const';
+} from '@/pages';
+import {
+  Card, classNames, Input, SortOrder, useAppDispatch, useDebounce,
+} from '@/shared';
+import { SortSelector } from '@/features';
+import { ArticleTypeTabs } from '@/entities/article/ui/article-type-tabs/article-type-tabs';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/article/model/const';
 import styles from './article-page-filters.module.scss';
 
 interface ArticlePageFiltersProps {

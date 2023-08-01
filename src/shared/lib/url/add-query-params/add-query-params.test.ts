@@ -1,4 +1,4 @@
-import { getQueryParams } from 'shared';
+import { getQueryParams } from '@/shared';
 
 describe('shared/url/addQueryParams', () => {
   test('test with one param', () => {

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers';
-import { SortOrder } from 'shared';
-import { ArticleSortField, ArticleType } from 'entities/article/model/const';
+import { ThunkConfig } from '@/app/providers';
+import { SortOrder } from '@/shared';
+import { ArticleSortField, ArticleType } from '@/entities/article/model/const';
 import { articlePageActions, fetchArticlesList, getArticlePageInited } from '../../../model';
 
 const initQueryParams = <T extends OptionalRecord<string, unknown>>

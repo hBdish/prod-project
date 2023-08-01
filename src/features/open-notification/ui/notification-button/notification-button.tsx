@@ -1,9 +1,9 @@
-import {
-  AnimationProvider, Button, ButtonTheme, classNames, Drawer, Icon, NotificationIcon, Popover,
-} from 'shared';
-import { Notification } from 'entities/notification';
 import React, { useCallback, useState } from 'react';
 import { isMobile } from 'react-device-detect';
+import {
+  Button, ButtonTheme, classNames, Drawer, Icon, NotificationIcon, Popover,
+} from '@/shared';
+import { Notification } from '@/entities';
 import styles from './notification-button.module.scss';
 
 interface NotificationButtonProps {
@@ -39,11 +39,9 @@ const NotificationButton = (props: NotificationButtonProps) => {
   return (
     <>
       {trigger}
-      <AnimationProvider>
-        <Drawer isOpen={isOpenDrawer} onClose={onOpenDrawer}>
-          <Notification />
-        </Drawer>
-      </AnimationProvider>
+      <Drawer isOpen={isOpenDrawer} onClose={onOpenDrawer}>
+        <Notification />
+      </Drawer>
     </>
   );
 };

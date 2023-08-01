@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers';
+import { StateSchema } from '@/app/providers';
 import { getProfileReadonly } from './get-profile-readonly';
 
 describe('GetProfileIsReadonly', () => {

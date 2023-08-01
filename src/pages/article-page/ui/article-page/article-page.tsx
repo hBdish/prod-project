@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import {
   ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
-} from 'shared';
-import { ArticleList } from 'entities/article';
+} from '@/shared';
+import { ArticleList } from '@/entities';
 import {
   articlePageReducer,
   fetchNextArticlesPage,

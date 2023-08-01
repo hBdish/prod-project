@@ -1,17 +1,15 @@
-import { CounterSchema } from 'entities/counter';
-import { UserSchema } from 'entities/user';
-import {
-  AddCommentSchema, LoginSchema, ProfileSchema, ScrollSaveSchema,
-} from 'features';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
-import { ArticleDetailsSchema } from 'entities/article/model';
-import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema, ArticlePageSchema } from 'pages';
-import { rtkApi } from 'shared';
+import { ArticleDetailsSchema, CounterSchema, UserSchema } from '@/entities';
+import {
+  AddCommentSchema, LoginSchema, ProfileSchema, ScrollSaveSchema,
+} from '@/features';
+import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema, ArticlePageSchema } from '@/pages';
+import { rtkApi } from '@/shared';
 
 export interface StateSchema {
   counter: CounterSchema

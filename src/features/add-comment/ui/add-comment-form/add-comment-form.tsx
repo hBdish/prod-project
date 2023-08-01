@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
-import {
-  Button, classNames, Hstack, Input, ReducersList, useAppDispatch, useDynamicModuleLoader,
-} from 'shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
+  Button, classNames, Hstack, Input, ReducersList, useAppDispatch, useDynamicModuleLoader,
+} from '@/shared';
+import {
   addCommentActions, addCommentReducer, getAddCommentError, getAddCommentText,
-} from 'features';
+} from '@/features';
 
 import styles from './add-comment-form.module.scss';
 

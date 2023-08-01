@@ -1,6 +1,6 @@
-import { classNames } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { ContentPageBlock } from 'widgets';
+import { classNames } from '@/shared';
+import { ContentPageBlock } from '@/widgets';
 import styles from './not-found-page.module.scss';
 
 interface NotFoundPageProps {

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import {
   Button, ButtonTheme, classNames, Icon, ListIcon, TiledIcon,
-} from 'shared';
+} from '@/shared';
 import { ArticleView } from '../../model/const/articleConst';
 import styles from './article-view-selector.module.scss';
 

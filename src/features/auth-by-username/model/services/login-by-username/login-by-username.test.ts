@@ -1,6 +1,6 @@
-import { loginByUsername } from 'features';
-import { userActions } from 'entities/user';
+import { userActions } from '../../../../../entities/user/model/slice/userSlice';
 import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
+import { loginByUsername } from '@/features';
 
 describe('LoginByUsernameTest', () => {
   test('success login', async () => {

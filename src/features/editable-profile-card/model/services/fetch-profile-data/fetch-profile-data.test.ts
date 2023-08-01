@@ -1,5 +1,5 @@
-import { Country, Currency } from 'helpers';
-import TestImg from 'shared/assets/for-test/test-img.png';
+import { Country, Currency } from '@/helpers';
+import TestImg from '@/shared/assets/for-test/test-img.png';
 import { fetchProfileData } from './fetch-profile-data';
 import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
 

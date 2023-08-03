@@ -11,7 +11,7 @@ import {
   ProfilePage,
 } from '@/pages';
 
-import { UserRole } from '@/entities/user/model/const/userConst';
+import { UserRole } from '@/entities/user';
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean

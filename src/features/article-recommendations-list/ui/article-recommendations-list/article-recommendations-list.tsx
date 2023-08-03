@@ -4,7 +4,7 @@ import { ArticleListItem } from '@/entities';
 import {
   classNames, Hstack, Text, TextSize, Vstack,
 } from '@/shared';
-import { ArticleView } from '@/entities/article/model/const';
+import { ArticleView } from '@/entities/article';
 import { useArticleRecommendationsList } from '../../api/article-recommendations-api';
 
 interface ArticleRecommendationsListProps {

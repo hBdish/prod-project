@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux';
 import {
   classNames, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle,
 } from '@/shared';
-import { scrollSaveActions } from '@/features/scrolle-save/model/slices';
-import { getScrollSaveByPath } from '@/features/scrolle-save/model/selectors';
+import { getScrollSaveByPath, scrollSaveActions } from '@/features/scrolle-save';
 import { StateSchema } from '@/app/providers';
 import styles from './content-page-block.module.scss';
 

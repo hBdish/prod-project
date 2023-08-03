@@ -17,3 +17,4 @@ export {
 } from './selectors/get-user-inited';
 
 export * from './selectors/roleSelector';
+export * from './const';

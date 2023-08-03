@@ -11,7 +11,7 @@ import {
   getArticlePageType,
 } from '@/pages';
 import { addQueryParams } from '@/shared';
-import { ArticleType } from '@/entities/article/model/const';
+import { ArticleType } from '@/entities/article';
 
 interface ArticlesListProps {
   replace?: boolean

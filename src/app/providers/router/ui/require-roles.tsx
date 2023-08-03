@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 import { RoutePath } from '@/shared/config';
 import { getUserRoles } from '@/entities';
-import { UserRole } from '@/entities/user/model/const/userConst';
+import { UserRole } from '@/entities/user';
 
 interface RequireProps {
   children: JSX.Element,

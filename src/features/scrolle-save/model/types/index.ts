@@ -1,1 +1,1 @@
-export * from './types';
+export type { ScrollSchema } from './types';

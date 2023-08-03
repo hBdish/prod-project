@@ -1,1 +1,1 @@
-export * from './articleDetaisSlice';
+export * from './article-details-slice';

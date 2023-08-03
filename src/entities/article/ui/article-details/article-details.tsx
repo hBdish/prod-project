@@ -25,7 +25,7 @@ import { ArticleImgBlockComponent } from '../article-img-block-component';
 import { Block } from '../../types/types';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services/fetch-article-by-id/fetch-article-by-id';
-import { articleDetailsReducer } from '../../model/slice/articleDetaisSlice';
+import { articleDetailsReducer } from '../../model/slice/article-details-slice';
 
 interface ArticleDetailsProps {
   className?: string

@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux';
 import {
   Button, classNames, Hstack, Input, ReducersList, useAppDispatch, useDynamicModuleLoader,
 } from '@/shared';
-import {
-  addCommentActions, addCommentReducer, getAddCommentError, getAddCommentText,
-} from '@/features';
+import { getAddCommentError, getAddCommentText } from '@/features';
+import { addCommentActions, addCommentReducer } from '../../model/slice/addCommentSlice';
 
 import styles from './add-comment-form.module.scss';
 

@@ -66,7 +66,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'pc-test/path-checker': 'error',
+    'pc-test/path-checker': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,

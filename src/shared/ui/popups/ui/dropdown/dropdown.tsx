@@ -42,7 +42,7 @@ const Dropdown = (props: DropdownProps) => {
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(styles.menu, {}, additional)}>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
@@ -55,14 +55,21 @@ const Dropdown = (props: DropdownProps) => {
 
           if (item.href) {
             return (
-              <Menu.Item as={AppLink} to={item.href}>
+              <Menu.Item
+                key={`dropdown-key-${index}`}
+                as={AppLink}
+                to={item.href}
+              >
                 {content}
               </Menu.Item>
             );
           }
 
           return (
-            <Menu.Item as={Fragment}>
+            <Menu.Item
+              key={`dropdown-key-${index}`}
+              as={Fragment}
+            >
               {content}
             </Menu.Item>
           );

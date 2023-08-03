@@ -14,6 +14,7 @@ interface RatingCardProps {
   title?: string
   feedbackTitle?: string
   hasFeedback?: boolean
+  rate?: number
   onCancel?: (starsCount: number) => void
   onAccept?: (starsCount: number, feedback?: string) => void
 }
@@ -24,13 +25,14 @@ const RatingCard = (props: RatingCardProps) => {
     title,
     feedbackTitle,
     hasFeedback,
+    rate = 0,
     onCancel,
     onAccept,
   } = props;
 
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
   const onSelectedStars = useCallback((selectedStarsCount: number) => {
     setStarsCount(selectedStarsCount);
@@ -77,10 +79,14 @@ const RatingCard = (props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames('', {}, [className])}>
+    <Card w100 className={classNames('', {}, [className])}>
       <Vstack align="center" gap="8">
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectedStars} />
+        {!starsCount && <Text title={title} />}
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectedStars}
+        />
       </Vstack>
 
       {isMobile

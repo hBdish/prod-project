@@ -29,6 +29,7 @@ export const ArticleRecommendationsList = (props: ArticleRecommendationsListProp
       <Hstack w100 justify="center" gap="24">
         {article.map((article) => (
           <ArticleListItem
+            key={article.id}
             target="_blank"
             article={article}
             view={ArticleView.SMALL}

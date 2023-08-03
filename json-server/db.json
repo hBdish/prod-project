@@ -616,5 +616,35 @@
       "username": "user",
       "avatar": "https://lumiere-a.akamaihd.net/v1/images/pp_lightyear_herobanner_mobile_v2_22043_48d47fc7.jpeg?region=0,0,640,480"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 3,
+      "feedback": "",
+      "id": "PhYROic"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 1,
+      "feedback": "",
+      "id": "UIFKpTa"
+    }
   ]
 }

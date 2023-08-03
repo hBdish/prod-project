@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 
-import { AddCommentForm, ArticleRecommendationsList } from '@/features';
+import { AddCommentForm, ArticleRating, ArticleRecommendationsList } from '@/features';
 import { ArticleDetails, CommentList } from '@/entities';
 import {
   classNames,
@@ -67,6 +67,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <Vstack gap="16">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationsList />
         <Text
           size={TextSize.L}

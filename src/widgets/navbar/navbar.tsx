@@ -3,10 +3,9 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LoginModal, NotificationButton } from '@/features';
 import {
-  AppLink, AppLinkTheme, Button, ButtonTheme, classNames, Hstack, Text, TextTheme,
+  AppLink, AppLinkTheme, Button, ButtonTheme, classNames, Hstack, RoutePath, Text, TextTheme,
 } from '@/shared';
 import { getAuthData } from '@/entities';
-import { RoutePath } from '@/shared/config';
 import { AvatarDropdown } from '@/features/avatar-dropdown';
 import styles from './navbar.module.scss';
 

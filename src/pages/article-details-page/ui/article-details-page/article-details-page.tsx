@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { AddCommentForm, ArticleRating, ArticleRecommendationsList } from '@/features';
-import { ArticleDetails, CommentList } from '@/entities';
+import {
+  ArticleDetails, articleDetailsReducer, CommentList, fetchArticleById,
+} from '@/entities';
 import {
   classNames,
   ReducersList,

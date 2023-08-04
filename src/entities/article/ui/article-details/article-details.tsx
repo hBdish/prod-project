@@ -17,7 +17,6 @@ import {
   useDynamicModuleLoader,
   Vstack,
 } from '@/shared';
-import { articleDetailsPageRecommendationReducer } from '@/pages';
 import { ArticleBlockType } from '../../model/const/articleConst';
 import { ArticleCodeBlockComponent } from '../article-code-block-component';
 import { ArticleTextBlockComponent } from '../article-text-block-component';
@@ -34,7 +33,6 @@ interface ArticleDetailsProps {
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
-  articleDetailsRecommendations: articleDetailsPageRecommendationReducer,
 };
 
 const ArticleDetails = memo((props: ArticleDetailsProps) => {

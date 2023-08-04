@@ -29,15 +29,15 @@ const articlePageSlice = createSlice({
     ids: [],
     entities: {},
 
-    view: ArticleView.SMALL,
+    view: 'SMALL',
     page: 1,
     limit: 9,
     hasMore: true,
 
-    sort: ArticleSortField.CREATED,
+    sort: 'createdAt',
     search: '',
     order: 'asc',
-    type: ArticleType.ALL,
+    type: 'ALL',
 
     _inited: false,
   }),

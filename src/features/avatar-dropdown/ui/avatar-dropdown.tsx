@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { Avatar, classNames, Dropdown } from '@/shared';
-import { RoutePath } from '@/shared/config';
+import {
+  Avatar, classNames, Dropdown, RoutePath,
+} from '@/shared';
 import {
   getAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities';

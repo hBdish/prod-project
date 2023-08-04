@@ -9,8 +9,6 @@ import { SidebarItem } from '../sidebar-item/sidebar-item';
 import styles from './sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/get-sidebar-items';
 
-// import { SidebarItemsList } from '../../model/items';
-
 interface SidebarProps {
   className?: string
 }
@@ -18,7 +16,6 @@ interface SidebarProps {
 const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const sidebarItemsList = useSelector(getSidebarItems);
-
   const onToggle = () => {
     setCollapsed((prevState) => !prevState);
   };

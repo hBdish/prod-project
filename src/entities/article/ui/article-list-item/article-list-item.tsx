@@ -1,9 +1,8 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  AppLink, Button, ButtonTheme, Card, classNames, EyeIcon, Icon, Text,
+  AppLink, Button, ButtonTheme, Card, classNames, EyeIcon, Icon, RoutePath, Text,
 } from '@/shared';
-import { RoutePath } from '@/shared/config';
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst';
 import styles from './article-list-item.module.scss';
 import { Article, ArticleTextBlock } from '../../types/types';

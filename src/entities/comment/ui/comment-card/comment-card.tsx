@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import {
-  Avatar, classNames, Skeleton, Text, AppLink, Vstack,
+  Avatar, classNames, Skeleton, Text, AppLink, Vstack, RoutePath,
 } from '@/shared';
-import { RoutePath } from '@/shared/config';
 import styles from './comment-card.module.scss';
 import { Comment } from '../../model/types/types';
 

@@ -1,4 +1,4 @@
-export * from './auth-by-username';
+export * from './auth-by-username/index';
 export * from './editable-profile-card';
 export * from './add-comment';
 export * from './scrolle-save';

@@ -67,7 +67,10 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'pc-test/path-checker': ['error', { alias: '@' }],
-    'pc-test/public-api-imports': ['error', { alias: '@' }],
+    'pc-test/public-api-imports': ['error', {
+      alias: '@',
+      testFiles: ['**/*.test.ts', '**/store-decorator'],
+    }],
   },
   globals: {
     __IS_DEV__: true,

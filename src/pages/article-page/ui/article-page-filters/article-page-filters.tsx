@@ -71,13 +71,13 @@ const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
     <div className={classNames('', {}, [className])}>
       <div className={styles.sortWrapper}>
         <SortSelector
-          sort={sort}
+          sort={sort as ArticleSortField}
           order={order}
           onChangeOrder={onChangeOrder}
           onChangeSort={onChangeSort}
         />
         <ArticleViewSelector
-          view={view}
+          view={view as ArticleView}
           onViewClick={onChangeView}
         />
       </div>
@@ -90,7 +90,7 @@ const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
       </Card>
       <ArticleTypeTabs
         className={styles.typeTabs}
-        value={type}
+        value={type as ArticleType}
         onChangeType={onChangeType}
       />
     </div>

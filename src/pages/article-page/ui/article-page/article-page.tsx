@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import {
   ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
 } from '@/shared';
-import { ArticleList } from '@/entities';
+import { ArticleList, ArticleView } from '@/entities';
 import {
   articlePageReducer,
   fetchNextArticlesPage,
@@ -49,7 +49,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
       <ArticleList
         articles={articles}
         isLoading={isLoading}
-        view={view}
+        view={view as ArticleView}
         className={styles.list}
         onLoadNextPart={onLoadNextPart}
       />

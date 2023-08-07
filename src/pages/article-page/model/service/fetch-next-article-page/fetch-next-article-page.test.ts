@@ -1,7 +1,6 @@
 import { fetchNextArticlesPage } from './fetch-next-article-page';
 import { fetchArticlesList } from '../fetch-articles-list/fetch-articles-list';
 import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
-import { ArticleType } from '@/entities/article';
 
 jest.mock('../fetch-articles-list/fetch-articles-list');
 jest.mock('axios', () => ({
@@ -20,7 +19,7 @@ describe('fetchNextArticlePage.test', () => {
       articlesPage: {
         page: 2,
         ids: [],
-        type: ArticleType.ALL,
+        type: 'IT',
         entities: {},
         limit: 5,
         isLoading: false,

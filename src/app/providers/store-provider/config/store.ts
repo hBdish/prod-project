@@ -4,8 +4,8 @@ import {
 import { counterReducer, userReducer } from '@/entities';
 import { createReducerManager } from '@/app/providers/store-provider';
 import { $api, rtkApi } from '@/shared';
-import { scrollSaveReducer } from '@/features/scrolle-save';
 import { StateSchema } from './state-schema';
+import { scrollSaveReducer } from '@/features';
 
 export function createReduxStore(
   initialState?: StateSchema,

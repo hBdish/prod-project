@@ -1,1 +1,2 @@
-export type { ScrollSchema } from './types';
+export type { ScrollSaveSchema } from './types';
+export { ScrollSchema } from './types';

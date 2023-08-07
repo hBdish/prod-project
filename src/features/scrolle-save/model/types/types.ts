@@ -1,7 +1,5 @@
 export type ScrollSchema = Record<string, number>
 
- interface ScrollSaveSchema {
+export interface ScrollSaveSchema {
   scroll: ScrollSchema
 }
-
-export type { ScrollSaveSchema };

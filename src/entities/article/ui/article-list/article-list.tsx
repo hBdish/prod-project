@@ -13,7 +13,7 @@ interface ArticleListProps {
   className?: string
   articles: Article[]
   isLoading?: boolean
-  view?: ArticleView
+  view: ArticleView
   target?: HTMLAttributeAnchorTarget
   onLoadNextPart?: () => void
 }
@@ -23,7 +23,7 @@ const ArticleList = memo((props: ArticleListProps) => {
     className,
     articles,
     isLoading,
-    view = ArticleView.BIG,
+    view = ArticleView.SMALL,
     target,
     onLoadNextPart,
   } = props;

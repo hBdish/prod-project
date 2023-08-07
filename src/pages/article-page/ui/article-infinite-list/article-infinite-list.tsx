@@ -10,7 +10,7 @@ import {
   initArticlePage,
 } from '@/pages';
 import { useAppDispatch, useInitialEffect } from '@/shared';
-import { ArticleList } from '@/entities';
+import { ArticleList, ArticleView } from '@/entities';
 
 interface ArticleInfiniteListProps {
   className?: string
@@ -40,7 +40,7 @@ const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
     <ArticleList
       articles={articles}
       isLoading={isLoading}
-      view={view}
+      view={view as ArticleView}
       className={className}
       onLoadNextPart={onLoadNextPart}
     />

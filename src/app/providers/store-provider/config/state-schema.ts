@@ -6,15 +6,15 @@ import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema, CounterSchema, UserSchema } from '@/entities';
 import {
-  AddCommentSchema, LoginSchema, ProfileSchema, ScrollSchema,
+  AddCommentSchema, LoginSchema, ProfileSchema, ScrollSaveSchema,
 } from '@/features';
 import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema, ArticlePageSchema } from '@/pages';
 import { rtkApi } from '@/shared';
 
 export interface StateSchema {
   counter: CounterSchema
-  user: UserSchema;
-  scroll: ScrollSchema
+  user: UserSchema
+  scroll: ScrollSaveSchema
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async

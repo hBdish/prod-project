@@ -2,7 +2,7 @@ import {
   CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { counterReducer, userReducer } from '@/entities';
-import { createReducerManager } from '@/app/providers/store-provider/config/reducer-manager';
+import { createReducerManager } from '@/app/providers/store-provider';
 import { $api, rtkApi } from '@/shared';
 import { scrollSaveReducer } from '@/features/scrolle-save';
 import { StateSchema } from './state-schema';

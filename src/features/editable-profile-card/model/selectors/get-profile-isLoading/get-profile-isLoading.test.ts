@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers';
+import { StateSchema } from '@/app/providers/store-provider';
 import { getProfileIsLoading } from './get-profile-isLoading';
 
 describe('GetProfileIsLoading', () => {

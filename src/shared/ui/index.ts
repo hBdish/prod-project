@@ -14,3 +14,4 @@ export * from './stack';
 export * from './popups';
 export * from './overlay';
 export * from './drawer';
+export * from './modal';

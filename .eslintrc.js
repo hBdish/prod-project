@@ -69,7 +69,11 @@ module.exports = {
     'pc-test/path-checker': ['error', { alias: '@' }],
     'pc-test/public-api-imports': ['error', {
       alias: '@',
-      testFiles: ['**/*.test.ts', '**/store-decorator'],
+      testFiles: ['**/*.test.ts', '**/store-provider'],
+    }],
+    'pc-test/layer-imports': ['error', {
+      alias: '@',
+      ignoreImportPatterns: ['**/store-provider', '**/testing', '**/*.test.(ts|tsx)$'],
     }],
   },
   globals: {

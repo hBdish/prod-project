@@ -5,6 +5,7 @@ import { Country, Currency } from '../../../helpers';
 import { $api } from '@/shared';
 import { EditableProfileCard } from './editable-profile-card';
 import componentRender from '@/shared/lib/test/componentRender';
+// eslint-disable-next-line pc-test/layer-imports
 import { Profile, profileReducer } from '@/features';
 
 const profile: Profile = {

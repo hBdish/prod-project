@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
-import { Theme } from '@/app/providers';
 import { Navbar } from './navbar';
+import { Theme } from '@/shared';
 
 const meta: Meta<typeof Navbar> = {
   title: 'widgets/Navbar',

@@ -2,7 +2,8 @@ import type {Preview} from "@storybook/react";
 import {RouterDecorator, StyleDecorator, ThemeDecorator} from "../../src/shared/config/storybook";
 
 import {LanguageDecorator} from "../../src/shared/config/storybook/language-decorator";
-import {Theme} from "../../src/app/providers";
+
+import {Theme} from "../../src/shared";
 
 
 const preview: Preview = {

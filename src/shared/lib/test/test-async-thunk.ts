@@ -1,5 +1,6 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios/index';
+// eslint-disable-next-line pc-test/layer-imports
 import { StateSchema } from '@/app/providers';
 
 type ActionCreatorType<Return, Arg, RejectValue> = (arg: Arg) =>

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { fetchProfileData, profileActions } from '@/features';
+import { fetchProfileData } from '../model/services/fetch-profile-data';
 import { Country, Currency } from '@/helpers';
 import {
   classNames, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
@@ -17,6 +17,7 @@ import {
   getProfileValidateError,
 } from '../model/selectors';
 import { ProfileCard } from './profile-card/profile-card';
+import { profileActions } from '../model/slice/profile-slice';
 
 interface EditableProfileCardProps {
   className?: string

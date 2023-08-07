@@ -1,3 +1,4 @@
+// eslint-disable-next-line pc-test/layer-imports
 import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';

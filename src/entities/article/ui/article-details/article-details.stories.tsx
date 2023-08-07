@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook';
-import { Theme } from '@/app/providers';
 import { ArticleBlockType, ArticleType } from '../../model/const/articleConst';
 import { ArticleDetails } from './article-details';
 import { Article } from '../../types/types';
+import { Theme } from '@/shared';
 
 /* eslint-disable */
 const article: Article = {

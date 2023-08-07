@@ -1,9 +1,9 @@
-import {
-  profileActions, profileReducer, ProfileSchema, updateProfileData,
-} from '@/features';
+import { profileActions, profileReducer } from '../slice/profile-slice';
 import { Country, Currency } from '@/helpers';
 import TestImg from '@/shared/assets/for-test/test-img.png';
 import { ValidateProfileError } from '../const/editableProfileCardConst';
+import { ProfileSchema } from '../types/profile';
+import { updateProfileData } from '../services/update-profile-data/update-profile-data';
 
 const data = {
   username: 'admin',

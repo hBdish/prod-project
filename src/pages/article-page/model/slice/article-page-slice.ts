@@ -2,9 +2,10 @@ import {
   Action, createEntityAdapter, createSlice, PayloadAction,
 } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers';
-import { Article } from '@/entities';
+import {
+  Article, ArticleSortField, ArticleType, ArticleView,
+} from '@/entities';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY, SortOrder } from '@/shared';
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/article';
 import { fetchArticlesList } from '../service/fetch-articles-list/fetch-articles-list';
 import { ArticlePageSchema } from '../types/types';
 
@@ -37,7 +38,7 @@ const articlePageSlice = createSlice({
     sort: 'createdAt',
     search: '',
     order: 'asc',
-    type: 'ALL',
+    type: 'IT',
 
     _inited: false,
   }),

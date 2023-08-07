@@ -35,14 +35,6 @@ const options = {
 };
 
 describe('EditableProfileCard', () => {
-  // beforeEach(() => {
-  //   jest.spyOn($api, 'get').mockReturnValue(
-  //     Promise.resolve({
-  //       data: profile,
-  //     }),
-  //   );
-  // });
-
   test('change button', async () => {
     componentRender(<EditableProfileCard />, options);
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));

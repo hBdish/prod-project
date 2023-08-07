@@ -1,5 +1,5 @@
+import { Country, Currency } from '@/shared';
 import { StateSchema } from '@/app/providers/store-provider';
-import { Country, Currency } from '@/helpers';
 import TestImg from '@/shared/assets/for-test/test-img.png';
 import { getProfileForm } from './get-profile-form';
 

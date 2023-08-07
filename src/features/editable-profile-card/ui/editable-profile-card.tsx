@@ -2,11 +2,10 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { fetchProfileData } from '../model/services/fetch-profile-data';
-import { Country, Currency } from '@/helpers';
 import {
-  classNames, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
+  classNames, Country, Currency, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
 } from '@/shared';
+import { fetchProfileData } from '../model/services/fetch-profile-data';
 import { ValidateProfileError } from '../model/const/editableProfileCardConst';
 import { ProfileCardHeader } from '../ui/profile-card-header/profile-card-header';
 import {

@@ -1,4 +1,4 @@
-import { Country, Currency } from '@/helpers';
+import { Country, Currency } from '@/shared';
 import { ValidateProfileError } from '../const/editableProfileCardConst';
 
 export interface Profile {

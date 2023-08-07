@@ -1,8 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { Country, Currency } from '../../../helpers';
-import { $api } from '@/shared';
+import { $api, Country, Currency } from '@/shared';
 import { EditableProfileCard } from './editable-profile-card';
 import componentRender from '@/shared/lib/test/componentRender';
 // eslint-disable-next-line pc-test/layer-imports

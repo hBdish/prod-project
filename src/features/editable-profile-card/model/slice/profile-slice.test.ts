@@ -1,5 +1,5 @@
+import { Country, Currency } from '@/shared';
 import { profileActions, profileReducer } from '../slice/profile-slice';
-import { Country, Currency } from '@/helpers';
 import TestImg from '@/shared/assets/for-test/test-img.png';
 import { ValidateProfileError } from '../const/editableProfileCardConst';
 import { ProfileSchema } from '../types/profile';

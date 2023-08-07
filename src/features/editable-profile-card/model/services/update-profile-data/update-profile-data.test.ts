@@ -1,4 +1,4 @@
-import { Country, Currency } from '@/helpers';
+import { Country, Currency } from '@/shared';
 import TestImg from '@/shared/assets/for-test/test-img.png';
 import { ValidateProfileError } from '../../const/editableProfileCardConst';
 import { updateProfileData } from './update-profile-data';

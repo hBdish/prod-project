@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 import { getUserRoles } from '@/entities';
 import { UserRole } from '@/entities/user';
-import { RoutePath } from '@/shared';
+import { getRouteMain } from '@/shared';
 
 interface RequireProps {
   children: JSX.Element,
@@ -26,7 +26,7 @@ function RequireRoles({ children, roles }: RequireProps) {
   }, [roles, userRoles]);
 
   if (!hasRequiredRoles) {
-    return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+    return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
   }
 
   return children;

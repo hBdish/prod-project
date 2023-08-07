@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  AppLink, Button, ButtonTheme, Card, classNames, EyeIcon, Icon, RoutePath, Text,
+  AppLink, Button, ButtonTheme, Card, classNames, EyeIcon, getRouteArticlesDetails, Icon, Text,
 } from '@/shared';
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst';
 import styles from './article-list-item.module.scss';
@@ -55,7 +55,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
           <div className={styles.footer}>
             <AppLink
               target={target}
-              to={RoutePath.articles_details + article.id}
+              to={getRouteArticlesDetails(article.id)}
             >
               <Button
                 theme={ButtonTheme.OUTLINE}
@@ -73,7 +73,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.articles_details + article.id}
+      to={getRouteArticlesDetails(article.id)}
       className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
     >
       <Card

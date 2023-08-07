@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import {
-  Avatar, classNames, Skeleton, Text, AppLink, Vstack, RoutePath,
+  AppLink, Avatar, classNames, getRouteProfile, Skeleton, Text, Vstack,
 } from '@/shared';
 import styles from './comment-card.module.scss';
 import { Comment } from '../../model/types/types';
@@ -34,7 +34,7 @@ const CommentCard = memo((props: CommentCardProps) => {
 
   return (
     <Vstack gap="16" w100 className={classNames('', {}, [className])}>
-      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={styles.header}>
+      <AppLink to={getRouteProfile(comment.user.id)} className={styles.header}>
         {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
         <Text className={styles.userName} title={comment.user.username} />
       </AppLink>

@@ -3,7 +3,15 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LoginModal, NotificationButton } from '@/features';
 import {
-  AppLink, AppLinkTheme, Button, ButtonTheme, classNames, Hstack, RoutePath, Text, TextTheme,
+  AppLink,
+  AppLinkTheme,
+  Button,
+  ButtonTheme,
+  classNames,
+  getRouteArticlesCreate,
+  Hstack,
+  Text,
+  TextTheme,
 } from '@/shared';
 import { getAuthData } from '@/entities';
 import { AvatarDropdown } from '@/features/avatar-dropdown';
@@ -32,7 +40,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
         />
         <AppLink
           className={styles.createBtn}
-          to={RoutePath.articles_create}
+          to={getRouteArticlesCreate()}
           theme={AppLinkTheme.SECONDARY}
         >
           {t('Создать статью')}

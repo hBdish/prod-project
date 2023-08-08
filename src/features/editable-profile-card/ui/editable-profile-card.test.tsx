@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import { $api, Country, Currency } from '@/shared';
 import { EditableProfileCard } from './editable-profile-card';
-import componentRender from '@/shared/lib/test/componentRender';
+import componentRender from '@/shared/lib/test/component-render';
 // eslint-disable-next-line pc-test/layer-imports
 import { Profile, profileReducer } from '@/features';
 

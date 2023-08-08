@@ -1,9 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import {
-  ArticleSortField, ArticleType, ArticleView, ArticleViewSelector,
-} from '@/entities/article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/article';
 import {
   articlePageActions,
   fetchArticlesList,
@@ -16,8 +14,7 @@ import {
 import {
   Card, classNames, Input, SortOrder, useAppDispatch, useDebounce,
 } from '@/shared';
-import { SortSelector } from '@/features';
-import { ArticleTypeTabs } from '@/entities';
+import { ArticleTypeTabs, ArticleViewSelector, SortSelector } from '@/features';
 import styles from './article-page-filters.module.scss';
 
 interface ArticlePageFiltersProps {

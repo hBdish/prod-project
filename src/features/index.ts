@@ -8,3 +8,5 @@ export * from './article-recommendations-list';
 export * from './article-rating';
 export * from './lang-switcher';
 export * from './theme-switcher';
+export * from './article-type-tabs';
+export * from './article-view-selector';

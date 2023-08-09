@@ -4,13 +4,13 @@ import {
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
-  classNames, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle,
+  classNames, TestProps, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle,
 } from '@/shared';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/scrolle-save';
 import { StateSchema } from '@/app/providers/store-provider';
 import styles from './content-page-block.module.scss';
 
-interface ContentPageBlockProps {
+interface ContentPageBlockProps extends TestProps{
   className?: string
   children?: ReactNode
   onScrollEnd?: () => void
@@ -51,6 +51,7 @@ const ContentPageBlock = memo((props: ContentPageBlockProps) => {
       ref={wrapperRef}
       className={classNames(styles.ContentPageBlock, {}, [className])}
       onScroll={onScroll}
+      data-testid={props['data-testid']}
     >
       {children}
       {onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}

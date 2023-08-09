@@ -5,7 +5,7 @@ function MainPage() {
   const { t } = useTranslation('main');
 
   return (
-    <ContentPageBlock>
+    <ContentPageBlock data-testid="MainPage">
       {t('Главная страница')}
     </ContentPageBlock>
   );

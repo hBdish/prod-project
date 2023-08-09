@@ -4,7 +4,7 @@ import { ContentPageBlock } from '@/widgets';
 function AboutPage() {
   const { t } = useTranslation('about');
   return (
-    <ContentPageBlock>
+    <ContentPageBlock data-testid="AboutPage">
       {t('О сайте')}
     </ContentPageBlock>
   );

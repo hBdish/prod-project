@@ -8,6 +8,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [ 18.x ]

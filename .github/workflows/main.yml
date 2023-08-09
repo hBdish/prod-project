@@ -6,28 +6,6 @@ on:
     branches: [ main ]
 
 jobs:
-#  lint:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        node-version: [ 18.x ]
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Staring Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#      - name: install fix
-#        run: npm i -D ts-node --force
-#      - name: install modules
-#        run: npm run build:prod
-#      - name: run lint ts
-#        if: always()
-#        run: npm run lint:ts
-#      - name: run lint scss
-#        if: always()
-#        run: npm run lint:scss
-
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -39,13 +17,30 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install fix
-        run: npm i -D ts-node --force
+#      - name: install fix
+#        run: npm i -D ts-node --force
       - name: install modules
-        run: npm run build:prod
+        run: npm ci --force
       - name: build storybook
         if: always()
         run: npm run storybook:build
       - name: run screenshot testing
         if: always()
         run: npm run test:ui:ci
+      - name: generate HTML report
+        if: always()
+        run: npm run test:ui:report
+      - name: setup pages
+        if: always()
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.loki'
+      - name: deploy to gh pages
+        id: deployment
+        if: always()
+        uses: actions/deploy-pages@v1
+
+

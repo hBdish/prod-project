@@ -8,8 +8,11 @@ permissions:
   contents: write
   pages: write
   id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
-  test:
+  build-and-ui-testing:
     runs-on: ubuntu-latest
     concurrency: ci-${{ github.ref }}
     environment:
@@ -36,14 +39,14 @@ jobs:
         if: always()
         run: npm run test:ui:report
       - name: setup pages
-        if: always()
         uses: actions/configure-pages@v2
-      - name: Upload artifact
         if: always()
+      - name: upload artifact
         uses: actions/upload-pages-artifact@v1
+        if: always()
         with:
           path: '.loki'
-      - name: deploy to gh pages
+      - name: deploy to GitHub Pages
         id: deployment
         if: always()
         uses: actions/deploy-pages@v1

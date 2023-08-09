@@ -27,6 +27,9 @@
     "generate:slice": "node ./scripts/create-slice/index.js",
     "postinstall": "rm -rf ./node_modules/.cache"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -85,6 +88,7 @@
     "jest-svg-transformer": "^1.0.0",
     "json-server": "^0.17.0",
     "jsonwebtoken": "^9.0.0",
+    "lint-staged": "^13.2.3",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.5.3",
     "react-virtuoso": "^4.4.1",

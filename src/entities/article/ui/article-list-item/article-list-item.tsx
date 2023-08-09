@@ -1,7 +1,17 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  AppLink, Button, ButtonTheme, Card, classNames, EyeIcon, getRouteArticlesDetails, Icon, Text,
+  AppImage,
+  AppLink,
+  Button,
+  ButtonTheme,
+  Card,
+  classNames,
+  EyeIcon,
+  getRouteArticlesDetails,
+  Icon,
+  Skeleton,
+  Text,
 } from '@/shared';
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst';
 import styles from './article-list-item.module.scss';
@@ -46,7 +56,12 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
           </div>
           <Text title={article.title} className={styles.title} />
           {types}
-          <img src={article.img} alt={article.title} className={styles.img} />
+          <AppImage
+            fallback={<Skeleton width="100%" height={250} />}
+            src={article.img}
+            alt={article.title}
+            className={styles.img}
+          />
           {
             textBlock && (
               <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
@@ -57,9 +72,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
               target={target}
               to={getRouteArticlesDetails(article.id)}
             >
-              <Button
-                theme={ButtonTheme.OUTLINE}
-              >
+              <Button theme={ButtonTheme.OUTLINE}>
                 {t('Читать далее')}
               </Button>
             </AppLink>
@@ -80,7 +93,12 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
         className={styles.card}
       >
         <div className={styles.imgWrapper}>
-          <img src={article.img} className={styles.img} alt={article.title} />
+          <AppImage
+            fallback={<Skeleton width={200} height={200} />}
+            src={article.img}
+            alt={article.title}
+            className={styles.img}
+          />
           <Text text={article.createdAt} className={styles.date} />
         </div>
         <div className={styles.infoWrapper}>

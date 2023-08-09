@@ -12,6 +12,7 @@ import TiledIcon from './tiled.svg';
 import ListIcon from './list.svg';
 import NotificationIcon from './notification.svg';
 import StarIcon from './star.svg';
+import AvatarErrorIcon from './avatar-error.svg';
 
 export {
   ThemeDark,
@@ -28,4 +29,5 @@ export {
   ListIcon,
   NotificationIcon,
   StarIcon,
+  AvatarErrorIcon,
 };

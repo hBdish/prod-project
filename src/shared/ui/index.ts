@@ -15,3 +15,4 @@ export * from './popups';
 export * from './overlay';
 export * from './drawer';
 export * from './modal';
+export * from './app-image';

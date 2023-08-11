@@ -16,7 +16,7 @@ export function buildSlice<
     return useMemo(() => bindActionCreators<
       // @ts-ignore
       CaseReducerActions<CaseReducers>,
-      CaseReducerActions<CaseReducers>
+      any
     >(slice.actions, dispatch), [dispatch]);
   };
 

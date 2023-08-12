@@ -45,7 +45,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
   );
 
   return (
-    <div className={styles.ArticleBlock}>
+    <div data-testid="ArticlePage" className={styles.ArticleBlock}>
       <ArticleList
         articles={articles}
         isLoading={isLoading}

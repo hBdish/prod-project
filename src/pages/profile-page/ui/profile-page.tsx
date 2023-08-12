@@ -1,6 +1,4 @@
-import {
-  classNames, ReducersList, useDynamicModuleLoader,
-} from '@/shared';
+import { classNames, ReducersList, useDynamicModuleLoader } from '@/shared';
 import { EditableProfileCard, profileReducer } from '@/features';
 import { ContentPageBlock } from '@/widgets';
 
@@ -15,7 +13,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   useDynamicModuleLoader({ reducers });
 
   return (
-    <ContentPageBlock className={classNames('', {}, [className])}>
+    <ContentPageBlock data-testid="ProfilePage" className={classNames('', {}, [className])}>
       <EditableProfileCard />
     </ContentPageBlock>
   );

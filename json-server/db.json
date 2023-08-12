@@ -584,13 +584,22 @@
       "avatar": "https://lumiere-a.akamaihd.net/v1/images/pp_lightyear_herobanner_mobile_v2_22043_48d47fc7.jpeg?region=0,0,640,480"
     },
     {
-      "id": "2",
+      "id": "3",
       "username": "manager",
       "password": "123",
       "role": [
         "MANAGER"
       ],
       "avatar": "https://lumiere-a.akamaihd.net/v1/images/pp_lightyear_herobanner_mobile_v2_22043_48d47fc7.jpeg?region=0,0,640,480"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "role": [
+        "USER"
+      ],
+      "avatar": "https://static.wikia.nocookie.net/toystory/images/b/b0/%D0%A0%D0%B5%D0%BA%D1%81.jpg/revision/latest?cb=20110627030456&path-prefix=ru"
     }
   ],
   "profile": [

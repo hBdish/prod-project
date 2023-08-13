@@ -78,6 +78,7 @@ const ArticleList = memo((props: ArticleListProps) => {
   if (view === ArticleView.BIG) {
     return (
       <Virtuoso
+        data-testid="ArticleList"
         style={{ height: '100%' }}
         data={articles}
         totalCount={articles.length}

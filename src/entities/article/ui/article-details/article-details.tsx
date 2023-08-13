@@ -95,7 +95,11 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
             src={article?.img}
           />
         </Hstack>
-        <Vstack gap="8" w100>
+        <Vstack
+          gap="8"
+          w100
+          data-testid="ArticleDetails.Info"
+        >
           <Hstack gap="8">
             <Icon
               Svg={EyeIcon}

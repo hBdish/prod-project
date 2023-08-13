@@ -20,7 +20,12 @@ const CommentCard = memo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <Vstack gap="16" w100 className={classNames('', {}, [className])}>
+      <Vstack
+        data-testid="CommentCard.Loading"
+        gap="16"
+        w100
+        className={classNames('', {}, [className])}
+      >
         <div className={styles.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton width={100} height={16} className={styles.userName} />
@@ -33,12 +38,31 @@ const CommentCard = memo((props: CommentCardProps) => {
   if (!comment) return null;
 
   return (
-    <Vstack gap="16" w100 className={classNames('', {}, [className])}>
-      <AppLink to={getRouteProfile(comment.user.id)} className={styles.header}>
-        {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
-        <Text className={styles.userName} title={comment.user.username} />
+    <Vstack
+      data-testid="CommentCard.Content"
+      gap="16"
+      w100
+      className={classNames('', {}, [className])}
+    >
+      <AppLink
+        to={getRouteProfile(comment.user.id)}
+        className={styles.header}
+      >
+        {comment.user.avatar && (
+        <Avatar
+          size={30}
+          src={comment.user.avatar}
+        />
+        )}
+        <Text
+          className={styles.userName}
+          title={comment.user.username}
+        />
       </AppLink>
-      <Text className={styles.text} text={comment.text} />
+      <Text
+        className={styles.text}
+        text={comment.text}
+      />
     </Vstack>
   );
 });

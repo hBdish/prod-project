@@ -55,6 +55,7 @@ const RatingCard = (props: RatingCardProps) => {
     <Vstack w100 gap="32">
       <Text title={feedbackTitle} />
       <Input
+        data-testid="RatingCard.Input"
         value={feedback}
         onChange={setFeedback}
         placeholder={t('Ваш отзыв') ?? ''}
@@ -65,10 +66,14 @@ const RatingCard = (props: RatingCardProps) => {
         align="center"
         justify="center"
       >
-        <Button onClick={cancelHandler} theme={ButtonTheme.OUTLINE_RED}>
+        <Button
+          data-testid="RatingCard.Close"
+          onClick={cancelHandler}
+          theme={ButtonTheme.OUTLINE_RED}
+        >
           {t('Закрыть') ?? ''}
         </Button>
-        <Button onClick={acceptHandler}>
+        <Button data-testid="RatingCard.Send" onClick={acceptHandler}>
           {t('Отправить') ?? ''}
         </Button>
       </Hstack>
@@ -76,7 +81,11 @@ const RatingCard = (props: RatingCardProps) => {
   );
 
   return (
-    <Card w100 className={classNames('', {}, [className])}>
+    <Card
+      data-testid="RatingCard"
+      w100
+      className={classNames('', {}, [className])}
+    >
       <Vstack align="center" gap="8">
         {!starsCount && <Text title={title} />}
         <StarRating

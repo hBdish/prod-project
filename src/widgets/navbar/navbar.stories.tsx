@@ -16,7 +16,7 @@ type Story = StoryObj<typeof Navbar>;
 export const Light: Story = {
   args: { },
   decorators: [StoreDecorator({
-    // login: { username: '123', password: '123' },
+    // common: { username: '123', password: '123' },
   })],
 };
 
@@ -25,7 +25,7 @@ export const Dark: Story = {
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
-      // login: { username: '123', password: '123' },
+      // common: { username: '123', password: '123' },
     }),
   ],
 };

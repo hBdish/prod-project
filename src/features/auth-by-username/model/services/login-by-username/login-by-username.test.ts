@@ -3,7 +3,7 @@ import TestAsyncThunk from '../../../../../shared/lib/test/test-async-thunk';
 import { loginByUsername } from '../login-by-username/login-by-username';
 
 describe('LoginByUsernameTest', () => {
-  test('success login', async () => {
+  test('success common', async () => {
     const userValue = { username: '123', id: '1' };
     const thunk = new TestAsyncThunk(loginByUsername);
 
@@ -16,7 +16,7 @@ describe('LoginByUsernameTest', () => {
     expect(result.meta.requestStatus).toBe('fulfilled');
   });
 
-  test('unsuccessful login', async () => {
+  test('unsuccessful common', async () => {
     const thunk = new TestAsyncThunk(loginByUsername);
     thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({ username: '123', password: '123' });

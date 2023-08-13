@@ -28,7 +28,7 @@ const Flex = (props: FlexProps) => {
     direction = 'row',
     gap,
     w100 = false,
-
+    ...otherProps
   } = props;
 
   const justifyClasses: Record<FlexJustify, string> = {
@@ -70,7 +70,7 @@ const Flex = (props: FlexProps) => {
   };
 
   return (
-    <div className={classNames(styles.Flex, mods, classes)}>
+    <div className={classNames(styles.Flex, mods, classes)} {...otherProps}>
       {children}
     </div>
   );

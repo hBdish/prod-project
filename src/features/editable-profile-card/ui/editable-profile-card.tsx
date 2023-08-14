@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 import {
   classNames, Country, Currency, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
 } from '@/shared';
@@ -20,15 +19,16 @@ import { profileActions } from '../model/slice/profile-slice';
 
 interface EditableProfileCardProps {
   className?: string
+  id?: string
 }
 
 const EditableProfileCard = (props: EditableProfileCardProps) => {
   const {
     className,
+    id,
   } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
-  const { id } = useParams<{ id: string }>();
 
   useInitialEffect(() => {
     if (id) dispatch(fetchProfileData(id));

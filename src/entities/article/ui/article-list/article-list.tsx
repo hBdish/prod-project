@@ -1,4 +1,5 @@
 import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
 import { classNames, Text } from '@/shared';
@@ -10,47 +11,35 @@ import { ArticleListItemSkeleton } from '../article-list-item/article-list-item-
 import styles from './article-list.module.scss';
 
 interface ArticleListProps {
-  className?: string
-  articles: Article[]
-  isLoading?: boolean
-  view: ArticleView
-  target?: HTMLAttributeAnchorTarget
-  onLoadNextPart?: () => void
+  className?: string;
+  articles: Article[];
+  isLoading?: boolean;
+  view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
+  onLoadNextPart?: () => void;
 }
 
 const ArticleList = memo((props: ArticleListProps) => {
-  const {
-    className,
-    articles,
-    isLoading,
-    view = ArticleView.SMALL,
-    target,
-    onLoadNextPart,
-  } = props;
+  const { className, articles, isLoading, view = ArticleView.SMALL, target, onLoadNextPart } = props;
 
   const { t } = useTranslation('article');
 
-  const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.BIG ? 3 : 8)
-    .fill(0)
-    .map((item, index) => (
-      <ArticleListItemSkeleton className={styles.card} key={index} view={view} />
+  const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.BIG ? 3 : 8).fill(0).map((item, index) => (
+      <ArticleListItemSkeleton
+        className={styles.card}
+        key={index}
+        view={view}
+      />
     ));
 
   const Header = memo(() => <ArticlePageFilters />);
 
-  const ItemContainerComp: FC = memo(() => (
-    <div className={styles.itemsContainer}>
-      {getSkeletons(view)}
-    </div>
-  ));
+  const ItemContainerComp: FC = memo(() => <div className={styles.itemsContainer}>{getSkeletons(view)}</div>);
 
   const Footer = memo(() => {
     if (isLoading) {
-      return (
-        <div className={classNames('', {}, [className, styles[view]])}>
-          {getSkeletons(view)}
-        </div>
-      );
+      return <div className={classNames('', {}, [className, styles[view]])}>{getSkeletons(view)}</div>;
     }
     return null;
   });

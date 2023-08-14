@@ -5,7 +5,7 @@ import { Flex } from './flex';
 const meta: Meta<typeof Flex> = {
   title: 'shared/Flex',
   component: Flex,
-  args: { },
+  args: {},
 };
 
 export default meta;

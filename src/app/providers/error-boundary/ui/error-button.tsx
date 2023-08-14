@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, classNames } from '@/shared';
 
 interface ErrorButtonProps {
-  className?: string
+  className?: string;
 }
 
 // TEST COMPONENT

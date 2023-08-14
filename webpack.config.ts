@@ -1,4 +1,6 @@
+/* eslint-disable */
 import webpack from 'webpack';
+/* eslint-enable */
 import path from 'path';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPath } from './config/build/types/config';

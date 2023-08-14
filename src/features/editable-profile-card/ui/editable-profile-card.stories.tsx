@@ -14,21 +14,21 @@ export default meta;
 type Story = StoryObj<typeof EditableProfileCard>;
 
 export const Default: Story = {
-  args: {
-
-  },
-  decorators: [StoreDecorator({
-    profile: {
-      form: {
-        username: 'admin',
-        age: 20,
-        country: Country.Kazakhstan,
-        lastname: 'TestLastName',
-        first: 'TestFirstName',
-        city: 'Almaty',
-        currency: Currency.RUB,
-        avatar: TestImg,
+  args: {},
+  decorators: [
+    StoreDecorator({
+      profile: {
+        form: {
+          username: 'admin',
+          age: 20,
+          country: Country.Kazakhstan,
+          lastname: 'TestLastName',
+          first: 'TestFirstName',
+          city: 'Almaty',
+          currency: Currency.RUB,
+          avatar: TestImg,
+        },
       },
-    },
-  })],
+    }),
+  ],
 };

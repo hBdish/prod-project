@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { screen } from '@testing-library/react';
 import componentRender from '../../../shared/lib/test/component-render';
 

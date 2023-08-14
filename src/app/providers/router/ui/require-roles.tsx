@@ -6,8 +6,8 @@ import { UserRole } from '@/entities/user';
 import { getRouteMain } from '@/shared';
 
 interface RequireProps {
-  children: JSX.Element,
-  roles?: UserRole[]
+  children: JSX.Element;
+  roles?: UserRole[];
 }
 
 function RequireRoles({ children, roles }: RequireProps) {
@@ -26,7 +26,13 @@ function RequireRoles({ children, roles }: RequireProps) {
   }, [roles, userRoles]);
 
   if (!hasRequiredRoles) {
-    return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+    return (
+      <Navigate
+        to={getRouteMain()}
+        state={{ from: location }}
+        replace
+      />
+    );
   }
 
   return children;

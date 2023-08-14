@@ -17,21 +17,16 @@ const articleDetailsPageRecommendationSlice = createSlice({
     isLoading: false,
     error: undefined,
     ids: [],
-    entities: {
-
-    },
+    entities: {},
   }),
-  reducers: { },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticlesRecommendations.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchArticlesRecommendations.fulfilled, (
-        state,
-        action,
-      ) => {
+      .addCase(fetchArticlesRecommendations.fulfilled, (state, action) => {
         state.isLoading = false;
         recommendationsAdapter.setAll(state, action.payload);
       })

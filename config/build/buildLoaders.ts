@@ -1,10 +1,11 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-  const { isDev } = options;
+
   const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
   const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 

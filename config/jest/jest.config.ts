@@ -17,14 +17,7 @@ export default {
   rootDir: '../../',
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node',
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
@@ -33,24 +26,15 @@ export default {
   testEnvironment: 'jsdom',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [
-    '/node_modules/',
-  ],
+  coveragePathIgnorePatterns: ['/node_modules/'],
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: [
-    'node_modules',
-    '<rootDir>/src',
-  ],
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
 
   // The glob patterns Jest uses to detect test files
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-  ],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
-  setupFilesAfterEnv: [
-    '<rootDir>/config/jest/setup-tests.ts',
-  ],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setup-tests.ts'],
 
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -68,18 +52,19 @@ export default {
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: [
-    '"node_modules/(?!axios)/"',
-  ],
+  transformIgnorePatterns: ['"node_modules/(?!axios)/"'],
 
   reporters: [
     'default',
-    ['jest-html-reporters', {
-      publicPath: '<rootDir>/reports/unit',
-      filename: 'report.html',
-      openReport: true,
-      inlineSours: true,
-    }],
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        openReport: true,
+        inlineSours: true,
+      },
+    ],
   ],
 
   // Indicates whether the coverage information should be collected while executing the test

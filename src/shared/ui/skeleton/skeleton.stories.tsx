@@ -6,7 +6,7 @@ import { Theme } from '@/shared';
 const meta: Meta<typeof Skeleton> = {
   title: 'shared/Skeleton',
   component: Skeleton,
-  args: { },
+  args: {},
 };
 
 export default meta;

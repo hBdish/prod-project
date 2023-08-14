@@ -1,8 +1,6 @@
-export interface ArticleRatingSchema {
-
-}
+export interface ArticleRatingSchema {}
 
 export interface Rating {
-  rate: number
-  feedback?: string
+  rate: number;
+  feedback?: string;
 }

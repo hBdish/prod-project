@@ -1,10 +1,6 @@
-import {
-  Action, createEntityAdapter, createSlice, PayloadAction,
-} from '@reduxjs/toolkit';
+import { Action, createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers';
-import {
-  Article, ArticleSortField, ArticleType, ArticleView,
-} from '@/entities';
+import { Article, ArticleSortField, ArticleType, ArticleView } from '@/entities';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY, SortOrder } from '@/shared';
 import { fetchArticlesList } from '../service/fetch-articles-list/fetch-articles-list';
 import { ArticlePageSchema } from '../types/types';
@@ -15,7 +11,7 @@ const articlesAdapter = createEntityAdapter<Article>({
 
 export interface ActionWithPayload<T> extends Action {
   payload: T;
-  meta: any
+  meta: any;
 }
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -78,10 +74,7 @@ const articlePageSlice = createSlice({
           articlesAdapter.removeAll(state);
         }
       })
-      .addCase(fetchArticlesList.fulfilled, (
-        state,
-        action: ActionWithPayload<Article[]>,
-      ) => {
+      .addCase(fetchArticlesList.fulfilled, (state, action: ActionWithPayload<Article[]>) => {
         state.isLoading = false;
 
         if (action.meta.arg.replace) {

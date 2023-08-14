@@ -5,7 +5,7 @@ import { classNames, Text } from '@/shared';
 // import styles from './article-create-page.module.scss';
 
 interface ArticleEditPageProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleCreatePage = memo((props: ArticleEditPageProps) => {

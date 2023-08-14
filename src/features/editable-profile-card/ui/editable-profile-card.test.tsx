@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { screen } from '@testing-library/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import userEvent from '@testing-library/user-event';
 
 import { $api, Country, Currency } from '@/shared';

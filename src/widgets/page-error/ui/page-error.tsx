@@ -3,7 +3,7 @@ import { Button, classNames } from '@/shared';
 import styles from './page-error.module.scss';
 
 interface PageErrorProps {
-  className?: string
+  className?: string;
 }
 
 const PageError = ({ className }: PageErrorProps) => {
@@ -17,9 +17,7 @@ const PageError = ({ className }: PageErrorProps) => {
   return (
     <div className={classNames(styles.pageError, {}, [className])}>
       <p>{t('Произошла непредвиденная ошибка')}</p>
-      <Button onClick={reloadPage}>
-        {t('Обновить страницу')}
-      </Button>
+      <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
     </div>
   );
 };

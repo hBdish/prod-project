@@ -6,7 +6,6 @@ const meta: Meta<typeof Dropdown> = {
   component: Dropdown,
   args: {},
   argTypes: {},
-
 };
 
 export default meta;
@@ -18,8 +17,10 @@ export const Primary: Story = {
   args: {
     trigger: <button type="button">{MOCK}</button>,
     direction: 'bottomRight',
-    items: [{
-      content: 'Test1',
-    }],
+    items: [
+      {
+        content: 'Test1',
+      },
+    ],
   },
 };

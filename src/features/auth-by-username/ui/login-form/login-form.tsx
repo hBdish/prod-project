@@ -15,15 +15,13 @@ import {
 
 import { loginByUsername } from '../../model/services';
 import { loginActions, loginReducer } from '../../model/slice';
-import {
-  getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername,
-} from '../../model/selectors';
+import { getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername } from '../../model/selectors';
 
 import styles from './login-form.module.scss';
 
 export interface LoginFormProps {
-  className?: string
-  onSuccess: () => void
+  className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -37,15 +35,22 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
+
   useDynamicModuleLoader({ reducers: initialReducers });
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
 
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
@@ -62,10 +67,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         theme={TextTheme.PRIMARY}
       />
       {error && (
-      <Text
-        theme={TextTheme.ERROR}
-        text={error}
-      />
+        <Text
+          theme={TextTheme.ERROR}
+          text={error}
+        />
       )}
       <Input
         autoFocus

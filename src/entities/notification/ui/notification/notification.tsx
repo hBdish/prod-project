@@ -3,7 +3,7 @@ import { useNotificationsList } from '../../api/notification-api';
 import { NotificationItem } from '../notification-item/notification-item';
 
 interface NotificationProps {
-  className?: string
+  className?: string;
 }
 
 const Notification = (props: NotificationProps) => {
@@ -14,7 +14,10 @@ const Notification = (props: NotificationProps) => {
 
   if (isLoading) {
     return (
-      <Skeleton width={500} height={300} />
+      <Skeleton
+        width={500}
+        height={300}
+      />
     );
   }
 
@@ -25,7 +28,10 @@ const Notification = (props: NotificationProps) => {
       className={classNames('', {}, [className])}
     >
       {data?.map((item) => (
-        <NotificationItem key={item.id} item={item} />
+        <NotificationItem
+          key={item.id}
+          item={item}
+        />
       ))}
     </Vstack>
   );

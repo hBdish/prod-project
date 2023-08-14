@@ -3,21 +3,16 @@ import { classNames, Icon, StarIcon } from '@/shared';
 import styles from './star-rating.module.scss';
 
 interface StarRatingProps {
-  className?: string
-  onSelect?: (starsCount: number) => void
-  size?: number
-  selectedStars?: number
+  className?: string;
+  onSelect?: (starsCount: number) => void;
+  size?: number;
+  selectedStars?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 const StarRating = (props: StarRatingProps) => {
-  const {
-    className,
-    onSelect,
-    size = 30,
-    selectedStars = 0,
-  } = props;
+  const { className, onSelect, size = 30, selectedStars = 0 } = props;
   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -45,11 +40,9 @@ const StarRating = (props: StarRatingProps) => {
     <div className={classNames(styles.StarRating, {}, [className])}>
       {stars.map((starNumber) => (
         <Icon
-          className={classNames(
-            styles.starIcon,
-            { [styles.selected]: isSelected },
-            [currentStarsCount >= starNumber ? styles.hovered : styles.normal],
-          )}
+          className={classNames(styles.starIcon, { [styles.selected]: isSelected }, [
+            currentStarsCount >= starNumber ? styles.hovered : styles.normal,
+          ])}
           Svg={StarIcon}
           width={size}
           height={size}

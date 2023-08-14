@@ -6,15 +6,12 @@ import { getAuthData, RatingCard } from '@/entities';
 import { useGetArticleRating, useRateArticle } from '../../api/article-rating';
 
 export interface ArticleRatingProps {
-  className?: string
-  articleId: string
+  className?: string;
+  articleId: string;
 }
 
 const ArticleRating = (props: ArticleRatingProps) => {
-  const {
-    className,
-    articleId,
-  } = props;
+  const { className, articleId } = props;
   const { t } = useTranslation();
   const userData = useSelector(getAuthData);
   const { isLoading, data } = useGetArticleRating({
@@ -26,29 +23,43 @@ const ArticleRating = (props: ArticleRatingProps) => {
 
   const rating = data?.[0];
 
-  const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
-    try {
-      rateArticleMutationTrigger({
-        userId: userData?.id ?? '',
-        articleId,
-        rate: starsCount,
-        feedback,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }, [articleId, rateArticleMutationTrigger, userData?.id]);
+  const handleRateArticle = useCallback(
+    (starsCount: number, feedback?: string) => {
+      try {
+        rateArticleMutationTrigger({
+          userId: userData?.id ?? '',
+          articleId,
+          rate: starsCount,
+          feedback,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [articleId, rateArticleMutationTrigger, userData?.id],
+  );
 
-  const onAccept = useCallback((starsCount: number, feedback?: string) => {
-    handleRateArticle(starsCount, feedback);
-  }, [handleRateArticle]);
+  const onAccept = useCallback(
+    (starsCount: number, feedback?: string) => {
+      handleRateArticle(starsCount, feedback);
+    },
+    [handleRateArticle],
+  );
 
-  const onCansel = useCallback((starsCount: number) => {
-    handleRateArticle(starsCount);
-  }, [handleRateArticle]);
+  const onCansel = useCallback(
+    (starsCount: number) => {
+      handleRateArticle(starsCount);
+    },
+    [handleRateArticle],
+  );
 
   if (isLoading) {
-    return <Skeleton width="100%" height={120} />;
+    return (
+      <Skeleton
+        width="100%"
+        height={120}
+      />
+    );
   }
 
   return (

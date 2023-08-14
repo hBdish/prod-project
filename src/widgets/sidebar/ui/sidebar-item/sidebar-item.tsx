@@ -7,8 +7,8 @@ import styles from './sidebar-item.module.scss';
 import { getAuthData } from '@/entities';
 
 interface SidebarItemProps {
-  item: SidebarItemType
-  collapsed: boolean
+  item: SidebarItemType;
+  collapsed: boolean;
 }
 
 const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
@@ -26,9 +26,7 @@ const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
       className={classNames(styles.item, { [styles.collapsed]: collapsed }, [])}
     >
       <item.Icon className={styles.icon} />
-      <span className={styles.link}>
-        {t(item.text)}
-      </span>
+      <span className={styles.link}>{t(item.text)}</span>
     </AppLink>
   );
 };

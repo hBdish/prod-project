@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { screen } from '@testing-library/react';
 import componentRender from '../../../../shared/lib/test/component-render';
 import { AppRouter } from './app-router';
@@ -54,7 +55,7 @@ describe('app/router/app-router', () => {
       initialState: {
         user: {
           _inited: true,
-          authData: { },
+          authData: {},
         },
       },
     });

@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { ArticleListItem } from '@/entities';
-import {
-  classNames, Hstack, Text, TextSize, Vstack,
-} from '@/shared';
+import { classNames, Hstack, Text, TextSize, Vstack } from '@/shared';
 import { ArticleView } from '@/entities/article';
 import { useArticleRecommendationsList } from '../../api/article-recommendations-api';
 
@@ -31,7 +29,11 @@ export const ArticleRecommendationsList = (props: ArticleRecommendationsListProp
         size={TextSize.L}
         title={t('Рекомендуем') || ''}
       />
-      <Hstack w100 justify="center" gap="24">
+      <Hstack
+        w100
+        justify="center"
+        gap="24"
+      >
         {article.map((article) => (
           <ArticleListItem
             key={article.id}
@@ -42,6 +44,5 @@ export const ArticleRecommendationsList = (props: ArticleRecommendationsListProp
         ))}
       </Hstack>
     </Vstack>
-
   );
 };

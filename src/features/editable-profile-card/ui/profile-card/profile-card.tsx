@@ -18,19 +18,19 @@ import styles from './profile-card.module.scss';
 import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-  className?: string
-  data?: Profile
-  isLoading?: boolean
-  error?: string
-  onChangeSecondName?: (value: string) => void
-  onChangeName?: (value: string) => void
-  onChangeAge?: (value: string) => void
-  onChangeCity?: (value: string) => void
-  onChangeUsername?: (value: string) => void
-  onChangeAvatar?: (value: string) => void
-  onChangeCurrency?: (value: Currency) => void
-  onChangeCountry?: (value: Country) => void
-  readonly?: boolean
+  className?: string;
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
+  onChangeSecondName?: (value: string) => void;
+  onChangeName?: (value: string) => void;
+  onChangeAge?: (value: string) => void;
+  onChangeCity?: (value: string) => void;
+  onChangeUsername?: (value: string) => void;
+  onChangeAvatar?: (value: string) => void;
+  onChangeCurrency?: (value: Currency) => void;
+  onChangeCountry?: (value: Country) => void;
+  readonly?: boolean;
 }
 
 const ProfileCard = (props: ProfileCardProps) => {

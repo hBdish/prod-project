@@ -1,9 +1,9 @@
-import type {Preview} from "@storybook/react";
-import {RouterDecorator, StyleDecorator} from "../../src/shared/config/storybook";
+import type { Preview } from '@storybook/react';
+import { RouterDecorator, StyleDecorator } from '../../src/shared/config/storybook';
 
-import {LanguageDecorator} from "../../src/shared/config/storybook/language-decorator";
+import { LanguageDecorator } from '../../src/shared/config/storybook/language-decorator';
 
-import {Theme} from "../../src/shared";
+import { Theme } from '../../src/shared';
 
 /*export const parameters = {
   themes: {
@@ -17,7 +17,7 @@ import {Theme} from "../../src/shared";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -28,7 +28,7 @@ const preview: Preview = {
       default: 'light',
       list: [
         { name: 'light', class: ['app', Theme.LIGHT], color: '#e8b7b7' },
-        { name: 'dark', class: ['app', Theme.DARK], color: '#021146' }
+        { name: 'dark', class: ['app', Theme.DARK], color: '#021146' },
       ],
     },
   },
@@ -41,9 +41,7 @@ const preview: Preview = {
     // ThemeDecorator(Theme.LIGHT), // Theme on all stories
     // @ts-ignore
     RouterDecorator,
-  ]
+  ],
 };
-
-
 
 export default preview;

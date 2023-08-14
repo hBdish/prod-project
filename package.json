@@ -12,6 +12,7 @@
     "build:prod": "webpack --config webpack.config.ts --env mode=production apiUrl=https://mock-back-prod.vercel.app/",
     "build:dev": "webpack --config webpack.config.ts --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx}\"",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
@@ -29,7 +30,7 @@
     "postinstall": "rm -rf ./node_modules/.cache"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
   },
   "keywords": [],
   "author": "",
@@ -73,6 +74,7 @@
     "cypress": "^12.17.3",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-i18next": "^5.2.1",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -93,6 +95,7 @@
     "lint-staged": "^13.2.3",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "3.0.1",
     "react-virtuoso": "^4.4.1",
     "reg-cli": "^0.17.7",
     "sass": "^1.49.9",

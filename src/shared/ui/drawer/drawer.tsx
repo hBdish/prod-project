@@ -1,28 +1,19 @@
-import {
-  memo, ReactNode, useCallback, useEffect,
-} from 'react';
+import { memo, ReactNode, useCallback, useEffect } from 'react';
 // import { useDrag } from '@use-gesture/react'
 import { useSpring } from '@react-spring/web';
-import {
-  AnimationProvider, classNames, Overlay, Portal, useAnimationLibs,
-} from '@/shared';
+import { AnimationProvider, classNames, Overlay, Portal, useAnimationLibs } from '@/shared';
 import styles from './drawer.module.scss';
 
 interface DrawerProps {
-  className?: string
-  children?: ReactNode
-  isOpen?: boolean
-  onClose?: () => void
-  lazy?: boolean
+  className?: string;
+  children?: ReactNode;
+  isOpen?: boolean;
+  onClose?: () => void;
+  lazy?: boolean;
 }
 
 const DrawerContent = (props: DrawerProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-  } = props;
+  const { className, children, isOpen, onClose } = props;
 
   const { Spring, Gesture } = useAnimationLibs();
 
@@ -48,13 +39,7 @@ const DrawerContent = (props: DrawerProps) => {
   };
 
   const bind = Gesture.useDrag(
-    ({
-      last,
-      velocity: [, vy],
-      direction: [, dy],
-      movement: [, my],
-      cancel,
-    }) => {
+    ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
       if (my < -70) cancel();
 
       if (last) {
@@ -68,7 +53,10 @@ const DrawerContent = (props: DrawerProps) => {
       }
     },
     {
-      from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+      from: () => [0, y.get()],
+      filterTaps: true,
+      bounds: { top: 0 },
+      rubberband: true,
     },
   );
 

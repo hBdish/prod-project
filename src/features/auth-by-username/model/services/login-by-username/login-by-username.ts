@@ -5,21 +5,15 @@ import { USER_LOCALSTORAGE_KEY } from '@/shared';
 import { ThunkConfig } from '@/app/providers/store-provider';
 
 interface LoginByUsernameProps {
-  username: string
-  password: string
+  username: string;
+  password: string;
 }
 
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
   'common/loginByUsername',
-  async (
-    authData,
-    { dispatch, extra, rejectWithValue },
-  ) => {
+  async (authData, { dispatch, extra, rejectWithValue }) => {
     try {
-      const response = await extra.api.post<User>(
-        '/login',
-        authData,
-      );
+      const response = await extra.api.post<User>('/login', authData);
 
       if (!response.data) {
         throw new Error();

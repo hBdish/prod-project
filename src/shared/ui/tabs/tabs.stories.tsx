@@ -4,11 +4,10 @@ import { Tabs } from './tabs';
 const meta: Meta<typeof Tabs> = {
   title: 'shared/Tabs',
   component: Tabs,
-  args: { },
+  args: {},
   argTypes: {
     onTabClick: { action: 'onTabClick' },
   },
-
 };
 
 export default meta;

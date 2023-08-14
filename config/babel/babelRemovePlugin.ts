@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { PluginItem } from '@babel/core';
 
+// eslint-disable-next-line func-names
 export default function (): PluginItem {
   return {
     visitor: {

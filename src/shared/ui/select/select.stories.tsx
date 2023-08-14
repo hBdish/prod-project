@@ -4,7 +4,7 @@ import { Select } from './select';
 const meta: Meta<typeof Select> = {
   title: 'shared/Select',
   component: Select,
-  args: { },
+  args: {},
 };
 
 export default meta;

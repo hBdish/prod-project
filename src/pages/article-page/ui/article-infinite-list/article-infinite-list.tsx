@@ -13,7 +13,7 @@ import { useAppDispatch, useInitialEffect } from '@/shared';
 import { ArticleList, ArticleView } from '@/entities';
 
 interface ArticleInfiniteListProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
@@ -29,12 +29,9 @@ const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
     dispatch(initArticlePage(searchParams));
   });
 
-  const onLoadNextPart = useCallback(
-    () => {
-      dispatch(fetchNextArticlesPage());
-    },
-    [dispatch],
-  );
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   return (
     <ArticleList

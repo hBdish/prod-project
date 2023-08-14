@@ -4,10 +4,10 @@ import { ListBox } from '@/shared';
 import { Currency } from '../../model/types/types';
 
 interface CurrencySelectProps {
-  className?: string
-  value?: Currency
-  onChange?: (value: Currency) => void
-  readonly?: boolean
+  className?: string;
+  value?: Currency;
+  onChange?: (value: Currency) => void;
+  readonly?: boolean;
 }
 
 const options = [
@@ -17,17 +17,15 @@ const options = [
 ];
 
 const CurrencySelect = memo((props: CurrencySelectProps) => {
-  const {
-    className,
-    value,
-    onChange,
-    readonly = false,
-  } = props;
+  const { className, value, onChange, readonly = false } = props;
   const { t } = useTranslation();
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Currency);
-  }, [onChange]);
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as Currency);
+    },
+    [onChange],
+  );
 
   return (
     <ListBox

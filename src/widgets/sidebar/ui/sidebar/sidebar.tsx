@@ -1,8 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  Button, ButtonSize, ButtonTheme, classNames,
-} from '@/shared';
+import { Button, ButtonSize, ButtonTheme, classNames } from '@/shared';
 import { LangSwitcher, ThemeSwitcher } from '@/features';
 import { Vstack } from '@/shared/ui/stack/vstack/vstack';
 import { SidebarItem } from '../sidebar-item/sidebar-item';
@@ -10,7 +8,7 @@ import styles from './sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/get-sidebar-items';
 
 interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 const Sidebar = memo(({ className }: SidebarProps) => {
@@ -21,13 +19,14 @@ const Sidebar = memo(({ className }: SidebarProps) => {
   };
 
   const itemsList = useMemo(
-    () => sidebarItemsList.map((item) => (
-      <SidebarItem
-        key={item.path}
-        item={item}
-        collapsed={collapsed}
-      />
-    )),
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem
+          key={item.path}
+          item={item}
+          collapsed={collapsed}
+        />
+      )),
     [collapsed, sidebarItemsList],
   );
 

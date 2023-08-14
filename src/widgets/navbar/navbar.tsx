@@ -18,7 +18,7 @@ import { AvatarDropdown } from '@/features/avatar-dropdown';
 import styles from './navbar.module.scss';
 
 interface NavbarProps {
-  className?: string
+  className?: string;
 }
 
 const Navbar = memo(({ className }: NavbarProps) => {
@@ -45,7 +45,11 @@ const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t('Создать статью')}
         </AppLink>
-        <Hstack align="center" gap="16" className={styles.actions}>
+        <Hstack
+          align="center"
+          gap="16"
+          className={styles.actions}
+        >
           <NotificationButton />
           <AvatarDropdown />
         </Hstack>
@@ -62,7 +66,12 @@ const Navbar = memo(({ className }: NavbarProps) => {
       >
         {t('Войти')}
       </Button>
-      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleAuthModal} />}
+      {isAuthModal && (
+        <LoginModal
+          isOpen={isAuthModal}
+          onClose={onToggleAuthModal}
+        />
+      )}
     </header>
   );
 });

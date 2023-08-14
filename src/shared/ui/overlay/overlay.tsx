@@ -2,18 +2,18 @@ import { classNames } from '@/shared';
 import styles from './overlay.module.scss';
 
 interface OverlayProps {
-  className?: string
-  onClick?: () => void
+  className?: string;
+  onClick?: () => void;
 }
 
 const Overlay = (props: OverlayProps) => {
-  const {
-    className,
-    onClick,
-  } = props;
+  const { className, onClick } = props;
 
   return (
-    <div onClick={onClick} className={classNames(styles.Overlay, {}, [className])} />
+    <div
+      onClick={onClick}
+      className={classNames(styles.Overlay, {}, [className])}
+    />
   );
 };
 

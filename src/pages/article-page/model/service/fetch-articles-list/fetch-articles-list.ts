@@ -14,21 +14,12 @@ import { addQueryParams } from '@/shared';
 import { ArticleType } from '@/entities/article';
 
 interface ArticlesListProps {
-  replace?: boolean
+  replace?: boolean;
 }
 
-export const fetchArticlesList = createAsyncThunk<
-  Article[],
-  ArticlesListProps,
-  ThunkConfig<string>
->(
+export const fetchArticlesList = createAsyncThunk<Article[], ArticlesListProps, ThunkConfig<string>>(
   'articlePage/fetchArticlesList',
-  async (
-    props,
-    {
-      extra, rejectWithValue, getState,
-    },
-  ) => {
+  async (props, { extra, rejectWithValue, getState }) => {
     const search = getArticlePageSearch(getState());
     const order = getArticlePageOrder(getState());
     const sort = getArticlePageSort(getState());
@@ -38,22 +29,22 @@ export const fetchArticlesList = createAsyncThunk<
 
     try {
       addQueryParams({
-        sort, order, search, type,
+        sort,
+        order,
+        search,
+        type,
       });
-      const response = await extra.api.get<Article[]>(
-        '/articles',
-        {
-          params: {
-            _expand: 'user',
-            _limit: limit,
-            _page: page,
-            _sort: sort,
-            _order: order,
-            q: search,
-            type: type === ArticleType.ALL ? undefined : type,
-          },
+      const response = await extra.api.get<Article[]>('/articles', {
+        params: {
+          _expand: 'user',
+          _limit: limit,
+          _page: page,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: type === ArticleType.ALL ? undefined : type,
         },
-      );
+      });
 
       if (!response.data) {
         throw new Error();

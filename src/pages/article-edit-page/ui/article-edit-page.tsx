@@ -5,7 +5,7 @@ import { classNames, Text } from '@/shared';
 import { ContentPageBlock } from '@/widgets';
 
 interface ArticleEditPageProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
@@ -15,9 +15,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <ContentPageBlock
-      className={classNames('', {}, [className])}
-    >
+    <ContentPageBlock className={classNames('', {}, [className])}>
       <Text title={t(`Редактирование статьи ${id}`) ?? ''} />
     </ContentPageBlock>
   );

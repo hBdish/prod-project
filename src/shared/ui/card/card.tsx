@@ -7,21 +7,15 @@ export enum CardTheme {
   OUTLINE = 'outline',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
-  className?: string
-  children: ReactNode
-  theme?: CardTheme
-  w100?: boolean
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
+  children: ReactNode;
+  theme?: CardTheme;
+  w100?: boolean;
 }
 
 const Card = memo((props: CardProps) => {
-  const {
-    className,
-    children,
-    theme = CardTheme.NORMAL,
-    w100 = false,
-    ...otherProps
-  } = props;
+  const { className, children, theme = CardTheme.NORMAL, w100 = false, ...otherProps } = props;
 
   return (
     <div

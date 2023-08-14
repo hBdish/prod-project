@@ -2,14 +2,12 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {
-  Button, ButtonTheme, classNames, getRouteArticles, getRouteArticlesEdit, Hstack,
-} from '@/shared';
+import { Button, ButtonTheme, classNames, getRouteArticles, getRouteArticlesEdit, Hstack } from '@/shared';
 import { getArticleDetailsData } from '@/entities';
 import { getCanEditArticle } from '../../model/selectors/article-selector';
 
 interface ArticleDetailsPageHeaderProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
@@ -28,7 +26,11 @@ const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => 
   }, [navigate, article]);
 
   return (
-    <Hstack w100 justify="between" className={classNames('', {}, [className])}>
+    <Hstack
+      w100
+      justify="between"
+      className={classNames('', {}, [className])}
+    >
       <Button
         theme={ButtonTheme.OUTLINE}
         onClick={onBackToList}

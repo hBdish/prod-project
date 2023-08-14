@@ -2,7 +2,14 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  classNames, Country, Currency, Text, TextTheme, useAppDispatch, useInitialEffect, Vstack,
+  classNames,
+  Country,
+  Currency,
+  Text,
+  TextTheme,
+  useAppDispatch,
+  useInitialEffect,
+  Vstack,
 } from '@/shared';
 import { fetchProfileData } from '../model/services/fetch-profile-data';
 import { ValidateProfileError } from '../model/const/editableProfileCardConst';
@@ -18,15 +25,12 @@ import { ProfileCard } from './profile-card/profile-card';
 import { profileActions } from '../model/slice/profile-slice';
 
 interface EditableProfileCardProps {
-  className?: string
-  id?: string
+  className?: string;
+  id?: string;
 }
 
 const EditableProfileCard = (props: EditableProfileCardProps) => {
-  const {
-    className,
-    id,
-  } = props;
+  const { className, id } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
 
@@ -34,37 +38,61 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
     if (id) dispatch(fetchProfileData(id));
   });
 
-  const onChangeName = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ first: value || '' }));
-  }, [dispatch]);
+  const onChangeName = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ first: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeSecondName = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ lastname: value || '' }));
-  }, [dispatch]);
+  const onChangeSecondName = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
-  }, [dispatch]);
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCity = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ city: value || '' }));
-  }, [dispatch]);
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ city: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeUsername = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ username: value || '' }));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ username: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAvatar = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ avatar: value || '' }));
-  }, [dispatch]);
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCurrency = useCallback((value?: Currency) => {
-    dispatch(profileActions.updateProfile({ currency: value }));
-  }, [dispatch]);
+  const onChangeCurrency = useCallback(
+    (value?: Currency) => {
+      dispatch(profileActions.updateProfile({ currency: value }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCountry = useCallback((value?: Country) => {
-    dispatch(profileActions.updateProfile({ country: value }));
-  }, [dispatch]);
+  const onChangeCountry = useCallback(
+    (value?: Country) => {
+      dispatch(profileActions.updateProfile({ country: value }));
+    },
+    [dispatch],
+  );
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -81,16 +109,20 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
 
   return (
     <div className={classNames('', {}, [className])}>
-      <Vstack gap="16" w100>
+      <Vstack
+        gap="16"
+        w100
+      >
         <ProfileCardHeader />
-        {validateErrors?.length && validateErrors.map((err) => (
-          <Text
-            key={err}
-            theme={TextTheme.ERROR}
-            text={validateErrorTranslates[err]}
-            data-testid="EditableProfileCard.ERROR"
-          />
-        ))}
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              key={err}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+              data-testid="EditableProfileCard.ERROR"
+            />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

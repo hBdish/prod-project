@@ -19,9 +19,7 @@ describe('initArticlePage.test', () => {
       articlesPage: {
         page: 1,
         ids: [],
-        entities: {
-
-        },
+        entities: {},
         limit: 5,
         isLoading: false,
         hasMore: true,
@@ -40,9 +38,7 @@ describe('initArticlePage.test', () => {
       articlesPage: {
         page: 1,
         ids: [],
-        entities: {
-
-        },
+        entities: {},
         limit: 5,
         isLoading: false,
         hasMore: true,

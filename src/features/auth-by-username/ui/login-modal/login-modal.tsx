@@ -3,15 +3,12 @@ import { classNames, Loader, Modal } from '@/shared';
 import { LoginFormLazy } from '../login-form/login-form.async';
 
 interface LoginModalProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const LoginModal = (props: LoginModalProps) => {
-  const {
-    onClose,
-    isOpen,
-  } = props;
+  const { onClose, isOpen } = props;
 
   return (
     <Modal
@@ -23,7 +20,6 @@ const LoginModal = (props: LoginModalProps) => {
       <Suspense fallback={<Loader />}>
         <LoginFormLazy onSuccess={onClose} />
       </Suspense>
-
     </Modal>
   );
 };

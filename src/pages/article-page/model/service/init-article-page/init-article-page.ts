@@ -4,33 +4,21 @@ import { SortOrder } from '@/shared';
 import { ArticleSortField, ArticleType } from '@/entities/article';
 import { articlePageActions, fetchArticlesList, getArticlePageInited } from '../../../model';
 
-const initQueryParams = <T extends OptionalRecord<string, unknown>>
-  (
-    searchParams: URLSearchParams,
-    queryParams: InitQueryParams<T>,
-  ) => {
-  Object.entries(queryParams).forEach(
-    ([param, callback]) => {
-      const paramValue = searchParams.get(param);
-      if (paramValue) {
-        callback(paramValue);
-      }
-    },
-  );
+const initQueryParams = <T extends OptionalRecord<string, unknown>>(
+  searchParams: URLSearchParams,
+  queryParams: InitQueryParams<T>,
+) => {
+  Object.entries(queryParams).forEach(([param, callback]) => {
+    const paramValue = searchParams.get(param);
+    if (paramValue) {
+      callback(paramValue);
+    }
+  });
 };
 
-export const initArticlePage = createAsyncThunk<
-  void,
-  URLSearchParams,
-  ThunkConfig<string>
->(
+export const initArticlePage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
   'articlePage/initArticlePage',
-  async (
-    searchParams,
-    {
-      dispatch, getState,
-    },
-  ) => {
+  async (searchParams, { dispatch, getState }) => {
     const inited = getArticlePageInited(getState());
     if (!inited) {
       initQueryParams(searchParams, {

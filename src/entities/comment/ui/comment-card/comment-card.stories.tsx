@@ -22,16 +22,12 @@ export const Default: Story = {
       },
     },
   },
-  decorators: [StoreDecorator({
-
-  })],
+  decorators: [StoreDecorator({})],
 };
 
 export const Loading: Story = {
   args: {
     isLoading: true,
   },
-  decorators: [StoreDecorator({
-
-  })],
+  decorators: [StoreDecorator({})],
 };

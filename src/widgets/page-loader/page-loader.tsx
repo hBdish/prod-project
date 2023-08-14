@@ -2,7 +2,7 @@ import { classNames, Loader } from '@/shared';
 import styles from './page-loader.module.scss';
 
 interface PageLoaderProps {
-  className?: string
+  className?: string;
 }
 
 const PageLoader = ({ className }: PageLoaderProps) => (

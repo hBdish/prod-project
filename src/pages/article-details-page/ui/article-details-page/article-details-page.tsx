@@ -1,12 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 
 import { AddCommentForm, ArticleRating, ArticleRecommendationsList } from '@/features';
-import {
-  ArticleDetails, articleDetailsReducer, CommentList, fetchArticleById,
-} from '@/entities';
+import { ArticleDetails, CommentList } from '@/entities';
 import {
   classNames,
   ReducersList,
@@ -29,7 +27,7 @@ import { fetchArticlesRecommendations, fetchCommentsById, getArticleCommentsIsLo
 import styles from './article-details-page.module.scss';
 
 interface ArticleDetailsPageProps {
-  className?: string
+  className?: string;
 }
 
 const reducers: ReducersList = {
@@ -52,9 +50,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     dispatch(fetchArticlesRecommendations());
   });
 
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentsForArticle(text));
-  }, [dispatch]);
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentsForArticle(text));
+    },
+    [dispatch],
+  );
 
   if (!id) {
     return (

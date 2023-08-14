@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof Sidebar>;
 
 export const Light: Story = {
-  args: { },
+  args: {},
   decorators: [
     StoreDecorator({
       user: {
@@ -25,7 +25,7 @@ export const Light: Story = {
 };
 
 export const Dark: Story = {
-  args: { },
+  args: {},
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
@@ -37,12 +37,10 @@ export const Dark: Story = {
 };
 
 export const NoAuth: Story = {
-  args: { },
+  args: {},
   decorators: [
     StoreDecorator({
-      user: {
-
-      },
+      user: {},
     }),
   ],
 };

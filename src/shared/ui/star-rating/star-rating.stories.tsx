@@ -6,9 +6,7 @@ import { Theme } from '@/shared';
 const meta: Meta<typeof StarRating> = {
   title: 'shared/StarRating',
   component: StarRating,
-  decorators: [
-    StoreDecorator({ }),
-  ],
+  decorators: [StoreDecorator({})],
 };
 
 export default meta;
@@ -16,12 +14,10 @@ export default meta;
 type Story = StoryObj<typeof StarRating>;
 
 export const Light: Story = {
-  args: { },
+  args: {},
 };
 
 export const Dark: Story = {
-  args: { },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

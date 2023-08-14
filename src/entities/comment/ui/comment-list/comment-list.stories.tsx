@@ -35,9 +35,7 @@ export const Default: Story = {
       },
     ],
   },
-  decorators: [StoreDecorator({
-
-  })],
+  decorators: [StoreDecorator({})],
 };
 
 export const Loading: Story = {
@@ -45,7 +43,5 @@ export const Loading: Story = {
     comments: [],
     isLoading: true,
   },
-  decorators: [StoreDecorator({
-
-  })],
+  decorators: [StoreDecorator({})],
 };

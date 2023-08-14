@@ -1,9 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import {
-  ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect,
-} from '@/shared';
+import { ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect } from '@/shared';
 import { ArticleList, ArticleView } from '@/entities';
 import {
   articlePageReducer,
@@ -17,7 +15,7 @@ import {
 import styles from './article-page.module.scss';
 
 interface ArticlePageProps {
-  className?: string
+  className?: string;
 }
 
 const reducers: ReducersList = {
@@ -37,15 +35,15 @@ const ArticlePage = memo((props: ArticlePageProps) => {
     dispatch(initArticlePage(searchParams));
   });
 
-  const onLoadNextPart = useCallback(
-    () => {
-      dispatch(fetchNextArticlesPage());
-    },
-    [dispatch],
-  );
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   return (
-    <div data-testid="ArticlePage" className={styles.ArticleBlock}>
+    <div
+      data-testid="ArticlePage"
+      className={styles.ArticleBlock}
+    >
       <ArticleList
         articles={articles}
         isLoading={isLoading}

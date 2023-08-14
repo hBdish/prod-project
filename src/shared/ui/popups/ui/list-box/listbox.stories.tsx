@@ -13,12 +13,11 @@ type Story = StoryObj<typeof ListBox>;
 export const Default: Story = {
   args: {
     value: 'выберите значение',
-    items:
-      [
-        { value: '1', content: '123' },
-        { value: '2', content: '456' },
-        { value: '3', content: '789' },
-      ],
+    items: [
+      { value: '1', content: '123' },
+      { value: '2', content: '456' },
+      { value: '3', content: '789' },
+    ],
   },
 };
 

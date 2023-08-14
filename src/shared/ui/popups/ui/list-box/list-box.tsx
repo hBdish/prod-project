@@ -5,37 +5,26 @@ import { DropdownDirection } from '../../types/types';
 import styles from './list-box.module.scss';
 
 interface ListBoxItem {
-  value: string
-  content: ReactNode
-  disabled?: boolean
+  value: string;
+  content: ReactNode;
+  disabled?: boolean;
 }
 
 interface ListBoxProps {
-  items: ListBoxItem[]
-  direction?: DropdownDirection
-  className?: string
-  value?: string
-  label?: string
-  defaultValue?: string
-  readonly?: boolean
-  onChange?: <T extends string>(value: T) => void
+  items: ListBoxItem[];
+  direction?: DropdownDirection;
+  className?: string;
+  value?: string;
+  label?: string;
+  defaultValue?: string;
+  readonly?: boolean;
+  onChange?: <T extends string>(value: T) => void;
 }
 
 function ListBox(props: ListBoxProps) {
-  const {
-    items,
-    className,
-    value,
-    defaultValue,
-    readonly,
-    direction = 'bottom',
-    label,
-    onChange,
-  } = props;
+  const { items, className, value, defaultValue, readonly, direction = 'bottom', label, onChange } = props;
 
-  const additional = [
-    styles[direction],
-  ];
+  const additional = [styles[direction]];
 
   return (
     <Hstack gap="8">
@@ -47,17 +36,10 @@ function ListBox(props: ListBoxProps) {
         value={value}
         onChange={onChange}
       >
-
-        <HListBox.Button
-          className={styles.trigger}
-        >
-          <Button disabled={readonly}>
-            {value ?? defaultValue}
-          </Button>
+        <HListBox.Button className={styles.trigger}>
+          <Button disabled={readonly}>{value ?? defaultValue}</Button>
         </HListBox.Button>
-        <HListBox.Options
-          className={classNames(styles.options, {}, additional)}
-        >
+        <HListBox.Options className={classNames(styles.options, {}, additional)}>
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -66,10 +48,15 @@ function ListBox(props: ListBoxProps) {
               as={Fragment}
             >
               {({ active, selected }) => (
-                <li className={classNames(styles.item, {
-                  [styles.active]: active,
-                  [styles.disabled]: item.disabled,
-                }, [])}
+                <li
+                  className={classNames(
+                    styles.item,
+                    {
+                      [styles.active]: active,
+                      [styles.disabled]: item.disabled,
+                    },
+                    [],
+                  )}
                 >
                   {selected && '!!!'}
                   {item.content}

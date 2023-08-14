@@ -3,8 +3,8 @@ import { memo } from 'react';
 import { Button, classNames, ButtonTheme } from '@/shared';
 
 interface LangSwitcherProps {
-  className?: string
-  short?: boolean
+  className?: string;
+  short?: boolean;
 }
 
 const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {

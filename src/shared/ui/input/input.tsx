@@ -1,19 +1,16 @@
-import React, {
-  InputHTMLAttributes, memo, useEffect, useRef, useState,
-} from 'react';
+import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared';
 import styles from './input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readOnly' | 'pattern' >
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'pattern'>;
 
-interface InputProps extends HTMLInputProps{
-  className?: string
-  value?: string | number
-  onChange?: (value: string) => void
-  autoFocus?: boolean
-  readonly?: boolean
-  pattern?: string
+interface InputProps extends HTMLInputProps {
+  className?: string;
+  value?: string | number;
+  onChange?: (value: string) => void;
+  autoFocus?: boolean;
+  readonly?: boolean;
+  pattern?: string;
 }
 
 const Input = memo((props: InputProps) => {
@@ -36,9 +33,7 @@ const Input = memo((props: InputProps) => {
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     // eslint-disable-next-line no-unused-expressions
-    RegExp(pattern).test(value)
-        && onChange?.(value)
-      && setCaretPosition(value.length);
+    RegExp(pattern).test(value) && onChange?.(value) && setCaretPosition(value.length);
   };
 
   const onBlur = () => {
@@ -68,11 +63,7 @@ const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(styles.Input, mods, [className])}>
-      {placeholder && (
-        <div className={styles.placeholder}>
-          {`${placeholder}>` }
-        </div>
-      )}
+      {placeholder && <div className={styles.placeholder}>{`${placeholder}>`}</div>}
       <div className={styles.caretWrapper}>
         <input
           ref={ref}
@@ -87,16 +78,13 @@ const Input = memo((props: InputProps) => {
           pattern={pattern}
           {...otherProps}
         />
-        {
-          caretVisible && (
-            <span
-              className={styles.caret}
-              style={{ left: `${caretPosition * 10}px` }}
-            />
-          )
-        }
+        {caretVisible && (
+          <span
+            className={styles.caret}
+            style={{ left: `${caretPosition * 10}px` }}
+          />
+        )}
       </div>
-
     </div>
   );
 });

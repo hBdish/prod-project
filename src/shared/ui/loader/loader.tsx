@@ -2,7 +2,7 @@ import { classNames } from '@/shared';
 import styles from './loader.module.scss';
 
 interface LoaderProps {
-  className?: string
+  className?: string;
 }
 
 const Loader = ({ className }: LoaderProps) => (

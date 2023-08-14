@@ -28,8 +28,8 @@ import { articleDetailsReducer } from '../../model/slice/article-details-slice';
 import { ArticleImgBlockComponent } from '../article-img-block-component';
 
 interface ArticleDetailsProps {
-  className?: string
-  id: string
+  className?: string;
+  id: string;
 }
 
 const reducers: ReducersList = {
@@ -37,10 +37,7 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetails = memo((props: ArticleDetailsProps) => {
-  const {
-    className,
-    id,
-  } = props;
+  const { className, id } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('article');
   const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -56,11 +53,26 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: Block) => {
     switch (block.type) {
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} block={block} />;
+        return (
+          <ArticleTextBlockComponent
+            key={block.id}
+            block={block}
+          />
+        );
       case ArticleBlockType.IMG:
-        return <ArticleImgBlockComponent key={block.id} block={block} />;
+        return (
+          <ArticleImgBlockComponent
+            key={block.id}
+            block={block}
+          />
+        );
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} block={block} />;
+        return (
+          <ArticleCodeBlockComponent
+            key={block.id}
+            block={block}
+          />
+        );
       default:
         return null;
     }
@@ -69,11 +81,27 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton width={200} height={200} border="50%" />
-        <Skeleton width={300} height={32} />
-        <Skeleton width={600} height={24} />
-        <Skeleton width="100%" height={200} />
-        <Skeleton width="100%" height={200} />
+        <Skeleton
+          width={200}
+          height={200}
+          border="50%"
+        />
+        <Skeleton
+          width={300}
+          height={32}
+        />
+        <Skeleton
+          width={600}
+          height={24}
+        />
+        <Skeleton
+          width="100%"
+          height={200}
+        />
+        <Skeleton
+          width="100%"
+          height={200}
+        />
       </>
     );
   } else if (error) {
@@ -101,15 +129,11 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
           data-testid="ArticleDetails.Info"
         >
           <Hstack gap="8">
-            <Icon
-              Svg={EyeIcon}
-            />
+            <Icon Svg={EyeIcon} />
             <Text text={String(article?.views)} />
           </Hstack>
           <Hstack gap="8">
-            <Icon
-              Svg={CalendarIcon}
-            />
+            <Icon Svg={CalendarIcon} />
             <Text text={article?.createdAt} />
           </Hstack>
         </Vstack>
@@ -124,7 +148,11 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   }
 
   return (
-    <Vstack w100 gap="16" className={classNames('', {}, [className])}>
+    <Vstack
+      w100
+      gap="16"
+      className={classNames('', {}, [className])}
+    >
       {content}
     </Vstack>
   );

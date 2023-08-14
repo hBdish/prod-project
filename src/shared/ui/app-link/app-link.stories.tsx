@@ -34,18 +34,14 @@ export const PrimaryDark: Story = {
   args: {
     theme: AppLinkTheme.PRIMARY,
   },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-  ],
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const SecondaryDark: Story = {
   args: {
     theme: AppLinkTheme.SECONDARY,
   },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-  ],
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 // export const Dark: Story = {

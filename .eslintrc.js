@@ -9,6 +9,7 @@ module.exports = {
     'airbnb',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,13 +19,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'i18next',
-    'eslint-plugin-react-hooks',
-    'pc-test',
-  ],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-react-hooks', 'pc-test'],
   rules: {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
@@ -33,10 +28,13 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'warn',
-    'react/jsx-filename-extension': [1, {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    }],
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    ],
     'react/function-component-definition': 'off',
     'import/no-extraneous-dependencies': 'warn',
     'import/extensions': 'off',
@@ -44,47 +42,51 @@ module.exports = {
     'no-unused-vars': ['off'],
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['error', {
-      markupOnly: true,
-      ignoreAttribute: [
-        'as',
-        'role',
-        'data-testid',
-        'to',
-        'target',
-        'justify',
-        'align',
-        'direction',
-        'gap',
-      ],
-    }],
-    'max-len': ['error', {
-      ignoreComments: true,
-      code: 115,
-    }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true,
+        ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
+      },
+    ],
+    'max-len': [
+      'error',
+      {
+        ignoreComments: true,
+        code: 115,
+      },
+    ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'pc-test/path-checker': ['error', { alias: '@' }],
-    'pc-test/public-api-imports': ['error', {
-      alias: '@',
-      testFiles: ['**/*.test.ts', '**/store-provider'],
-    }],
-    'pc-test/layer-imports': ['error', {
-      alias: '@',
-      ignoreImportPatterns: ['**/store-provider', '**/testing', '**/*.test.(ts|tsx)$'],
-    }],
+    'pc-test/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFiles: ['**/*.test.ts', '**/store-provider'],
+      },
+    ],
+    'pc-test/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/store-provider', '**/testing', '**/*.test.(ts|tsx)$'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
     __API__: true,
     __PROJECT__: true,
   },
-  overrides: [{
-    files: ['**/src/**/*.test.{ts,tsx}'],
-    rules: {
-      'i18next/no-literal-string': 'off',
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
     },
-  }],
+  ],
 };

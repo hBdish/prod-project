@@ -12,7 +12,7 @@ describe('GetProfileIsLoading', () => {
   });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<StateSchema> = { };
+    const state: DeepPartial<StateSchema> = {};
     expect(getProfileIsLoading(state as StateSchema)).toEqual(undefined);
   });
 });

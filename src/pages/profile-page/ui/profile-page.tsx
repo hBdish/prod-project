@@ -4,7 +4,7 @@ import { EditableProfileCard, profileReducer } from '@/features';
 import { ContentPageBlock } from '@/widgets';
 
 interface ProfilePageProps {
-  className?: string
+  className?: string;
 }
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -15,7 +15,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   useDynamicModuleLoader({ reducers });
 
   return (
-    <ContentPageBlock data-testid="ProfilePage" className={classNames('', {}, [className])}>
+    <ContentPageBlock
+      data-testid="ProfilePage"
+      className={classNames('', {}, [className])}
+    >
       <EditableProfileCard id={id} />
     </ContentPageBlock>
   );

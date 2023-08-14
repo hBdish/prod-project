@@ -2,21 +2,21 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared';
 import styles from './flex.module.scss';
 
-export type FlexJustify = 'start' | 'center' | 'end' | 'between'
-export type FlexAlign = 'start' | 'center' | 'end'
-export type FlexDirection = 'row' | 'column'
-export type FlexGap = '8' | '16' | '24' | '32' | '40'
+export type FlexJustify = 'start' | 'center' | 'end' | 'between';
+export type FlexAlign = 'start' | 'center' | 'end';
+export type FlexDirection = 'row' | 'column';
+export type FlexGap = '8' | '16' | '24' | '32' | '40';
 
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export interface FlexProps extends DivProps {
-  className?: string
-  children?: ReactNode
-  justify?: FlexJustify
-  align?: FlexAlign
-  direction: FlexDirection
-  gap?: FlexGap
-  w100?: boolean
+  className?: string;
+  children?: ReactNode;
+  justify?: FlexJustify;
+  align?: FlexAlign;
+  direction: FlexDirection;
+  gap?: FlexGap;
+  w100?: boolean;
 }
 
 const Flex = (props: FlexProps) => {
@@ -70,7 +70,10 @@ const Flex = (props: FlexProps) => {
   };
 
   return (
-    <div className={classNames(styles.Flex, mods, classes)} {...otherProps}>
+    <div
+      className={classNames(styles.Flex, mods, classes)}
+      {...otherProps}
+    >
       {children}
     </div>
   );

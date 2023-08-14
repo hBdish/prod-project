@@ -1,5 +1,3 @@
-interface AdminPanelPageSchema {
-
-}
+interface AdminPanelPageSchema {}
 
 export type { AdminPanelPageSchema };

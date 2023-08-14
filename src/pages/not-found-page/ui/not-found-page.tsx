@@ -4,7 +4,7 @@ import { ContentPageBlock } from '@/widgets';
 import styles from './not-found-page.module.scss';
 
 interface NotFoundPageProps {
-  className?: string
+  className?: string;
 }
 
 const NotFoundPage = ({ className }: NotFoundPageProps) => {

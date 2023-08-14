@@ -1,17 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import {
-  Avatar, classNames, Dropdown, getRouteAdminPanel, getRouteProfile,
-} from '@/shared';
-import {
-  getAuthData, isUserAdmin, isUserManager, userActions,
-} from '@/entities';
+import { Avatar, classNames, Dropdown, getRouteAdminPanel, getRouteProfile } from '@/shared';
+import { getAuthData, isUserAdmin, isUserManager, userActions } from '@/entities';
 
 // import styles from './avatar-dropdown.module.scss';
 
 interface AvatarDropdownProps {
-  className?: string
+  className?: string;
 }
 
 const AvatarDropdown = (props: AvatarDropdownProps) => {
@@ -36,10 +32,14 @@ const AvatarDropdown = (props: AvatarDropdownProps) => {
       className={classNames('', {}, [className])}
       direction="bottomLeft"
       items={[
-        ...(isAdminPanelAvailable ? [{
-          content: t('Админ панель'),
-          href: getRouteAdminPanel(),
-        }] : []),
+        ...(isAdminPanelAvailable
+          ? [
+              {
+                content: t('Админ панель'),
+                href: getRouteAdminPanel(),
+              },
+            ]
+          : []),
         {
           content: t('Профиль пользователя'),
           href: getRouteProfile(authData.id),
@@ -49,7 +49,12 @@ const AvatarDropdown = (props: AvatarDropdownProps) => {
           onClick: onLogout,
         },
       ]}
-      trigger={<Avatar size={30} src={authData.avatar} />}
+      trigger={
+        <Avatar
+          size={30}
+          src={authData.avatar}
+        />
+      }
     />
   );
 };

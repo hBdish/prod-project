@@ -1,6 +1,1 @@
-export {
-  ArticleBlockType,
-  ArticleType,
-  ArticleView,
-  ArticleSortField,
-} from './articleConst';
+export { ArticleBlockType, ArticleType, ArticleView, ArticleSortField } from './articleConst';

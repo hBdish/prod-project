@@ -9,7 +9,10 @@ import { routeConfig } from '../config/route-config';
 function AppRouter() {
   const renderWithWrapper = useCallback((route: AppRouteProps) => {
     const element = (
-      <Suspense key={route.path} fallback={<PageLoader />}>
+      <Suspense
+        key={route.path}
+        fallback={<PageLoader />}
+      >
         {route.element}
       </Suspense>
     );
@@ -18,23 +21,20 @@ function AppRouter() {
       <Route
         key={route.path}
         path={route.path}
-        element={route.authOnly ? (
-          <RequireAuth>
-            <RequireRoles roles={route.roles}>
-              {element}
-            </RequireRoles>
-          </RequireAuth>
-        ) : element}
+        element={
+          route.authOnly ? (
+            <RequireAuth>
+              <RequireRoles roles={route.roles}>{element}</RequireRoles>
+            </RequireAuth>
+          ) : (
+            element
+          )
+        }
       />
     );
   }, []);
 
-  return (
-    <Routes>
-      {Object.values(routeConfig).map(renderWithWrapper)}
-    </Routes>
-
-  );
+  return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 }
 
 export { AppRouter };

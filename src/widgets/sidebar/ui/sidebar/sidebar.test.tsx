@@ -1,4 +1,6 @@
+/* eslint-disable */
 import { fireEvent, screen } from '@testing-library/react';
+/* eslint-enable */
 import { Sidebar } from './sidebar';
 import componentRender from '../../../../shared/lib/test/component-render';
 

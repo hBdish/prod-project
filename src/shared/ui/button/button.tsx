@@ -9,7 +9,6 @@ export enum ButtonTheme {
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
   CLEAR_INVERTED = 'clearInverted',
-
 }
 
 export enum ButtonSize {
@@ -18,13 +17,13 @@ export enum ButtonSize {
   XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
-  className?: string
-  theme?: ButtonTheme
-  square?: boolean
-  size?: ButtonSize
-  disabled?: boolean
-  children?: ReactNode
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  theme?: ButtonTheme;
+  square?: boolean;
+  size?: ButtonSize;
+  disabled?: boolean;
+  children?: ReactNode;
 }
 
 const Button = memo((props: ButtonProps) => {

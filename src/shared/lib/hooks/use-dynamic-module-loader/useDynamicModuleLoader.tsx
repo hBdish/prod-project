@@ -5,19 +5,16 @@ import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/provid
 import { useAppDispatch } from '@/shared';
 
 export type ReducersList = {
-  [nameOfReducer in StateSchemaKey]?: Reducer<NonNullable<StateSchema[nameOfReducer]>>
-}
+  [nameOfReducer in StateSchemaKey]?: Reducer<NonNullable<StateSchema[nameOfReducer]>>;
+};
 
 interface UseDynamicModuleLoaderProps {
-  reducers: ReducersList
-  removeAfterUnmount?: boolean
+  reducers: ReducersList;
+  removeAfterUnmount?: boolean;
 }
 
 export const useDynamicModuleLoader = (props: UseDynamicModuleLoaderProps) => {
-  const {
-    reducers,
-    removeAfterUnmount = false,
-  } = props;
+  const { reducers, removeAfterUnmount = false } = props;
 
   const store = useStore() as ReduxStoreWithManager; // TODO ВРЕМЕННОЙ РЕШЕНИЕ
   const dispatch = useAppDispatch();

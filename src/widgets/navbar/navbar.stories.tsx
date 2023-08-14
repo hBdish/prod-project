@@ -14,14 +14,16 @@ export default meta;
 type Story = StoryObj<typeof Navbar>;
 
 export const Light: Story = {
-  args: { },
-  decorators: [StoreDecorator({
-    // common: { username: '123', password: '123' },
-  })],
+  args: {},
+  decorators: [
+    StoreDecorator({
+      // common: { username: '123', password: '123' },
+    }),
+  ],
 };
 
 export const Dark: Story = {
-  args: { },
+  args: {},
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({

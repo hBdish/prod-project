@@ -14,16 +14,11 @@ export default meta;
 type Story = StoryObj<typeof NotFoundPage>;
 
 export const Light: Story = {
-  args: { },
-  decorators: [
-    StoreDecorator({ }),
-  ],
+  args: {},
+  decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
-  args: { },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ }),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 };

@@ -18,21 +18,16 @@ const articleDetailsCommentSlice = createSlice({
     isLoading: false,
     error: undefined,
     ids: [],
-    entities: {
-
-    },
+    entities: {},
   }),
-  reducers: { },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCommentsById.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchCommentsById.fulfilled, (
-        state,
-        action: PayloadAction<Comment[]>,
-      ) => {
+      .addCase(fetchCommentsById.fulfilled, (state, action: PayloadAction<Comment[]>) => {
         state.isLoading = false;
         commentsAdapter.setAll(state, action.payload);
       })

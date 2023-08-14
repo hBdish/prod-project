@@ -3,28 +3,26 @@ import { Card, CardTheme, classNames } from '@/shared';
 import styles from './tabs.module.scss';
 
 export interface TabItem {
-  value: string
-  content: ReactNode
+  value: string;
+  content: ReactNode;
 }
 
 interface TabsProps {
-  className?: string
-  tabs: TabItem[]
-  value: string
-  onTabClick: (tab: TabItem) => void
+  className?: string;
+  tabs: TabItem[];
+  value: string;
+  onTabClick: (tab: TabItem) => void;
 }
 
 const Tabs = memo((props: TabsProps) => {
-  const {
-    className,
-    tabs,
-    value,
-    onTabClick,
-  } = props;
+  const { className, tabs, value, onTabClick } = props;
 
-  const clickHandle = useCallback((tab: TabItem) => () => {
-    onTabClick(tab);
-  }, [onTabClick]);
+  const clickHandle = useCallback(
+    (tab: TabItem) => () => {
+      onTabClick(tab);
+    },
+    [onTabClick],
+  );
 
   return (
     <div className={classNames(styles.Tabs, {}, [className])}>

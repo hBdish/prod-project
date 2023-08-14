@@ -1,27 +1,19 @@
-import {
-  memo, MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {
-  classNames, TestProps, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle,
-} from '@/shared';
+import { classNames, TestProps, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle } from '@/shared';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/scrolle-save';
 import { StateSchema } from '@/app/providers/store-provider';
 import styles from './content-page-block.module.scss';
 
-interface ContentPageBlockProps extends TestProps{
-  className?: string
-  children?: ReactNode
-  onScrollEnd?: () => void
+interface ContentPageBlockProps extends TestProps {
+  className?: string;
+  children?: ReactNode;
+  onScrollEnd?: () => void;
 }
 
 const ContentPageBlock = memo((props: ContentPageBlockProps) => {
-  const {
-    className,
-    children,
-    onScrollEnd,
-  } = props;
+  const { className, children, onScrollEnd } = props;
 
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
@@ -40,10 +32,12 @@ const ContentPageBlock = memo((props: ContentPageBlockProps) => {
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(scrollSaveActions.setScrollPosition({
-      position: e.currentTarget.scrollTop,
-      path: pathname,
-    }));
+    dispatch(
+      scrollSaveActions.setScrollPosition({
+        position: e.currentTarget.scrollTop,
+        path: pathname,
+      }),
+    );
   }, 500);
 
   return (
@@ -54,7 +48,12 @@ const ContentPageBlock = memo((props: ContentPageBlockProps) => {
       data-testid={props['data-testid']}
     >
       {children}
-      {onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
+      {onScrollEnd ? (
+        <div
+          className={styles.trigger}
+          ref={triggerRef}
+        />
+      ) : null}
     </main>
   );
 });

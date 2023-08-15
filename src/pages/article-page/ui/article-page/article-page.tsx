@@ -30,6 +30,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
   const [searchParams] = useSearchParams();
+
   useDynamicModuleLoader({ reducers });
   useInitialEffect(() => {
     dispatch(initArticlePage(searchParams));

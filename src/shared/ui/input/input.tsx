@@ -81,7 +81,7 @@ const Input = memo((props: InputProps) => {
         {caretVisible && (
           <span
             className={styles.caret}
-            style={{ left: `${caretPosition * 10}px` }}
+            style={{ left: `${caretPosition}rem` }}
           />
         )}
       </div>

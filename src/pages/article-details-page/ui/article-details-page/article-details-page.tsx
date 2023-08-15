@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 
 import { AddCommentForm, ArticleRating, ArticleRecommendationsList } from '@/features';
-import { ArticleDetails, CommentList, Counter } from '@/entities';
+import { ArticleDetails, CommentList } from '@/entities';
 import {
   classNames,
-  getFeatureFlag,
   ReducersList,
   Text,
   TextSize,
@@ -73,8 +72,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <Vstack gap="16">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-        {isCounterEnabled && <Counter />}
+
         <ArticleRecommendationsList />
         <Text
           size={TextSize.L}

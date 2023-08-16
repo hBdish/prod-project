@@ -6,10 +6,13 @@ import { useCallback } from 'react';
 import { AddCommentForm, ArticleRating, ArticleRecommendationsList } from '@/features';
 import { ArticleDetails, CommentList } from '@/entities';
 import {
+  Card,
   classNames,
+  getFeatureFlag,
   ReducersList,
   Text,
   TextSize,
+  toggleFeatures,
   useAppDispatch,
   useDynamicModuleLoader,
   useInitialEffect,
@@ -67,14 +70,20 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     );
   }
 
+  const Rating = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    // eslint-disable-next-line react/no-unstable-nested-components
+    on: () => <ArticleRating articleId={id} />,
+    // eslint-disable-next-line react/no-unstable-nested-components
+    off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
+  });
+
   return (
     <ContentPageBlock className={classNames(styles.ArticleDetailsPage, {}, [className])}>
       <Vstack gap="16">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
-        {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-
+        {Rating}
         <ArticleRecommendationsList />
         <Text
           size={TextSize.L}

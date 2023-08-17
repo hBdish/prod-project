@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { classNames, Skeleton } from '@/shared';
-import { getAuthData, RatingCard } from '@/entities';
+import { authDataSelector, RatingCard } from '@/entities';
 import { useGetArticleRating, useRateArticle } from '../../api/article-rating';
 
 export interface ArticleRatingProps {
@@ -13,7 +13,7 @@ export interface ArticleRatingProps {
 const ArticleRating = (props: ArticleRatingProps) => {
   const { className, articleId } = props;
   const { t } = useTranslation();
-  const userData = useSelector(getAuthData);
+  const userData = useSelector(authDataSelector);
   const { isLoading, data } = useGetArticleRating({
     articleId,
     userId: userData?.id ?? '',

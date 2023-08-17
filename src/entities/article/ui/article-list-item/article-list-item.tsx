@@ -47,7 +47,9 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
   );
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.block.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+    const textBlock = article.block.find(
+      (block) => block.type === ArticleBlockType.TEXT,
+    ) as ArticleTextBlock;
 
     return (
       <div

@@ -1,7 +1,14 @@
 import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { classNames, TestProps, useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle } from '@/shared';
+import {
+  classNames,
+  TestProps,
+  useAppDispatch,
+  useInfiniteScroll,
+  useInitialEffect,
+  useThrottle,
+} from '@/shared';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/scrolle-save';
 import { StateSchema } from '@/app/providers/store-provider';
 import styles from './content-page-block.module.scss';

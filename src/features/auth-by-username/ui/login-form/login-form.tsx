@@ -15,7 +15,12 @@ import {
 
 import { loginByUsername } from '../../model/services';
 import { loginActions, loginReducer } from '../../model/slice';
-import { getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername } from '../../model/selectors';
+import {
+  getLoginError,
+  getLoginIsLoading,
+  getLoginPassword,
+  getLoginUsername,
+} from '../../model/selectors';
 
 import styles from './login-form.module.scss';
 

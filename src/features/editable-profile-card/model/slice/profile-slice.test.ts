@@ -19,7 +19,9 @@ const data = {
 describe('profileSliceTest', () => {
   test('test set readonly', () => {
     const state: DeepPartial<ProfileSchema> = { readonly: false };
-    expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(true))).toEqual({ readonly: true });
+    expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(true))).toEqual({
+      readonly: true,
+    });
   });
 
   test('test cansel edit', () => {

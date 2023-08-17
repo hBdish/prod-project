@@ -35,7 +35,9 @@ const ArticleList = memo((props: ArticleListProps) => {
 
   const Header = memo(() => <ArticlePageFilters />);
 
-  const ItemContainerComp: FC = memo(() => <div className={styles.itemsContainer}>{getSkeletons(view)}</div>);
+  const ItemContainerComp: FC = memo(() => (
+    <div className={styles.itemsContainer}>{getSkeletons(view)}</div>
+  ));
 
   const Footer = memo(() => {
     if (isLoading) {

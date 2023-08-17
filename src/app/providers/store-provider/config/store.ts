@@ -5,7 +5,10 @@ import { $api, rtkApi } from '@/shared';
 import { StateSchema } from './state-schema';
 import { scrollSaveReducer } from '@/features';
 
-export function createReduxStore(initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,

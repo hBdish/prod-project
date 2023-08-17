@@ -5,7 +5,11 @@ import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema, CounterSchema, UserSchema } from '@/entities';
 import { AddCommentSchema, LoginSchema, ProfileSchema, ScrollSaveSchema } from '@/features';
-import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema, ArticlePageSchema } from '@/pages';
+import {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsRecommendationsSchema,
+  ArticlePageSchema,
+} from '@/pages';
 import { rtkApi } from '@/shared';
 
 export interface StateSchema {

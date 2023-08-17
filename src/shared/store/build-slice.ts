@@ -3,9 +3,11 @@ import { CreateSliceOptions, SliceCaseReducers } from '@reduxjs/toolkit/dist';
 import { useMemo } from 'react';
 import { useAppDispatch } from '@/shared';
 
-export function buildSlice<State, CaseReducers extends SliceCaseReducers<State>, Name extends string = string>(
-  options: CreateSliceOptions<State, CaseReducers, Name>,
-) {
+export function buildSlice<
+  State,
+  CaseReducers extends SliceCaseReducers<State>,
+  Name extends string = string,
+>(options: CreateSliceOptions<State, CaseReducers, Name>) {
   const slice = createSlice(options);
 
   const useActions = (): typeof slice.actions => {

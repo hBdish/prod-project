@@ -37,5 +37,7 @@ const articleDetailsPageRecommendationSlice = createSlice({
   },
 });
 
-export const { reducer: articleDetailsPageRecommendationReducer } = articleDetailsPageRecommendationSlice;
-export const { actions: articleDetailsPageRecommendationActions } = articleDetailsPageRecommendationSlice;
+export const { reducer: articleDetailsPageRecommendationReducer } =
+  articleDetailsPageRecommendationSlice;
+export const { actions: articleDetailsPageRecommendationActions } =
+  articleDetailsPageRecommendationSlice;

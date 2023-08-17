@@ -2,7 +2,14 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Button, ButtonTheme, classNames, getRouteArticles, getRouteArticlesEdit, Hstack } from '@/shared';
+import {
+  Button,
+  ButtonTheme,
+  classNames,
+  getRouteArticles,
+  getRouteArticlesEdit,
+  Hstack,
+} from '@/shared';
 import { getArticleDetailsData } from '@/entities';
 import { getCanEditArticle } from '../../model/selectors/article-selector';
 

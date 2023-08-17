@@ -1,7 +1,18 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isMobile } from 'react-device-detect';
-import { Button, ButtonTheme, Card, classNames, Drawer, Hstack, Input, Modal, Text, Vstack } from '@/shared';
+import {
+  Button,
+  ButtonTheme,
+  Card,
+  classNames,
+  Drawer,
+  Hstack,
+  Input,
+  Modal,
+  Text,
+  Vstack,
+} from '@/shared';
 import { StarRating } from '@/shared/ui/star-rating/star-rating';
 
 interface RatingCardProps {

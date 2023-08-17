@@ -2,7 +2,10 @@ import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'r
 import { classNames, Mods } from '@/shared';
 import styles from './input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'pattern'>;
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly' | 'pattern'
+>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;

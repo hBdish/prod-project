@@ -13,7 +13,7 @@ import {
   Text,
   TextTheme,
 } from '@/shared';
-import { getAuthData } from '@/entities';
+import { authDataSelector } from '@/entities';
 import { AvatarDropdown } from '@/features/avatar-dropdown';
 import styles from './navbar.module.scss';
 
@@ -24,7 +24,7 @@ interface NavbarProps {
 const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
-  const authData = useSelector(getAuthData);
+  const authData = useSelector(authDataSelector);
 
   const onToggleAuthModal = useCallback(() => {
     setIsAuthModal((prevState) => !prevState);

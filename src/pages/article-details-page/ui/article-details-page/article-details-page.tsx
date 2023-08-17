@@ -26,7 +26,11 @@ import {
   getArticleSelectors,
 } from '@/pages';
 import { ArticleDetailsPageHeader } from '@/pages/article-details-page/ui/article-details-page-header';
-import { fetchArticlesRecommendations, fetchCommentsById, getArticleCommentsIsLoading } from '../../model';
+import {
+  fetchArticlesRecommendations,
+  fetchCommentsById,
+  getArticleCommentsIsLoading,
+} from '../../model';
 import styles from './article-details-page.module.scss';
 
 interface ArticleDetailsPageProps {

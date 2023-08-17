@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { Avatar, classNames, Dropdown, getRouteAdminPanel, getRouteProfile } from '@/shared';
-import { getAuthData, isUserAdmin, isUserManager, userActions } from '@/entities';
+import { authDataSelector, isUserAdmin, isUserManager, userActions } from '@/entities';
 
 // import styles from './avatar-dropdown.module.scss';
 
@@ -14,7 +14,7 @@ const AvatarDropdown = (props: AvatarDropdownProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const authData = useSelector(getAuthData);
+  const authData = useSelector(authDataSelector);
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
   const onLogout = useCallback(() => {

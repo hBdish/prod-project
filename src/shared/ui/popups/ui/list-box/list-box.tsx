@@ -22,7 +22,16 @@ interface ListBoxProps {
 }
 
 function ListBox(props: ListBoxProps) {
-  const { items, className, value, defaultValue, readonly, direction = 'bottom', label, onChange } = props;
+  const {
+    items,
+    className,
+    value,
+    defaultValue,
+    readonly,
+    direction = 'bottom',
+    label,
+    onChange,
+  } = props;
 
   const additional = [styles[direction]];
 

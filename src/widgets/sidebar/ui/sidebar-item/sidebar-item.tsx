@@ -4,7 +4,7 @@ import { AppLink, AppLinkTheme, classNames } from '@/shared';
 
 import { SidebarItemType } from '../../model/types/types';
 import styles from './sidebar-item.module.scss';
-import { getAuthData } from '@/entities';
+import { authDataSelector } from '@/entities';
 
 interface SidebarItemProps {
   item: SidebarItemType;
@@ -13,7 +13,7 @@ interface SidebarItemProps {
 
 const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation();
-  const isAuth = useSelector(getAuthData);
+  const isAuth = useSelector(authDataSelector);
 
   if (item.authOnly && !isAuth) {
     return null;

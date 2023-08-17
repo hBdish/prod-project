@@ -1,7 +1,7 @@
 export type { User, UserSchema } from './types/user';
 export type { JsonSettings } from './types/json-settings';
 
-export { userReducer, userActions } from './slice/userSlice';
+export { userReducer, userActions } from './slice/user-slice';
 
 export * from './selectors';
 

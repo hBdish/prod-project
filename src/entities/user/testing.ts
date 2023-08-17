@@ -1,1 +1,1 @@
-export { userReducer } from './model/slice/userSlice';
+export { userReducer } from './model/slice/user-slice';

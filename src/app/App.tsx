@@ -2,8 +2,8 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router/ui/app-router';
 import { classNames, useAppDispatch } from '@/shared/lib';
-import { Navbar, Sidebar } from '@/widgets';
-import { userActions, userInitedSelector } from '@/entities';
+import { Navbar, PageLoader, Sidebar } from '@/widgets';
+import { initAuthData, userInitedSelector } from '@/entities';
 import { useTheme } from '@/shared/lib/hooks/use-theme/use-theme';
 
 function App() {
@@ -12,8 +12,12 @@ function App() {
   const inited = useSelector(userInitedSelector);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
+
+  if (!inited) {
+    return <PageLoader />;
+  }
 
   return (
     <div className={classNames('app', {}, [theme])}>

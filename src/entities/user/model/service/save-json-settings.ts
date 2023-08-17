@@ -29,11 +29,9 @@ export const saveJsonSettings = createAsyncThunk<JsonSettings, JsonSettings, Thu
         return rejectWithValue('');
       }
 
-      console.log(response.jsonSettings);
-
       return response.jsonSettings;
     } catch (e) {
-      return rejectWithValue(i18n.t('Введен неверный логин или пароль'));
+      return rejectWithValue(i18n.t('Error'));
     }
   },
 );

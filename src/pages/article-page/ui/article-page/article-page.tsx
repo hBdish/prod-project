@@ -13,6 +13,7 @@ import {
   initArticlePage,
 } from '../../model';
 import styles from './article-page.module.scss';
+import { ArticlePageGreeting } from '@/features';
 
 interface ArticlePageProps {
   className?: string;
@@ -52,6 +53,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
         className={styles.list}
         onLoadNextPart={onLoadNextPart}
       />
+      <ArticlePageGreeting />
     </div>
   );
 });

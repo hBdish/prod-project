@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { classNames, Modal, Text, useAppDispatch } from '@/shared';
 import { saveJsonSettings, useJsonSettings } from '@/entities';
 
-interface AtriclePageGreetingProps {
+interface ArticlePageGreetingProps {
   className?: string;
 }
 
-const ArticlePageGreeting = (props: AtriclePageGreetingProps) => {
+const ArticlePageGreeting = (props: ArticlePageGreetingProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ const ArticlePageGreeting = (props: AtriclePageGreetingProps) => {
 
   return (
     <Modal
-      className={classNames(styles.AtriclePageGreeting, {}, [className])}
+      className={classNames('', {}, [className])}
       isOpen={isOpen}
       lazy
       onClose={onClose}

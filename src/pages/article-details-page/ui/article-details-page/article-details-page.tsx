@@ -12,7 +12,7 @@ import {
   ReducersList,
   Text,
   TextSize,
-  toggleFeatures,
+  ToggleFeatures,
   useAppDispatch,
   useDynamicModuleLoader,
   useInitialEffect,
@@ -74,20 +74,24 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     );
   }
 
-  const Rating = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    // eslint-disable-next-line react/no-unstable-nested-components
-    on: () => <ArticleRating articleId={id} />,
-    // eslint-disable-next-line react/no-unstable-nested-components
-    off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
-  });
+  // const Rating = toggleFeatures({
+  //   name: 'isArticleRatingEnabled',
+  //   // eslint-disable-next-line react/no-unstable-nested-components
+  //   on: () => <ArticleRating articleId={id} />,
+  //   // eslint-disable-next-line react/no-unstable-nested-components
+  //   off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
+  // });
 
   return (
     <ContentPageBlock className={classNames(styles.ArticleDetailsPage, {}, [className])}>
       <Vstack gap="16">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {Rating}
+        <ToggleFeatures
+          name="isArticleRatingEnabled"
+          on={<ArticleRating articleId={id} />}
+          off={<Card>{t('Оценка статей скоро появится')}</Card>}
+        />
         <ArticleRecommendationsList />
         <Text
           size={TextSize.L}

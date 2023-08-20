@@ -583,7 +583,7 @@
         "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
-        "isArticlesPageWasOpened": false
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://lumiere-a.akamaihd.net/v1/images/pp_lightyear_herobanner_mobile_v2_22043_48d47fc7.jpeg?region=0,0,640,480"
     },

@@ -14,6 +14,7 @@ import NotificationIcon from './notification.svg';
 import StarIcon from './star.svg';
 import AvatarErrorIcon from './avatar-error.svg';
 import AppLogoIcon from './app-logo.svg';
+import SwapThemeIcon from './swap-theme.svg';
 
 export {
   ThemeDark,
@@ -32,4 +33,5 @@ export {
   StarIcon,
   AvatarErrorIcon,
   AppLogoIcon,
+  SwapThemeIcon,
 };

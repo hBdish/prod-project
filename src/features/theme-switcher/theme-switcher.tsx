@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Button, ButtonTheme, classNames, Theme, ThemeDark, ThemeLight, useAppDispatch } from '@/shared';
+import { Button, ButtonTheme, classNames, Icon, SwapThemeIcon, useAppDispatch } from '@/shared';
 import { useTheme } from '@/shared/lib/hooks/use-theme/use-theme';
 import { saveJsonSettings } from '@/entities';
 
@@ -23,7 +23,11 @@ const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
       className={classNames('', {}, [className])}
       onClick={onToggleHandler}
     >
-      {theme === Theme.DARK ? <ThemeDark /> : <ThemeLight />}
+      <Icon
+        Svg={SwapThemeIcon}
+        width={40}
+        height={40}
+      />
     </Button>
   );
 });

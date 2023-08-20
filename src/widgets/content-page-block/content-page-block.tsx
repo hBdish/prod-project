@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import {
   classNames,
   TestProps,
+  toggleFeatures,
   useAppDispatch,
   useInfiniteScroll,
   useInitialEffect,
@@ -50,7 +51,15 @@ const ContentPageBlock = memo((props: ContentPageBlockProps) => {
   return (
     <main
       ref={wrapperRef}
-      className={classNames(styles.ContentPageBlock, {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => styles.ContentPageBlockRedesigned,
+          off: () => styles.ContentPageBlock,
+        }),
+        {},
+        [className],
+      )}
       onScroll={onScroll}
       data-testid={props['data-testid']}
     >

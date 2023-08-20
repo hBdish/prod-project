@@ -15,12 +15,19 @@ body {
   min-height: 100vh;
 }
 
+.app_redesigned {
+  background: var(--bq-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--primary-color);
+}
+
 .content-page{
   display: flex;
 }
 
 *::-webkit-scrollbar {
-  width: 8px;               /* ширина scrollbar */
+  width: 8px;                        /* ширина scrollbar */
   height: 8px;
 }
 

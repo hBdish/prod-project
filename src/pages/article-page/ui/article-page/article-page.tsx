@@ -14,6 +14,7 @@ import {
 } from '../../model';
 import styles from './article-page.module.scss';
 import { ArticlePageGreeting } from '@/features';
+import { ContentPageBlock } from '@/widgets';
 
 interface ArticlePageProps {
   className?: string;
@@ -42,7 +43,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
   }, [dispatch]);
 
   return (
-    <div
+    <ContentPageBlock
       data-testid="ArticlePage"
       className={styles.ArticleBlock}
     >
@@ -54,7 +55,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
         onLoadNextPart={onLoadNextPart}
       />
       <ArticlePageGreeting />
-    </div>
+    </ContentPageBlock>
   );
 });
 

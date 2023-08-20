@@ -16,3 +16,4 @@ export * from './overlay';
 export * from './drawer';
 export * from './modal';
 export * from './app-image';
+export * from './app-logo';

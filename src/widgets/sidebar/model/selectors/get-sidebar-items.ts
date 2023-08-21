@@ -1,14 +1,19 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { authDataSelector } from '@/entities';
 import {
-  AboutIcon,
-  ArticlesIcon,
+  AboutIconDeprecated,
+  ArticleIcon,
+  ArticlesIconDeprecated,
+  AvatarIcon,
   getRouteAbout,
   getRouteArticles,
   getRouteMain,
   getRouteProfile,
   HomeIcon,
-  ProfileIcon,
+  HomeIconDeprecated,
+  InfoIcon,
+  ProfileIconDeprecated,
+  toggleFeatures,
 } from '@/shared';
 import { SidebarItemType } from '../../model/types/types';
 
@@ -16,12 +21,20 @@ export const getSidebarItems = createSelector(authDataSelector, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getRouteMain(),
-      Icon: HomeIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => HomeIcon,
+        off: () => HomeIconDeprecated,
+      }),
       text: 'Главная страница кнопка',
     },
     {
       path: getRouteAbout(),
-      Icon: AboutIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => InfoIcon,
+        off: () => AboutIconDeprecated,
+      }),
       text: 'О сайте',
     },
   ];
@@ -30,13 +43,21 @@ export const getSidebarItems = createSelector(authDataSelector, (userData) => {
     sidebarItemsList.push(
       {
         path: getRouteProfile(userData.id),
-        Icon: ProfileIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => AvatarIcon,
+          off: () => ProfileIconDeprecated,
+        }),
         text: 'Профиль',
         authOnly: true,
       },
       {
         path: getRouteArticles(),
-        Icon: ArticlesIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => ArticleIcon,
+          off: () => ArticlesIconDeprecated,
+        }),
         text: 'Стати',
         authOnly: true,
       },

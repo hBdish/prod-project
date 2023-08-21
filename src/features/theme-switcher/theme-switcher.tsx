@@ -1,14 +1,23 @@
 import { memo, useCallback } from 'react';
-import { Button, ButtonTheme, classNames, Icon, SwapThemeIcon, useAppDispatch } from '@/shared';
+import {
+  Button,
+  ButtonTheme,
+  classNames,
+  Icon,
+  SwapThemeIconDeprecated,
+  ToggleFeatures,
+  useAppDispatch,
+} from '@/shared';
 import { useTheme } from '@/shared/lib/hooks/use-theme/use-theme';
 import { saveJsonSettings } from '@/entities';
+import { IconRedesigned } from '@/shared/ui/redesigned/icon';
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 
 const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const dispatch = useAppDispatch();
 
   const onToggleHandler = useCallback(() => {
@@ -18,17 +27,31 @@ const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [toggleTheme, dispatch]);
 
   return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      className={classNames('', {}, [className])}
-      onClick={onToggleHandler}
-    >
-      <Icon
-        Svg={SwapThemeIcon}
-        width={40}
-        height={40}
-      />
-    </Button>
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <IconRedesigned
+          Svg={SwapThemeIconDeprecated}
+          width={40}
+          height={40}
+          clickable
+          onClick={onToggleHandler}
+        />
+      }
+      off={
+        <Button
+          theme={ButtonTheme.CLEAR}
+          className={classNames('', {}, [className])}
+          onClick={onToggleHandler}
+        >
+          <Icon
+            Svg={SwapThemeIconDeprecated}
+            width={40}
+            height={40}
+          />
+        </Button>
+      }
+    />
   );
 });
 

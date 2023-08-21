@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
   Avatar,
-  CalendarIcon,
+  CalendarIconDeprecated,
   classNames,
-  EyeIcon,
+  EyeIconDeprecated,
   Hstack,
   Icon,
   ReducersList,
@@ -133,11 +133,11 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
           data-testid="ArticleDetails.Info"
         >
           <Hstack gap="8">
-            <Icon Svg={EyeIcon} />
+            <Icon Svg={EyeIconDeprecated} />
             <Text text={String(article?.views)} />
           </Hstack>
           <Hstack gap="8">
-            <Icon Svg={CalendarIcon} />
+            <Icon Svg={CalendarIconDeprecated} />
             <Text text={article?.createdAt} />
           </Hstack>
         </Vstack>

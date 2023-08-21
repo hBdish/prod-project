@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { classNames, CopyIcon } from '@/shared';
+import { classNames, CopyIconDeprecated } from '@/shared';
 import styles from './code.module.scss';
 
 interface CodeProps {
@@ -25,7 +25,7 @@ const Code = memo((props: CodeProps) => {
         type="button"
         className={styles.copyBtn}
       >
-        <CopyIcon className={styles.copyIcon} />
+        <CopyIconDeprecated className={styles.copyIcon} />
       </button>
       <code>{codeChildren}</code>
     </pre>

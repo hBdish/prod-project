@@ -1,6 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import { isMobile } from 'react-device-detect';
-import { Button, ButtonTheme, classNames, Drawer, Icon, NotificationIcon, Popover } from '@/shared';
+import {
+  Button,
+  ButtonTheme,
+  classNames,
+  Drawer,
+  Icon,
+  NotificationIconDeprecated,
+  Popover,
+} from '@/shared';
 import { Notification } from '@/entities';
 import styles from './notification-button.module.scss';
 
@@ -20,7 +28,7 @@ const NotificationButton = (props: NotificationButtonProps) => {
       onClick={onOpenDrawer}
       theme={ButtonTheme.CLEAR}
     >
-      <Icon Svg={NotificationIcon} />
+      <Icon Svg={NotificationIconDeprecated} />
     </Button>
   );
 

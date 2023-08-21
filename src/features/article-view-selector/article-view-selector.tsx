@@ -1,5 +1,12 @@
 import { memo } from 'react';
-import { Button, ButtonTheme, classNames, Icon, ListIcon, TiledIcon } from '@/shared';
+import {
+  Button,
+  ButtonTheme,
+  classNames,
+  Icon,
+  ListIconDeprecated,
+  TiledIconDeprecated,
+} from '@/shared';
 import { ArticleView } from '../../entities/article/model/const/articleConst';
 import styles from './article-view-selector.module.scss';
 
@@ -12,11 +19,11 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
   {
     view: ArticleView.SMALL,
-    icon: TiledIcon,
+    icon: TiledIconDeprecated,
   },
   {
     view: ArticleView.BIG,
-    icon: ListIcon,
+    icon: ListIconDeprecated,
   },
 ];
 

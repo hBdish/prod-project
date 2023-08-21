@@ -1,16 +1,13 @@
-import { AppLogoIcon, classNames, Hstack } from '@/shared';
+import { AppLogoIconDeprecated, classNames, Hstack } from '@/shared';
 import styles from './app-logo.module.scss';
 
 interface AppLogoProps {
   className?: string;
+  size?: number;
 }
 
-/**
- *
- * @deprecated
- */
 const AppLogo = (props: AppLogoProps) => {
-  const { className } = props;
+  const { className, size = 100 } = props;
 
   return (
     <Hstack
@@ -19,7 +16,11 @@ const AppLogo = (props: AppLogoProps) => {
     >
       <div className={styles.gradientBig} />
       <div className={styles.gradientSmall} />
-      <AppLogoIcon className={styles.appLogo} />
+      <AppLogoIconDeprecated
+        color="black"
+        width={size}
+        height={size}
+      />
     </Hstack>
   );
 };

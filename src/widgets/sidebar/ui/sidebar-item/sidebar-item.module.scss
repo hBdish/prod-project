@@ -5,6 +5,7 @@
 }
 
 .link {
+  font-family: var(--font-family-text-redesigned);
   margin-left: 10px;
   opacity: 1;
 }
@@ -21,4 +22,17 @@
     transition: 0.2s opacity;
     width: 0;
   }
+}
+
+.collapsedRedesigned{
+  .link {
+    opacity: 0;
+    margin: 0;
+    width: 0;
+  }
+}
+
+.active {
+  border-left: 2px solid var(--ccent, #5ED3F3);
+  background: linear-gradient(88deg, rgb(29 89 255 / 30%) 0%, rgb(94 211 243 / 0%) 100%);
 }

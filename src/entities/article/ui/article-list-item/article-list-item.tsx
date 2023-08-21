@@ -7,7 +7,7 @@ import {
   ButtonTheme,
   Card,
   classNames,
-  EyeIcon,
+  EyeIconDeprecated,
   getRouteArticlesDetails,
   Icon,
   Skeleton,
@@ -42,7 +42,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
         text={String(article.views)}
         className={styles.views}
       />
-      <Icon Svg={EyeIcon} />
+      <Icon Svg={EyeIconDeprecated} />
     </>
   );
 

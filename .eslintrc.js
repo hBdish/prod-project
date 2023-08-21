@@ -57,6 +57,8 @@ module.exports = {
           'direction',
           'gap',
           'name',
+          'color',
+          'variant',
         ],
       },
     ],

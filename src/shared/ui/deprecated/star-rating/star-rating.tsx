@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { classNames, Icon, StarIcon } from '@/shared';
+import { classNames, Icon, StarIconDeprecated } from '@/shared';
 import styles from './star-rating.module.scss';
 
 interface StarRatingProps {
@@ -47,7 +47,7 @@ const StarRating = (props: StarRatingProps) => {
           className={classNames(styles.starIcon, { [styles.selected]: isSelected }, [
             currentStarsCount >= starNumber ? styles.hovered : styles.normal,
           ])}
-          Svg={StarIcon}
+          Svg={StarIconDeprecated}
           width={size}
           height={size}
           key={starNumber}

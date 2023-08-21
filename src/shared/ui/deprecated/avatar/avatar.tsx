@@ -1,5 +1,5 @@
 import { CSSProperties, useMemo } from 'react';
-import { AppImage, AvatarErrorIcon, classNames, Icon, Skeleton } from '@/shared';
+import { AppImage, AvatarErrorIconDeprecated, classNames, Icon, Skeleton } from '@/shared';
 import styles from './avatar.module.scss';
 
 interface AvatarProps {
@@ -33,7 +33,7 @@ const Avatar = (props: AvatarProps) => {
           border="50%"
         />
       }
-      errorFallback={<Icon Svg={AvatarErrorIcon} />}
+      errorFallback={<Icon Svg={AvatarErrorIconDeprecated} />}
       src={src}
       alt={alt}
       style={style}

@@ -1,5 +1,5 @@
 export * from './lib';
-export * from './ui';
+export * from './ui/deprecated';
 export * from './lib';
 export * from './assets';
 export * from './const';

@@ -13,7 +13,7 @@ import {
   Text,
   Vstack,
 } from '@/shared';
-import { StarRating } from '@/shared/ui/star-rating/star-rating';
+import { StarRating } from '@/shared/ui/deprecated/star-rating/star-rating';
 
 interface RatingCardProps {
   className?: string;

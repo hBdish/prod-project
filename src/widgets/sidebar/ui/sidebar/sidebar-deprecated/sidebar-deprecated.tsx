@@ -10,6 +10,10 @@ interface SidebarDeprecatedProps {
   className?: string;
 }
 
+/**
+ *
+ * @deprecated
+ */
 const SidebarDeprecated = (props: SidebarDeprecatedProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);

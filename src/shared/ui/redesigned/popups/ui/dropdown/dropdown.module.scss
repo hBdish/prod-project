@@ -1,0 +1,37 @@
+@import "../../styles/popup.module";
+
+.DropdownTest {
+  position: relative;
+}
+
+.btn {
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.menuDropdown {
+  background: var(--dark-bg-redesigned);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--light-bg-redesigned);
+}
+
+

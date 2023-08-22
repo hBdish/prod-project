@@ -6,11 +6,16 @@ import {
   classNames,
   Drawer,
   Icon,
+  IconRedesigned,
+  NotificationIcon,
   NotificationIconDeprecated,
   Popover,
+  PopoverRedesigned,
+  ToggleFeatures,
 } from '@/shared';
 import { Notification } from '@/entities';
 import styles from './notification-button.module.scss';
+import { DrawerRedesigned } from '@/shared/ui/redesigned/drawer';
 
 interface NotificationButtonProps {
   className?: string;
@@ -24,34 +29,76 @@ const NotificationButton = (props: NotificationButtonProps) => {
   }, []);
 
   const trigger = (
-    <Button
-      onClick={onOpenDrawer}
-      theme={ButtonTheme.CLEAR}
-    >
-      <Icon Svg={NotificationIconDeprecated} />
-    </Button>
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <IconRedesigned
+          clickable
+          onClick={onOpenDrawer}
+          width={40}
+          height={40}
+          Svg={NotificationIcon}
+        />
+      }
+      off={
+        <Button
+          onClick={onOpenDrawer}
+          theme={ButtonTheme.CLEAR}
+        >
+          <Icon Svg={NotificationIconDeprecated} />
+        </Button>
+      }
+    />
   );
 
   if (!isMobile) {
     return (
-      <div>
-        <Popover trigger={trigger}>
-          <Notification className={classNames(styles.Notification, {}, [className])} />
-        </Popover>
-      </div>
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={
+          <div>
+            <PopoverRedesigned trigger={trigger}>
+              <Notification className={classNames(styles.Notification, {}, [className])} />
+            </PopoverRedesigned>
+          </div>
+        }
+        off={
+          <div>
+            <Popover trigger={trigger}>
+              <Notification className={classNames(styles.Notification, {}, [className])} />
+            </Popover>
+          </div>
+        }
+      />
     );
   }
 
   return (
-    <>
-      {trigger}
-      <Drawer
-        isOpen={isOpenDrawer}
-        onClose={onOpenDrawer}
-      >
-        <Notification />
-      </Drawer>
-    </>
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <>
+          {trigger}
+          <DrawerRedesigned
+            isOpen={isOpenDrawer}
+            onClose={onOpenDrawer}
+          >
+            <Notification />
+          </DrawerRedesigned>
+        </>
+      }
+      off={
+        <>
+          {trigger}
+          <Drawer
+            isOpen={isOpenDrawer}
+            onClose={onOpenDrawer}
+          >
+            <Notification />
+          </Drawer>
+        </>
+      }
+    />
   );
 };
 

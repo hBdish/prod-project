@@ -1,4 +1,4 @@
-import { Card, CardTheme, classNames, Text } from '@/shared';
+import { Card, CardRedesigned, CardTheme, classNames, Text, TextAlign, ToggleFeatures } from '@/shared';
 import { Notifications } from '../../model/types/notifications';
 import styles from './notification-item.module.scss';
 
@@ -11,15 +11,32 @@ const NotificationItem = (props: NotificationItemProps) => {
   const { className, item } = props;
 
   const content = (
-    <Card
-      theme={CardTheme.OUTLINE}
-      className={classNames(styles.NotificationItem, {}, [className])}
-    >
-      <Text
-        title={item.title}
-        text={item.description}
-      />
-    </Card>
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <CardRedesigned
+          variant="outline"
+          className={classNames(styles.NotificationItem, {}, [className])}
+        >
+          <Text
+            title={item.title}
+            align={TextAlign.LEFT}
+            text={item.description}
+          />
+        </CardRedesigned>
+      }
+      off={
+        <Card
+          theme={CardTheme.OUTLINE}
+          className={classNames(styles.NotificationItem, {}, [className])}
+        >
+          <Text
+            title={item.title}
+            text={item.description}
+          />
+        </Card>
+      }
+    />
   );
 
   if (item.href) {

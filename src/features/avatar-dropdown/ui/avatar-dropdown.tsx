@@ -1,10 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { Avatar, classNames, Dropdown, getRouteAdminPanel, getRouteProfile } from '@/shared';
+import {
+  Avatar,
+  AvatarRedesigned,
+  classNames,
+  Dropdown,
+  getRouteAdminPanel,
+  getRouteProfile,
+  ToggleFeatures,
+} from '@/shared';
 import { authDataSelector, isUserAdmin, isUserManager, userActions } from '@/entities';
-
-// import styles from './avatar-dropdown.module.scss';
+import { DropdownRedesigned } from '@/shared/ui/redesigned/popups/ui/dropdown';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -27,32 +34,52 @@ const AvatarDropdown = (props: AvatarDropdownProps) => {
     return null;
   }
 
+  const items = [
+    ...(isAdminPanelAvailable
+      ? [
+          {
+            content: t('Админ панель'),
+            href: getRouteAdminPanel(),
+          },
+        ]
+      : []),
+    {
+      content: t('Профиль пользователя'),
+      href: getRouteProfile(authData.id),
+    },
+    {
+      content: t('Выйти'),
+      onClick: onLogout,
+    },
+  ];
+
   return (
-    <Dropdown
-      className={classNames('', {}, [className])}
-      direction="bottomLeft"
-      items={[
-        ...(isAdminPanelAvailable
-          ? [
-              {
-                content: t('Админ панель'),
-                href: getRouteAdminPanel(),
-              },
-            ]
-          : []),
-        {
-          content: t('Профиль пользователя'),
-          href: getRouteProfile(authData.id),
-        },
-        {
-          content: t('Выйти'),
-          onClick: onLogout,
-        },
-      ]}
-      trigger={
-        <Avatar
-          size={30}
-          src={authData.avatar}
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <DropdownRedesigned
+          className={classNames('', {}, [className])}
+          direction="bottomLeft"
+          items={items}
+          trigger={
+            <AvatarRedesigned
+              size={48}
+              src={authData.avatar}
+            />
+          }
+        />
+      }
+      off={
+        <Dropdown
+          className={classNames('', {}, [className])}
+          direction="bottomLeft"
+          items={items}
+          trigger={
+            <Avatar
+              size={30}
+              src={authData.avatar}
+            />
+          }
         />
       }
     />

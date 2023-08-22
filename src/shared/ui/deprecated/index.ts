@@ -1,7 +1,6 @@
 export * from './app-link';
 export * from './button';
 export * from './loader';
-export * from './portal';
 export * from './input';
 export * from './text';
 export * from './avatar';
@@ -10,9 +9,6 @@ export * from './skeleton';
 export * from './icon';
 export * from './card';
 export * from './tabs';
-export * from './stack';
 export * from './popups';
-export * from './overlay';
 export * from './drawer';
 export * from './modal';
-export * from './app-image';

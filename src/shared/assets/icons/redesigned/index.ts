@@ -7,6 +7,7 @@ import ViewesIcon from './viewes.svg';
 import CopyIcon from './copy.svg';
 import SearchIcon from './search.svg';
 import ArrowIcon from './arrow.svg';
+import NotificationIcon from './notification.svg';
 
 export {
   MoreIcon,
@@ -18,4 +19,5 @@ export {
   CopyIcon,
   SearchIcon,
   ArrowIcon,
+  NotificationIcon,
 };

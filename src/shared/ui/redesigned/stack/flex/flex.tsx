@@ -19,10 +19,6 @@ export interface FlexProps extends DivProps {
   w100?: boolean;
 }
 
-/**
- *
- * @deprecated
- */
 const Flex = (props: FlexProps) => {
   const {
     className,

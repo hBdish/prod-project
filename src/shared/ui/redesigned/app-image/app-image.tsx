@@ -6,10 +6,6 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   errorFallback?: ReactElement;
 }
 
-/**
- *
- * @deprecated
- */
 const AppImage = (props: AppImageProps) => {
   const { className, src, alt = 'image', fallback, errorFallback, ...otherProps } = props;
   const [isLoading, setIsLoading] = useState(true);

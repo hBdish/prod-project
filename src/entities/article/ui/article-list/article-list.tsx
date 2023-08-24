@@ -1,14 +1,14 @@
-import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
-import { classNames, Text } from '@/shared';
-import { ArticlePageFilters } from '@/pages/article-page/ui/article-page-filters';
+import { classNames, Text, toggleFeatures } from '@/shared';
 import { ArticleView } from '../../model/const/articleConst';
 import { ArticleListItem } from '../article-list-item/article-list-item';
 import { Article } from '../../types/types';
 import { ArticleListItemSkeleton } from '../article-list-item/article-list-item-skeleton';
 import styles from './article-list.module.scss';
+import { ArticlePageFilters } from '@/pages/article-page/ui/article-page-filters';
 
 interface ArticleListProps {
   className?: string;
@@ -33,7 +33,13 @@ const ArticleList = memo((props: ArticleListProps) => {
       />
     ));
 
-  const Header = memo(() => <ArticlePageFilters />);
+  const Header = memo(() =>
+    toggleFeatures({
+      name: 'isAppRedesigned',
+      on: useCallback(() => <div />, []),
+      off: useCallback(() => <ArticlePageFilters />, []),
+    }),
+  );
 
   const ItemContainerComp: FC = memo(() => (
     <div className={styles.itemsContainer}>{getSkeletons(view)}</div>
@@ -91,7 +97,7 @@ const ArticleList = memo((props: ArticleListProps) => {
       totalCount={articles.length}
       listClassName={styles.itemsWrapper}
       itemContent={renderArticle}
-      endReached={onLoadNextPart}
+      // endReached={onLoadNextPart}
       scrollSeekConfiguration={{
         enter: (velocity) => Math.abs(velocity) > 200,
         exit: (velocity) => Math.abs(velocity) < 30,

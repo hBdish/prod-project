@@ -10,3 +10,5 @@ export * from './avatar';
 export * from './popups';
 export * from './skeleton';
 export * from './card';
+export * from './tabs';
+export * from './input';

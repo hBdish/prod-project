@@ -8,6 +8,8 @@ import CopyIcon from './copy.svg';
 import SearchIcon from './search.svg';
 import ArrowIcon from './arrow.svg';
 import NotificationIcon from './notification.svg';
+import TiledIcon from './tiled.svg';
+import ListIcon from './list.svg';
 
 export {
   MoreIcon,
@@ -20,4 +22,6 @@ export {
   SearchIcon,
   ArrowIcon,
   NotificationIcon,
+  TiledIcon,
+  ListIcon,
 };

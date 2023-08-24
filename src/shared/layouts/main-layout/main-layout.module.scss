@@ -1,5 +1,5 @@
 .MainLayout {
-  min-height: 100vh;
+  min-height: 100%;
   display: grid;
   grid-template-areas:
           'sidebar content rightbar' ;
@@ -16,7 +16,7 @@
   grid-area: content;
   max-width: 1200px;
   justify-self: center;
-  padding: 32px;
+  padding-top: 32px;
   width: 100%;
 }
 

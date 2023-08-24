@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames, TabItem, Tabs } from '@/shared';
+import { classNames, TabItem, Tabs, TabsRedesigned, ToggleFeatures } from '@/shared';
 
 import { ArticleType } from '../../entities/article/model/const/articleConst';
 
@@ -44,11 +44,25 @@ const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
   );
 
   return (
-    <Tabs
-      tabs={typeTabs}
-      value={value}
-      onTabClick={onTabClick}
-      className={classNames('', {}, [className])}
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <TabsRedesigned
+          direction="column"
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+          className={classNames('', {}, [className])}
+        />
+      }
+      off={
+        <Tabs
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+          className={classNames('', {}, [className])}
+        />
+      }
     />
   );
 });

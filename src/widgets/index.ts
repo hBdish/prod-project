@@ -5,3 +5,4 @@ export * from '../features/lang-switcher';
 export * from './page-loader';
 export * from './page-error';
 export * from './content-page-block';
+export * from './articles-filters';

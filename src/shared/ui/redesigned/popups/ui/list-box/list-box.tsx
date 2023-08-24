@@ -1,27 +1,27 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { Button, classNames, Hstack } from '@/shared';
+import { ArrowIcon, ButtonRedesigned, classNames, Hstack, IconRedesigned } from '@/shared';
 import { DropdownDirection } from '../../types/types';
 import styles from './list-box.module.scss';
 
-interface ListBoxItem {
+interface ListBoxItem<T extends string> {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
 
-interface ListBoxProps {
-  items: ListBoxItem[];
+interface ListBoxProps<T extends string> {
+  items: ListBoxItem<T>[];
   direction?: DropdownDirection;
   className?: string;
   value?: string;
   label?: string;
   defaultValue?: string;
   readonly?: boolean;
-  onChange?: <T extends string>(value: T) => void;
+  onChange?: (value: T) => void;
 }
 
-function ListBox(props: ListBoxProps) {
+function ListBox<T extends string>(props: ListBoxProps<T>) {
   const {
     items,
     className,
@@ -35,18 +35,26 @@ function ListBox(props: ListBoxProps) {
 
   const additional = [styles[direction]];
 
+  const selectedItem = useMemo(() => items?.find((item) => item.value === value), [items, value]);
+
   return (
     <Hstack gap="8">
       {label && <span>{`${label}>`}</span>}
       <HListBox
         disabled={readonly}
         as="div"
-        className={classNames(styles.ListBox, {}, [className])}
+        className={classNames('', {}, [className])}
         value={value}
         onChange={onChange}
       >
         <HListBox.Button className={styles.trigger}>
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+          <ButtonRedesigned
+            variant="filled"
+            addonRight={<IconRedesigned Svg={ArrowIcon} />}
+            disabled={readonly}
+          >
+            {selectedItem?.content ?? defaultValue}
+          </ButtonRedesigned>
         </HListBox.Button>
         <HListBox.Options className={classNames(styles.options, {}, additional)}>
           {items?.map((item) => (
@@ -63,11 +71,12 @@ function ListBox(props: ListBoxProps) {
                     {
                       [styles.active]: active,
                       [styles.disabled]: item.disabled,
+                      [styles.selected]: selected,
                     },
                     [],
                   )}
                 >
-                  {selected && '!!!'}
+                  {selected}
                   {item.content}
                 </li>
               )}

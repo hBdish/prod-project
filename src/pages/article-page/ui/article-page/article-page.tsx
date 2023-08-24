@@ -1,7 +1,14 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { ReducersList, useAppDispatch, useDynamicModuleLoader, useInitialEffect } from '@/shared';
+import {
+  ReducersList,
+  StickyLayout,
+  ToggleFeatures,
+  useAppDispatch,
+  useDynamicModuleLoader,
+  useInitialEffect,
+} from '@/shared';
 import { ArticleList, ArticleView } from '@/entities';
 import {
   articlePageReducer,
@@ -15,6 +22,8 @@ import {
 import styles from './article-page.module.scss';
 import { ArticlePageGreeting } from '@/features';
 import { ContentPageBlock } from '@/widgets';
+import { ViewSelectorContainer } from '../view-selector-container/view-selector-container';
+import { FiltersContainer } from '../filters-container/filters-container';
 
 interface ArticlePageProps {
   className?: string;
@@ -47,13 +56,34 @@ const ArticlePage = memo((props: ArticlePageProps) => {
       data-testid="ArticlePage"
       className={styles.ArticleBlock}
     >
-      <ArticleList
-        articles={articles}
-        isLoading={isLoading}
-        view={view as ArticleView}
-        className={styles.list}
-        onLoadNextPart={onLoadNextPart}
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={
+          <StickyLayout
+            left={<ViewSelectorContainer />}
+            content={
+              <ArticleList
+                articles={articles}
+                isLoading={isLoading}
+                view={view as ArticleView}
+                className={styles.list}
+                onLoadNextPart={onLoadNextPart}
+              />
+            }
+            right={<FiltersContainer />}
+          />
+        }
+        off={
+          <ArticleList
+            articles={articles}
+            isLoading={isLoading}
+            view={view as ArticleView}
+            className={styles.list}
+            onLoadNextPart={onLoadNextPart}
+          />
+        }
       />
+
       <ArticlePageGreeting />
     </ContentPageBlock>
   );

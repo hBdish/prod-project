@@ -59,6 +59,7 @@ module.exports = {
           'name',
           'color',
           'variant',
+          'border',
         ],
       },
     ],

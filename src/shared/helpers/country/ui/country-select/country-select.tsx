@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ListBox } from '@/shared';
+import { ListBox, ListBoxRedesigned, ToggleFeatures } from '@/shared';
 import { Country } from '../../model/types/types';
 
 interface CountrySelectProps {
@@ -16,8 +16,8 @@ const options = [
   { value: Country.USA, content: Country.USA },
 ];
 
-const CountrySelect = memo((props: CountrySelectProps) => {
-  const { className, value, onChange, readonly } = props;
+const CountrySelect = memo((prop: CountrySelectProps) => {
+  const { className, value, onChange, readonly } = prop;
   const { t } = useTranslation();
 
   const onChangeHandler = useCallback(
@@ -27,23 +27,21 @@ const CountrySelect = memo((props: CountrySelectProps) => {
     [onChange],
   );
 
+  const props = {
+    items: options,
+    onChange: onChangeHandler,
+    value,
+    readonly,
+    defaultValue: t('Укажите страну') ?? '',
+    label: t('Укажите страну') ?? '',
+  };
+
   return (
-    <ListBox
-      items={options}
-      onChange={onChangeHandler}
-      value={value}
-      readonly={readonly}
-      defaultValue={t('Укажите страну') ?? ''}
-      label={t('Укажите страну') ?? ''}
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={<ListBoxRedesigned {...props} />}
+      off={<ListBox {...props} />}
     />
-    // <Select
-    //   className={classNames('', {}, [className])}
-    //   label={t('Укажите валюту') || ''}
-    //   options={options}
-    //   value={value}
-    //   onChange={onChangeHandler}
-    //   readonly={readonly}
-    // />
   );
 });
 

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { Button, ButtonTheme, classNames, Hstack, Text, useAppDispatch } from '@/shared';
 import { authDataSelector } from '@/entities';
-import { getProfileData } from '../../model/selectors/get-profile-data';
-import { profileActions, updateProfileData } from '../../model';
-import { getProfileReadonly } from '../../model/selectors/get-profile-readonly/get-profile-readonly';
+import { getProfileData } from '../../../model/selectors/get-profile-data';
+import { profileActions, updateProfileData } from '../../../model';
+import { getProfileReadonly } from '../../../model/selectors/get-profile-readonly/get-profile-readonly';
 
 interface ProfileCardHeaderProps {
   className?: string;

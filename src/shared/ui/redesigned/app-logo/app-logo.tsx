@@ -20,6 +20,7 @@ const AppLogo = (props: AppLogoProps) => {
         color="black"
         width={size}
         height={size}
+        className={styles.appLogo}
       />
     </Hstack>
   );

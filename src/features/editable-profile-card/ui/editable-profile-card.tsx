@@ -7,13 +7,18 @@ import {
   Currency,
   Text,
   TextTheme,
+  ToggleFeatures,
   useAppDispatch,
   useInitialEffect,
   Vstack,
 } from '@/shared';
 import { fetchProfileData } from '../model/services/fetch-profile-data';
 import { ValidateProfileError } from '../model/const/editableProfileCardConst';
-import { ProfileCardHeader } from '../ui/profile-card-header/profile-card-header';
+import {
+  ProfileCard as ProfileCardDeprecated,
+  ProfileCardHeader as ProfileCardHeaderDeprecated,
+} from './profile-card-deprecated';
+import { ProfileCard, ProfileCardHeader } from './profile-card-redesigned';
 import {
   getProfileError,
   getProfileForm,
@@ -21,8 +26,8 @@ import {
   getProfileReadonly,
   getProfileValidateError,
 } from '../model/selectors';
-import { ProfileCard } from './profile-card/profile-card';
 import { profileActions } from '../model/slice/profile-slice';
+import { TextRedesigned } from '@/shared/ui/redesigned/text';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -108,37 +113,75 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
   };
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <Vstack
-        gap="16"
-        w100
-      >
-        <ProfileCardHeader />
-        {validateErrors?.length &&
-          validateErrors.map((err) => (
-            <Text
-              key={err}
-              theme={TextTheme.ERROR}
-              text={validateErrorTranslates[err]}
-              data-testid="EditableProfileCard.ERROR"
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={
+        <div className={classNames('', {}, [className])}>
+          <Vstack
+            gap="16"
+            w100
+          >
+            <ProfileCardHeader />
+            {validateErrors?.length &&
+              validateErrors.map((err) => (
+                <TextRedesigned
+                  key={err}
+                  variant="error"
+                  text={validateErrorTranslates[err]}
+                  data-testid="EditableProfileCard.ERROR"
+                />
+              ))}
+            <ProfileCard
+              data={formData}
+              isLoading={isLoading}
+              error={error}
+              onChangeName={onChangeName}
+              onChangeSecondName={onChangeSecondName}
+              onChangeAge={onChangeAge}
+              onChangeCity={onChangeCity}
+              onChangeAvatar={onChangeAvatar}
+              onChangeUsername={onChangeUsername}
+              onChangeCurrency={onChangeCurrency}
+              onChangeCountry={onChangeCountry}
+              readonly={readonly}
             />
-          ))}
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          onChangeName={onChangeName}
-          onChangeSecondName={onChangeSecondName}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeAvatar={onChangeAvatar}
-          onChangeUsername={onChangeUsername}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-          readonly={readonly}
-        />
-      </Vstack>
-    </div>
+          </Vstack>
+        </div>
+      }
+      off={
+        <div className={classNames('', {}, [className])}>
+          <Vstack
+            gap="16"
+            w100
+          >
+            <ProfileCardHeaderDeprecated />
+            {validateErrors?.length &&
+              validateErrors.map((err) => (
+                <Text
+                  key={err}
+                  theme={TextTheme.ERROR}
+                  text={validateErrorTranslates[err]}
+                  data-testid="EditableProfileCard.ERROR"
+                />
+              ))}
+            <ProfileCardDeprecated
+              data={formData}
+              isLoading={isLoading}
+              error={error}
+              onChangeName={onChangeName}
+              onChangeSecondName={onChangeSecondName}
+              onChangeAge={onChangeAge}
+              onChangeCity={onChangeCity}
+              onChangeAvatar={onChangeAvatar}
+              onChangeUsername={onChangeUsername}
+              onChangeCurrency={onChangeCurrency}
+              onChangeCountry={onChangeCountry}
+              readonly={readonly}
+            />
+          </Vstack>
+        </div>
+      }
+    />
   );
 };
 

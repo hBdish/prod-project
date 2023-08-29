@@ -6,7 +6,7 @@
   .image {
     height: 100%;
     background: #eee;
-    background: linear-gradient(90deg, var(--inverted-secondary-color) 0%, var(--inverted-primary-color) 50%, var(--inverted-secondary-color) 100%);
+    background: linear-gradient(90deg, var(--light-bg-redesigned) 0%, var(--dark-bg-redesigned) 50%, var(--light-bg-redesigned) 100%);
     border-radius: 5px;
     background-size: 200% 100%;
     animation: 2s shine linear infinite;

@@ -15,7 +15,7 @@ import {
   Vstack,
 } from '@/shared';
 import styles from './profile-card.module.scss';
-import { Profile } from '../../model/types/profile';
+import { Profile } from '../../../model/types/profile';
 
 interface ProfileCardProps {
   className?: string;
@@ -33,6 +33,10 @@ interface ProfileCardProps {
   readonly?: boolean;
 }
 
+/**
+ *
+ * @deprecated
+ */
 const ProfileCard = (props: ProfileCardProps) => {
   const {
     className,

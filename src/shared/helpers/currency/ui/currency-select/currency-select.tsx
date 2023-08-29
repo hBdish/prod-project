@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ListBox } from '@/shared';
+import { ListBox, ListBoxRedesigned, ToggleFeatures } from '@/shared';
 import { Currency } from '../../model/types/types';
 
 interface CurrencySelectProps {
@@ -16,8 +16,8 @@ const options = [
   { value: Currency.USD, content: Currency.USD },
 ];
 
-const CurrencySelect = memo((props: CurrencySelectProps) => {
-  const { className, value, onChange, readonly = false } = props;
+const CurrencySelect = memo((prop: CurrencySelectProps) => {
+  const { className, value, onChange, readonly = false } = prop;
   const { t } = useTranslation();
 
   const onChangeHandler = useCallback(
@@ -27,15 +27,21 @@ const CurrencySelect = memo((props: CurrencySelectProps) => {
     [onChange],
   );
 
+  const props = {
+    value,
+    className,
+    defaultValue: t('Укажите валюту'),
+    label: t('Укажите валюту'),
+    items: options,
+    onChange: onChangeHandler,
+    readonly,
+  };
+
   return (
-    <ListBox
-      items={options}
-      defaultValue={t('Укажите валюту') ?? ''}
-      label={t('Укажите валюту') ?? ''}
-      value={value}
-      onChange={onChangeHandler}
-      readonly={readonly}
-      direction="topRight"
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={<ListBoxRedesigned {...props} />}
+      off={<ListBox {...props} />}
     />
   );
 });

@@ -3,6 +3,7 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { ArrowIcon, ButtonRedesigned, classNames, Hstack, IconRedesigned } from '@/shared';
 import { DropdownDirection } from '../../types/types';
 import styles from './list-box.module.scss';
+import { TextRedesigned } from '../../../text';
 
 interface ListBoxItem<T extends string> {
   value: string;
@@ -39,7 +40,7 @@ function ListBox<T extends string>(props: ListBoxProps<T>) {
 
   return (
     <Hstack gap="8">
-      {label && <span>{`${label}>`}</span>}
+      {label && <TextRedesigned text={label} />}
       <HListBox
         disabled={readonly}
         as="div"

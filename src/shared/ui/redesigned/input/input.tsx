@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
-import { classNames, Mods } from '@/shared';
+import { classNames, Hstack, Mods } from '@/shared';
 import styles from './input.module.scss';
+import { TextRedesigned } from '../text';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -14,6 +15,7 @@ interface InputProps extends HTMLInputProps {
   autoFocus?: boolean;
   readonly?: boolean;
   pattern?: string;
+  label?: string;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
 }
@@ -30,17 +32,17 @@ const Input = memo((props: InputProps) => {
     pattern = '(.*?)',
     addonLeft,
     addonRight,
+    label = '',
     ...otherProps
   } = props;
 
   const ref = useRef<HTMLInputElement | null>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [caretPosition, setCaretPosition] = useState(0);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     // eslint-disable-next-line no-unused-expressions
-    RegExp(pattern).test(value) && onChange?.(value) && setCaretPosition(value.length);
+    RegExp(pattern).test(value) && onChange?.(value);
   };
 
   const onBlur = () => {
@@ -49,10 +51,6 @@ const Input = memo((props: InputProps) => {
 
   const onFocus = () => {
     setIsFocused(true);
-  };
-
-  const onSelect = (e: any) => {
-    setCaretPosition(e?.target?.selectionStart || 0);
   };
 
   useEffect(() => {
@@ -69,7 +67,7 @@ const Input = memo((props: InputProps) => {
     [styles.withAddonRight]: Boolean(addonRight),
   };
 
-  return (
+  const input = (
     <div className={classNames(styles.Input, mods, [className])}>
       <div className={styles.addonLeft}>{addonLeft}</div>
       <input
@@ -81,7 +79,6 @@ const Input = memo((props: InputProps) => {
         className={styles.inputField}
         onFocus={onFocus}
         onBlur={onBlur}
-        onSelect={onSelect}
         pattern={pattern}
         placeholder={placeholder}
         {...otherProps}
@@ -89,6 +86,20 @@ const Input = memo((props: InputProps) => {
       <div className={styles.addonRight}>{addonRight}</div>
     </div>
   );
+
+  if (label) {
+    return (
+      <Hstack
+        w100
+        gap="8"
+      >
+        <TextRedesigned text={label} />
+        {input}
+      </Hstack>
+    );
+  }
+
+  return input;
 });
 
 export { Input as InputRedesigned };

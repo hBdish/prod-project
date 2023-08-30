@@ -63,4 +63,13 @@
   opacity: 0.5;
 }
 
+.outline {
+  background:none;
+  border: 1px solid var(--icon-redesigned);
+  border-radius: 32px;
+
+  &:hover {
+    border: 1px solid var(--accent-redesigned);
+  }
+}
 

@@ -8,7 +8,7 @@ import {
   ToggleFeatures,
 } from '@/shared';
 import { ArticleView } from '../../model/const/articleConst';
-import styles from './article-list-item.module.scss';
+import styles from './article-list-item-deprecated/article-list-item-deprecated.module.scss';
 
 interface ArticleListItemSkeletonProps {
   className?: string;

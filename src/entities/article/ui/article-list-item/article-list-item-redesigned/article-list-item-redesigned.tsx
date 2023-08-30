@@ -30,6 +30,19 @@ const ArticleListItemRedesigned = (props: ArticleListItemRedesignedProps) => {
 
   const { t } = useTranslation('article');
 
+  const userInfo = (
+    <>
+      <AvatarRedesigned
+        size={32}
+        src={article.user.avatar}
+      />
+      <TextRedesigned
+        bold
+        text={article.user.username}
+      />
+    </>
+  );
+
   const types = (
     <TextRedesigned
       text={article.type.join(', ')}
@@ -66,14 +79,8 @@ const ArticleListItemRedesigned = (props: ArticleListItemRedesignedProps) => {
             w100
             gap="8"
           >
-            <AvatarRedesigned
-              size={30}
-              src={article.user.avatar}
-            />
-            <TextRedesigned
-              bold
-              text={article.user.username}
-            />
+            {userInfo}
+
             <TextRedesigned text={article.createdAt} />
           </Hstack>
           <TextRedesigned
@@ -97,10 +104,6 @@ const ArticleListItemRedesigned = (props: ArticleListItemRedesignedProps) => {
             className={styles.img}
           />
           {textBlock?.paragraphs && (
-            // <ArticleTextBlockComponent
-            //   block={textBlock}
-            //   className={styles.textBlock}
-            // />
             <TextRedesigned
               className={styles.textBlock}
               title={textBlock.paragraphs.slice(0, 2).join(' ')}
@@ -130,32 +133,44 @@ const ArticleListItemRedesigned = (props: ArticleListItemRedesignedProps) => {
       to={getRouteArticlesDetails(article.id)}
       className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
     >
-      <CardRedesigned className={styles.card}>
-        <div className={styles.imgWrapper}>
-          <AppImage
-            fallback={
-              <SkeletonRedesigned
-                width={200}
-                height={200}
-              />
-            }
-            src={article.img}
-            alt={article.title}
-            className={styles.img}
-          />
-          <TextRedesigned
-            text={article.createdAt}
-            className={styles.date}
-          />
-        </div>
-        <div className={styles.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <TextRedesigned
-          text={article.title}
-          className={styles.title}
+      <CardRedesigned
+        className={styles.card}
+        border="round"
+      >
+        <AppImage
+          fallback={
+            <SkeletonRedesigned
+              width={200}
+              height={200}
+            />
+          }
+          src={article.img}
+          alt={article.title}
+          className={styles.img}
         />
+        <Vstack
+          className={styles.info}
+          gap="8"
+        >
+          <TextRedesigned
+            text={article.title}
+            className={styles.title}
+          />
+          <Vstack
+            gap="8"
+            w100
+            className={styles.footer}
+          >
+            <Hstack
+              justify="between"
+              w100
+            >
+              <TextRedesigned text={article.createdAt} />
+              {views}
+            </Hstack>
+            <Hstack gap="8">{userInfo}</Hstack>
+          </Vstack>
+        </Vstack>
       </CardRedesigned>
     </AppLinkRedesigned>
   );

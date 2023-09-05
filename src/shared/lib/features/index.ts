@@ -1,2 +1,2 @@
-export * from './set-get-features';
-export * from './toggle';
+export * from './lib/set-get-features';
+export * from './components/toggle';

@@ -58,7 +58,7 @@ export const getSidebarItems = createSelector(authDataSelector, (userData) => {
           on: () => ArticleIcon,
           off: () => ArticlesIconDeprecated,
         }),
-        text: 'Стати',
+        text: 'Статьи',
         authOnly: true,
       },
     );

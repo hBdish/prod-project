@@ -15,4 +15,18 @@ export const rtkApi = createApi({
   endpoints: (builder) => ({}),
 });
 
+export const rtkApi2 = createApi({
+  reducerPath: 'api2',
+  baseQuery: fetchBaseQuery({
+    baseUrl: __API__,
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+
+      if (token) headers.set('authorization', token);
+      return headers;
+    },
+  }),
+  endpoints: (builder) => ({}),
+});
+
 // export const { useGetPokemonByNameQuery } = pokemonApi;

@@ -1,4 +1,4 @@
-import { classNames, Skeleton, Vstack } from '@/shared';
+import { classNames, Skeleton, SkeletonRedesigned, ToggleFeatures, Vstack } from '@/shared';
 import { useNotificationsList } from '../../api/notification-api';
 import { NotificationItem } from '../notification-item/notification-item';
 
@@ -14,9 +14,20 @@ const Notification = (props: NotificationProps) => {
 
   if (isLoading) {
     return (
-      <Skeleton
-        width={500}
-        height={300}
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={
+          <SkeletonRedesigned
+            width={500}
+            height={300}
+          />
+        }
+        off={
+          <Skeleton
+            width={500}
+            height={300}
+          />
+        }
       />
     );
   }

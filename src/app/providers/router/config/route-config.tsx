@@ -21,8 +21,10 @@ import {
   getRouteArticlesEdit,
   getRouteMain,
   getRouteProfile,
+  getRouteSettingPage,
 } from '@/shared/const/router';
 import { AppRouteProps } from '@/shared';
+import { SettingPage } from '@/pages/settings-page';
 
 const routeConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.MAIN]: {
@@ -63,6 +65,11 @@ const routeConfig: Record<AppRoutes, AppRouteProps> = {
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.MANAGER, UserRole.ADMIN],
+  },
+  [AppRoutes.SETTING_PAGE]: {
+    path: getRouteSettingPage(),
+    element: <SettingPage />,
+    authOnly: true,
   },
 
   // last

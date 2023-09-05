@@ -11,3 +11,4 @@ export * from './theme-switcher';
 export * from './article-type-tabs';
 export * from './article-view-selector';
 export * from './atricle-page-greeting';
+export * from './ui-disign-switcher';

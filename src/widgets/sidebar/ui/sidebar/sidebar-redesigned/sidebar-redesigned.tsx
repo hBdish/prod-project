@@ -30,7 +30,6 @@ const SidebarRedesigned = (props: SidebarRedesignedProps) => {
       )),
     [collapsed, sidebarItemsList],
   );
-  console.log(collapsed);
 
   return (
     <aside

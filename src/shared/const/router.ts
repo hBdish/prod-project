@@ -7,6 +7,7 @@ export enum AppRoutes {
   ARTICLE_CREATE = 'articles_create',
   ARTICLE_EDIT = 'articles_edit',
   ADMIN_PANEL = 'admin_panel',
+  SETTING_PAGE = 'settings',
 
   // last
   NOT_FOUND = 'not_found',
@@ -19,4 +20,5 @@ export const getRouteArticles = () => '/articles';
 export const getRouteArticlesDetails = (id: string) => `/articles/${id}`;
 export const getRouteArticlesCreate = () => '/articles/new';
 export const getRouteArticlesEdit = (id: string) => `/articles/${id}/edit`;
-export const getRouteAdminPanel = () => '/admin';
+export const getRouteAdminPanel = () => `/${AppRoutes.ADMIN_PANEL}`;
+export const getRouteSettingPage = () => `/${AppRoutes.SETTING_PAGE}`;

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { USER_LOCALSTORAGE_KEY } from '@/shared';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 export const rtkApi = createApi({
   reducerPath: 'api',
@@ -7,26 +7,11 @@ export const rtkApi = createApi({
     baseUrl: __API__,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
-
-      if (token) headers.set('authorization', token);
+      if (token) {
+        headers.set('Authorization', token);
+      }
       return headers;
     },
   }),
   endpoints: (builder) => ({}),
 });
-
-export const rtkApi2 = createApi({
-  reducerPath: 'api2',
-  baseQuery: fetchBaseQuery({
-    baseUrl: __API__,
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
-
-      if (token) headers.set('authorization', token);
-      return headers;
-    },
-  }),
-  endpoints: (builder) => ({}),
-});
-
-// export const { useGetPokemonByNameQuery } = pokemonApi;

@@ -1,15 +1,12 @@
-/* eslint-disable */
 import webpack from 'webpack';
-/* eslint-enable */
 import path from 'path';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { BuildEnv, BuildMode, BuildPath } from './config/build/types/config';
+import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
 
 function getApiUrl(mode: BuildMode, apiUrl?: string) {
   if (apiUrl) {
     return apiUrl;
   }
-
   if (mode === 'production') {
     return '/api';
   }
@@ -18,7 +15,7 @@ function getApiUrl(mode: BuildMode, apiUrl?: string) {
 }
 
 export default (env: BuildEnv) => {
-  const paths: BuildPath = {
+  const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),

@@ -19,28 +19,32 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-react-hooks', 'pc-test'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'react-hooks',
+    'ulbi-tv-plugin',
+    'unused-imports',
+  ],
   rules: {
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-    'import/no-unresolved': 'off',
-    'react/no-array-index-key': 'off',
-    'import/prefer-default-export': 'off',
-    'react/require-default-props': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
+    'unused-imports/no-unused-imports': 'error',
     'react/jsx-filename-extension': [
-      1,
+      2,
       {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.tsx'],
       },
     ],
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    'no-unused-vars': 'off',
+    'react/require-default-props': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'warn',
     'react/function-component-definition': 'off',
-    'import/no-extraneous-dependencies': 'warn',
-    'import/extensions': 'off',
     'no-shadow': 'off',
-    'no-unused-vars': ['off'],
-    '@typescript-eslint/no-unused-vars': 'warn',
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': [
       'error',
@@ -54,13 +58,14 @@ module.exports = {
           'target',
           'justify',
           'align',
+          'border',
           'direction',
           'gap',
-          'name',
+          'feature',
           'color',
           'variant',
-          'border',
           'size',
+          'wrap',
         ],
       },
     ],
@@ -68,28 +73,45 @@ module.exports = {
       'error',
       {
         ignoreComments: true,
-        code: 105,
+        code: 125,
       },
     ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'error',
+    // Checks effect dependencies,
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'pc-test/path-checker': ['error', { alias: '@' }],
-    'pc-test/public-api-imports': [
+    'react/no-array-index-key': 'off',
+    'arrow-body-style': 'off',
+    'ulbi-tv-plugin/path-checker': [
       'error',
       {
         alias: '@',
-        testFiles: ['**/*.test.ts', '**/store-provider'],
       },
     ],
-    'pc-test/layer-imports': [
+    'ulbi-tv-plugin/layer-imports': [
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: ['**/store-provider', '**/testing', '**/*.test.(ts|tsx)$'],
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
       },
     ],
+    'ulbi-tv-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx',
+        ],
+      },
+    ],
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+    'react/no-unstable-nested-components': 'warn',
   },
   globals: {
     __IS_DEV__: true,
@@ -98,9 +120,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts,tsx}'],
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off',
+        'max-len': 'off',
       },
     },
   ],

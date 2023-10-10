@@ -6,6 +6,7 @@
 Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
 
 Запустить сторибук можно командой:
+
 - `npm run storybook`
 
 Подробнее о [Storybook](/docs/storybook.md)
@@ -13,57 +14,31 @@
 Пример:
 
 ```typescript jsx
-import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook';
-import { Button, ButtonSize, ButtonTheme } from './button';
-import { Theme } from '@/shared';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Theme } from '@/shared/const/theme';
 
-const meta: Meta<typeof Button> = {
+export default {
   title: 'shared/Button',
   component: Button,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'Text',
 };
 
-export default meta;
-
-type Story = StoryObj<typeof Button>;
-
-export const Primary: Story = {
-  args: {
-    children: 'Text',
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-  },
-};
-
-export const OutlineDark: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-  },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-  ],
-};
-
-export const Background: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-  },
-};
-
-export const SquareM: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-    square: true,
-    size: ButtonSize.M,
-  },
+export const Clear = Template.bind({});
+Clear.args = {
+  children: 'Text',
+  theme: ButtonTheme.CLEAR,
 };
 ```

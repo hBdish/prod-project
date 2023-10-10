@@ -1,11 +1,11 @@
 {
   "id": "1",
-  "first": "testuser",
+  "first": "test",
   "lastname": "user",
-  "age": 111,
-  "currency": "RUB",
-  "country": "Russia",
-  "city": "Voronezh",
+  "age": 465,
+  "currency": "EUR",
+  "country": "Ukraine",
+  "city": "Moscow",
   "username": "testuser",
-  "avatar": "https://static.wikia.nocookie.net/toystory/images/b/b0/%D0%A0%D0%B5%D0%BA%D1%81.jpg/revision/latest?cb=20110627030456&path-prefix=ru"
+  "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
 }

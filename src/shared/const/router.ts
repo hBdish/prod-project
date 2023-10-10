@@ -1,24 +1,25 @@
 export enum AppRoutes {
   MAIN = 'main',
+  SETTINGS = 'settings',
   ABOUT = 'about',
   PROFILE = 'profile',
-  ARTICLE = 'articles',
-  ARTICLE_DETAILS = 'articles_details',
-  ARTICLE_CREATE = 'articles_create',
-  ARTICLE_EDIT = 'articles_edit',
+  ARTICLES = 'articles',
+  ARTICLE_DETAILS = 'article_details',
+  ARTICLE_CREATE = 'article_create',
+  ARTICLE_EDIT = 'article_edit',
   ADMIN_PANEL = 'admin_panel',
-  SETTING_PAGE = 'settings',
-
+  FORBIDDEN = 'forbidden',
   // last
   NOT_FOUND = 'not_found',
 }
 
 export const getRouteMain = () => '/';
+export const getRouteSettings = () => '/settings';
 export const getRouteAbout = () => '/about';
 export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteArticles = () => '/articles';
-export const getRouteArticlesDetails = (id: string) => `/articles/${id}`;
-export const getRouteArticlesCreate = () => '/articles/new';
-export const getRouteArticlesEdit = (id: string) => `/articles/${id}/edit`;
-export const getRouteAdminPanel = () => `/${AppRoutes.ADMIN_PANEL}`;
-export const getRouteSettingPage = () => `/${AppRoutes.SETTING_PAGE}`;
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => '/articles/new';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdmin = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';

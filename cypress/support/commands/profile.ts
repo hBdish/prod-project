@@ -1,33 +1,34 @@
-export const updateProfile = (firstName: string) => {
+export const updateProfile = (firstname: string, lastname: string) => {
   cy.getByTestId('EditableProfileCardHeader.EditButton').click();
-  cy.getByTestId('ProfileCard.first').clear().type(firstName);
+  cy.getByTestId('ProfileCard.firstname').clear().type(firstname);
+  cy.getByTestId('ProfileCard.lastname').clear().type(lastname);
   cy.getByTestId('EditableProfileCardHeader.SaveButton').click();
 };
 
-export const resetProfile = (profileId: string) =>
-  cy.request({
+export const resetProfile = (profileId: string) => {
+  return cy.request({
     method: 'PUT',
     url: `http://localhost:8000/profile/${profileId}`,
-    headers: { authorization: 'auth' },
+    headers: { Authorization: 'asasf' },
     body: {
       id: '4',
-      first: 'testuser',
+      first: 'test',
       lastname: 'user',
-      age: 111,
-      currency: 'RUB',
-      country: 'Russia',
-      city: 'Voronezh',
+      age: 465,
+      currency: 'EUR',
+      country: 'Ukraine',
+      city: 'Moscow',
       username: 'testuser',
       avatar:
-        // eslint-disable-next-line
-        'https://static.wikia.nocookie.net/toystory/images/b/b0/%D0%A0%D0%B5%D0%BA%D1%81.jpg/revision/latest?cb=20110627030456&path-prefix=ru',
+        'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
   });
+};
 
 declare global {
   namespace Cypress {
     interface Chainable {
-      updateProfile(firstName: string): Chainable<void>;
+      updateProfile(firstname: string, lastname: string): Chainable<void>;
       resetProfile(profileId: string): Chainable<void>;
     }
   }

@@ -1,6 +1,5 @@
-cd prod-project
+cd ~/production-project
 npm run build:prod
 
-rm -rf ~/../var/www/prod-project/html
-# shellcheck disable=SC2224
-mv ~/../prod-project/build ~/../var/www/prod-project/html
+rm -rf ~/../var/www/production_project/html
+mv ~/production-project/build ~/../var/www/production_project/html

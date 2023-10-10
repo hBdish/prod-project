@@ -1,8 +1,7 @@
 import { RouteProps } from 'react-router-dom';
-// eslint-disable-next-line pc-test/layer-imports
-import { UserRole } from '@/entities';
+import { UserRole } from '@/entities/User';
 
-export type AppRouteProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRole[];
 };

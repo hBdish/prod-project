@@ -20,8 +20,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run lint:ts:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
-- `npm run test:unit` - Запуск unit тестов с jest
-- `npm run test:ui` - Запуск скриншотных тестов с loki
+- `npm run test:unit` - Хапуск unit тестов с jest
+- `npm run test:ui` - Хапуск скриншотных тестов с loki
 - `npm run test:ui:ok` - Подтверждение новых скриншотов
 - `npm run test:ui:ci` - Запуск скриншотных тестов в CI
 - `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
@@ -170,50 +170,48 @@ Clear.args = {
 
 ----
 
-### Работа с feature-flags
+### Работа с feature-flag
 
 Разрешено использование feature flags только с помощью хелпера toggleFeatures
 
-в него передается объект с опциями
-~~~
+в него передается объект с опциями 
+
 {
-name: название фича-флага,
-on: функция, которая отработает после Включения фичи
-of: функция, которая отработает после ВЫключения фичи
+   name: название фича-флага, 
+   on: функция, которая отработает после Включения фичи 
+   of: функция, которая отработает после ВЫключения фичи
 }
-~~~
 
 Для автоматического удаления фичи использовать скрипт remove-feature.ts,
 который принимает 2 аргумента
 1. Название удаляемого фича-флага
 2. Состояние (on\off)
- 
-~~~ 
-npx ts-node ./scripts/remove-feature.ts isCounterEnabled on 
-~~~ 
 
 ----
 
-
 ## Сущности (entities)
 
-- [article](/src/entities/article)
-- [comment](/src/entities/comment)
-- [counter](/src/entities/counter)
-- [notification](/src/entities/notification)
-- [rating](/src/entities/rating)
-- [user](/src/entities/user)
+- [Article](/src/entities/Article)
+- [Comment](/src/entities/Comment)
+- [Counter](/src/entities/Counter)
+- [Country](/src/entities/Country)
+- [Currency](/src/entities/Currency)
+- [Notification](/src/entities/Notification)
+- [Profile](/src/entities/Profile)
+- [Rating](/src/entities/Rating)
+- [User](/src/entities/User)
 
 ## Фичи (features)
 
-- [add-comment](/src/features/add-comment)
-- [article-rating](/src/features/article-rating)
-- [article-recommendations-list](/src/features/article-recommendations-list)
-- [auth-by-username](/src/features/auth-by-username)
-- [avatar-dropdown](/src/features/avatar-dropdown)
-- [editable-profile-card](/src/features/editable-profile-card)
-- [lang-switcher](/src/features/lang-switcher)
-- [theme-switcher](/src/features/theme-switcher)
-- [open-notification](/src/features/open-notification)
-- [sort-selector](/src/features/sort-selector)
-- [scrolle-save](/src/features/scrolle-save)
+- [addCommentForm](/src/features/addCommentForm)
+- [articleEditForm](/src/features/articleEditForm)
+- [articleRating](/src/features/articleRating)
+- [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [AuthByUsername](/src/features/AuthByUsername)
+- [avatarDropdown](/src/features/avatarDropdown)
+- [editableProfileCard](/src/features/editableProfileCard)
+- [LangSwitcher](/src/features/LangSwitcher)
+- [notificationButton](/src/features/notificationButton)
+- [profileRating](/src/features/profileRating)
+- [ThemeSwitcher](/src/features/ThemeSwitcher)
+- [UI](/src/features/UI)

@@ -1,2 +1,3 @@
-export * from './ui';
-export * from './config';
+import AppRouter from './ui/AppRouter';
+
+export { AppRouter };

@@ -1,8 +1,8 @@
 import { RouteProps } from 'react-router-dom';
-// eslint-disable-next-line pc-test/layer-imports
-import { UserRole } from '@/entities';
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
+import { UserRole } from '@/entities/User';
 
-export type AppRouteProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: UserRole[];
+export type AppRoutesProps = RouteProps & {
+    authOnly?: boolean;
+    roles?: UserRole[];
 };
